@@ -1,6 +1,6 @@
-### MyMachineUbuntu
+### Linux Ubuntu
 
-My set of customization scripts for setting Ubuntu to my preferences.
+My set of customization scripts for setting Linux Ubuntu to my preferences.
 
 **Install Order**
 
