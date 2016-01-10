@@ -1,4 +1,3 @@
 ## My Dotfiles
 
-My dotfiles and configuration files for setting Mac OS X and Linux Ubuntu to my
-preferences.
+Configuration files for setting OS X and Ubuntu to my preferences.
