@@ -7,8 +7,8 @@ export PYTHONPATH=/usr/local/lib/python3.4/site-packages:$PYTHONPATH
 #export PYTHONPATH=/usr/local/caffe/python:$PYTHONPATH
 unset PYTHONPATH #manual fix for problems with variable
 
-# Setting PATH for Julia 0.4.0
-PATH="/Applications/Julia-0.4.0.app/Contents/Resources/julia/bin:${PATH}"
+# Setting PATH for Julia 0.4.2
+PATH="/Applications/Julia-0.4.2.app/Contents/Resources/julia/bin:${PATH}"
 export PATH
 
 # Setting PATH for Python 3.4
