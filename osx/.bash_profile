@@ -173,8 +173,8 @@ fi
 alias r='R'
 alias Julia='julia'
 alias ipy='ipython --pylab'
-alias ipyn='ipython notebook'
-alias jupyn='jupyter notebook'
+#alias ipynb='ipython notebook'
+alias jpynb='jupyter notebook'
 
 # Make bash pretty
 source /Users/nimahejazi/.bash_color
