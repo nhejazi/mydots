@@ -188,5 +188,7 @@ alias ipy='ipython --pylab'
 alias jpynb='jupyter notebook'
 
 # Make bash pretty
-source /Users/nimahejazi/.bash_color
+if [ -f ~/.bash_color ]; then
+	. ~/.bash_color;
+fi
 
