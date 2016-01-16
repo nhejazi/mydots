@@ -111,7 +111,6 @@ parse_git_branch() {
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -154,7 +153,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'  # USEFUL: displays symlinks
+alias lf='ls -aF'  # USEFUL: displays symlinks
+alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -166,7 +166,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
