@@ -1,3 +1,4 @@
-## My Dotfiles
+### MyDotfiles ~ easy access to my shell customization files
 
-Configuration files for setting OS X and Ubuntu to my preferences.
+Collection of configuration scripts to set OS X and Ubuntu to my preferences.
+
