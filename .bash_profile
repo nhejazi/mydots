@@ -55,5 +55,5 @@ alias ls="gls --color=auto"  # requires "brew install coreutils"
 export EDITOR=/usr/local/Cellar/macvim/7.4-80/bin/mvim
 
 # Set MacVim as the default Vim
-alias vim=/usr/local/Cellar/macvim/7.4-80/bin/mvim
+alias vimgui=/usr/local/Cellar/macvim/7.4-80/bin/mvim
 
