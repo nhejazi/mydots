@@ -58,5 +58,5 @@ export EDITOR=/usr/local/Cellar/macvim/7.4-80/bin/mvim
 alias vimgui=/usr/local/Cellar/macvim/7.4-80/bin/mvim
 
 # Useful to fix Dropbox (from OS X sync error)
-alias restartDropBox="osascript -e 'tell application \"Dropbox\" to quit';killall Dropbox;open -a \"Dropbox\""
+alias restartDropbox="osascript -e 'tell application \"Dropbox\" to quit';killall Dropbox;open -a \"Dropbox\""
 
