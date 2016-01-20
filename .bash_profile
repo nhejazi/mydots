@@ -1,4 +1,4 @@
-# LAST UPDATED: JANUARY 16, 2016
+# LAST UPDATED: JANUARY 20, 2016
 
 # First thing's first - source .bashrc
 if [ -f ~/.bashrc ]; then
@@ -57,6 +57,6 @@ export EDITOR=/usr/local/Cellar/macvim/7.4-80/bin/mvim
 # Set MacVim as the default Vim
 alias vimgui=/usr/local/Cellar/macvim/7.4-80/bin/mvim
 
-# Useful to fix Dropbox (from OS X sync error)
+# To fix Dropbox (recover from OS X sync error)
 alias restartDropbox="osascript -e 'tell application \"Dropbox\" to quit';killall Dropbox;open -a \"Dropbox\""
 
