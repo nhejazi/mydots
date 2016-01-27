@@ -1,8 +1,8 @@
-# generate symlinks to important files in home directory
+# generate symlinks after removing old configuration files
 
 cd
 
-# for terminal (bash) customization
+# for shell (bash) customization
 if [ -e ~/.bashrc ]
   then
     echo "bashrc dotfile exists - will be removed."
@@ -25,7 +25,7 @@ fi
 ln -s ~/git-repos/mydotfiles/bash_color ~/.bash_color
 
 
-# for git configuration/customization
+# for git configuration and customization
 if [ -e ~/.git-prompt.sh ]
   then
     echo "git-prompt dotfile exists - will be removed."
