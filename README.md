@@ -8,4 +8,4 @@ git clone https://github.com/nhejazi/mydotfiles.git
 cd mydotfiles
 sh _setup.sh
 ```
-N.B., update `gitconfig` to reflect appropriate _user.name_ and _user.email_ values.
+N.B., before running `sh update.sh`, update `gitconfig` to reflect appropriate values of _user.name_ and _user.email_
