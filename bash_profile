@@ -52,10 +52,10 @@ alias ls="gls --color=auto"  # requires "brew install coreutils"
 #EDITOR=/usr/bin/emacs; export EDITOR
 
 # Default editor switch to MacVim
-export EDITOR=/usr/local/Cellar/macvim/7.4-80/bin/mvim
+export EDITOR=/usr/local/Cellar/macvim/7.4-95/bin/mvim
 
 # Set MacVim as the default Vim
-alias vimgui=/usr/local/Cellar/macvim/7.4-80/bin/mvim
+alias vimgui=/usr/local/Cellar/macvim/7.4-95/bin/mvim
 
 # To fix Dropbox (recover from OS X sync error)
 alias restartDropbox="osascript -e 'tell application \"Dropbox\" to quit';killall Dropbox;open -a \"Dropbox\""
