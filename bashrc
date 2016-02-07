@@ -1,5 +1,3 @@
-# LAST UPDATED: JANUARY 16, 2016
-
 # Make bash pretty
 if [ -f ~/.bash_color ]; then
 	. ~/.bash_color;

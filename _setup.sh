@@ -1,4 +1,4 @@
-# generate symlinks after removing old configuration files
+# remove old configuration files, then generate symbolic links
 
 cd
 

@@ -1,5 +1,3 @@
-# LAST UPDATED: JANUARY 20, 2016
-
 # First thing's first - source .bashrc
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc; 
