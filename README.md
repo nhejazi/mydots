@@ -1,4 +1,4 @@
-# MyDotfiles ~ easy customization for shell+git
+# MyDotfiles ~ easy shell customization
 
 Collection of configuration files for bash and git on both OS X and Ubuntu.
 
