@@ -54,3 +54,6 @@ alias vimgui=/usr/local/bin/mvim
 # To fix Dropbox (recover from OS X sync error)
 alias restartDropbox="osascript -e 'tell application \"Dropbox\" to quit';killall Dropbox;open -a \"Dropbox\""
 
+if [ which rbenv > /dev/null ]; then 
+	eval "$(rbenv init -)"; 
+fi
