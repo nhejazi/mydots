@@ -1,5 +1,6 @@
-# remove old configuration files, then generate symbolic links
+#!/usr/bin/bash
 
+# remove old configuration files, then generate symbolic links
 cd
 
 # for shell (bash) customization
