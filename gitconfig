@@ -49,6 +49,7 @@
 	versiontag = v
 [alias]
 	unstage = reset HEAD --
+	slog = log --oneline --topo-order --graph
 	hist = log --all --graph --decorate --oneline
 	#############
 	a = add --all
