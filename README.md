@@ -1,6 +1,6 @@
-# MyDotfiles ~ _easy customization for bash and git_
+# MyDotfiles ~ _easy customization for shell and git_
 
-Collection of configuration files for bash and git on both OS X and Ubuntu.
+Collection of configuration files for the bash shell, the xonsh shell, and Git with GitHub on both OSX and Ubuntu.
 
 ## Directions/Guide
 ```bash
