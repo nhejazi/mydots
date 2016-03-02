@@ -7,4 +7,4 @@ Collection of configuration files for bash and git on both OS X and Ubuntu.
 git clone https://github.com/nhejazi/mydotfiles.git ~/.dotfiles
 sh ~/.dotfiles/_setup.sh
 ```
-N.B., before running `sh ~/.dotfiles/_setup.sh`, update the `gitconfig` file to reflect appropriate values of _user.name_ and _user.email_
+N.B., before running `sh ~/.dotfiles/_setup.sh`, update the _user.name_ and _user.email_ in the `gitconfig` file appropriately.
