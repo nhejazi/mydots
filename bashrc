@@ -128,10 +128,10 @@ fi
 
 # Aliases (personal additions)
 alias r='R'
-alias py='python'
+alias py2='python2'
 alias py3='python3'
 alias Julia='julia'
-alias ipy2='ipython --pylab'
+alias ipy2='ipython2'
 alias ipy3='ipython3 --pylab'
 alias jpynb='jupyter notebook'
 
