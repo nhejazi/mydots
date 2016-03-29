@@ -127,6 +127,7 @@ fi
 
 
 # Aliases (personal additions)
+alias proc='ps aux | grep $USER'
 alias r='R'
 alias py2='python2'
 alias py3='python3'
@@ -134,4 +135,3 @@ alias Julia='julia'
 alias ipy2='ipython2'
 alias ipy3='ipython3 --pylab'
 alias jpynb='jupyter notebook'
-
