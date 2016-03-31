@@ -125,6 +125,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Have a comical quote pop up (see GitHub: nhejazi/xquote for more)
+gshuf -n1 ~/.xquote  # should be `shuf` on Ubuntu
 
 # Aliases (personal additions)
 alias proc='ps aux | grep $USER'
