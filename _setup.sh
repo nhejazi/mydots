@@ -10,11 +10,19 @@ if [ -e ~/.bashrc ]; then
 fi
 ln -s ~/.dotfiles/bashrc ~/.bashrc
 
+# using .bash_profile for OSX-specific changes
 if [ -e ~/.bash_profile ]; then
     echo "bash_profile dotfile exists...will be removed.";
     rm -f ~/.bash_profile;
 fi
 ln -s ~/.dotfiles/bash_profile ~/.bash_profile
+
+# using .profile for Linux-specific changes
+if [ -e ~/.profile ]; then
+    echo "profile dotfile exists...will be removed.";
+    rm -f ~/.profile;
+fi
+ln -s ~/.dotfiles/profile ~/.profile
 
 if [ -e ~/.bash_color ]; then
     echo "bash_color dotfile exists...will be removed.";
