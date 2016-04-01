@@ -129,6 +129,7 @@ fi
 gshuf -n1 ~/.goodnews  # should be `shuf` on Ubuntu
 
 # Aliases (personal additions)
+alias quote='gshuf -n1 ~/.goodnews'
 alias proc='ps aux | grep $USER'
 alias r='R'
 alias py2='python2'
