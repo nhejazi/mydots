@@ -57,3 +57,8 @@ alias restartDropbox="osascript -e 'tell application \"Dropbox\" to quit';killal
 if which rbenv > /dev/null; then 
 	eval "$(rbenv init -)"; 
 fi
+
+# Add a line using Homebrew's GNU `coreutils` for comical quotes
+# Comical quote pops up when terminal starts (see GitHub: nhejazi/good-news)
+gshuf -n1 ~/.goodnews
+alias qf='gshuf -n1 ~/.goodnews'
