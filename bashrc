@@ -125,23 +125,26 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# set up different aliases for OSX and Linux
-# Comical quote pops up when terminal starts (see GitHub: nhejazi/good-news) 
+# Comical quotes for terminal (see GitHub: nhejazi/good-news) 
 if [ `uname` == "Linux" ]; then
-  shuf -n1 ~/.goodnews
-  alias qf='shuf -n1 ~/.goodnews'
+	shuf -n1 ~/.goodnews
+	alias qf='shuf -n1 ~/.goodnews'
 else
-  # For OSX, add a line using Homebrew's GNU `coreutils` for comical quotes
-  gshuf -n1 ~/.goodnews
-  alias qf='gshuf -n1 ~/.goodnews'
+	# For OSX, add a line using Homebrew's GNU coreutils
+	gshuf -n1 ~/.goodnews
+	alias qf='gshuf -n1 ~/.goodnews'
 fi
 
 # Aliases (personal additions)
 alias proc='ps aux | grep $USER'
+alias jpynb='jupyter notebook --no-browser'
 alias r='R'
 alias py2='python2'
 alias py3='python3'
 alias Julia='julia'
 alias ipy2='ipython2'
-alias ipy3='ipython3 --pylab'
-alias jpynb='jupyter notebook --no-browser'
+if [ `uname` == "Darwin" ]; then
+	alias ipy3='ipython3 --pylab'
+else
+	alias ipy3='ipython3'
+fi
