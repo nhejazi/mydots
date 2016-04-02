@@ -125,6 +125,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# set up different aliases for OSX and Linux
+# Comical quote pops up when terminal starts (see GitHub: nhejazi/good-news) 
+if [ `uname` == "Linux" ]; then
+  shuf -n1 ~/.goodnews
+  alias qf='shuf -n1 ~/.goodnews'
+else
+  # For OSX, add a line using Homebrew's GNU `coreutils` for comical quotes
+  gshuf -n1 ~/.goodnews
+  alias qf='gshuf -n1 ~/.goodnews'
+fi
+
 # Aliases (personal additions)
 alias proc='ps aux | grep $USER'
 alias r='R'

@@ -20,7 +20,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-# Comical quote pops up when terminal starts (see GitHub: nhejazi/good-news)        
-shuf -n1 ~/.goodnews
-alias qf='shuf -n1 ~/.goodnews' 
