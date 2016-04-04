@@ -4,7 +4,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # making Homebrew and manual stuff specific to OSX
-if [ `uname` == "Darwin ]; then
+if [ `uname` == "Darwin" ]; then
 	# Setting up use the GNU "ls" utility                                           
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
