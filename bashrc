@@ -135,6 +135,13 @@ else
 	alias qf='gshuf -n1 ~/.goodnews'
 fi
 
+# Add various paths for Linuxbrew on Ubuntu
+if [ `uname` == "Linux" ]; then
+	export PATH="$HOME/.linuxbrew/bin:$PATH"
+	export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+	export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
+
 # Aliases (personal additions)
 alias proc='ps aux | grep $USER'
 alias jpynb='jupyter notebook --no-browser'
