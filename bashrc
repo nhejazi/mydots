@@ -3,10 +3,6 @@ if [ -f ~/.bash_color ]; then
 	. ~/.bash_color;
 fi
 
-# Setting PATH for Scala 2.11
-export SCALA_HOME=/usr/local/share/scala-2.11.7
-export PATH=$PATH:$SCALA_HOME/bin
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -134,6 +130,12 @@ else
 	gshuf -n1 ~/.goodnews
 	alias qf='gshuf -n1 ~/.goodnews'
 fi
+
+
+# Setting PATH for Scala
+export SCALA_HOME=/usr/local/share/scala
+export PATH=$PATH:$SCALA_HOME/bin
+
 
 # Add various paths for Linuxbrew on Ubuntu
 if [ `uname` == "Linux" ]; then
