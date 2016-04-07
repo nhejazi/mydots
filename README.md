@@ -8,3 +8,11 @@ git clone https://github.com/nhejazi/mydotfiles.git ~/.dotfiles
 sh ~/.dotfiles/_setup.sh
 ```
 N.B., before running `sh ~/.dotfiles/_setup.sh`, update _user.name_ and _user.email_ in the `gitconfig` file appropriately.
+
+---
+
+## License
+
+&copy; 2016 Nima Hejazi
+
+This repository is licensed under the MIT license. See `LICENSE` for details.
