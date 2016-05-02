@@ -1,6 +1,6 @@
 # Make bash pretty
 if [ -f ~/.bash_color ]; then
-	. ~/.bash_color;
+  . ~/.bash_color;
 fi
 
 # If not running interactively, don't do anything
@@ -92,12 +92,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias lf='ls -aF'  # USEFUL: displays symlinks
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -121,14 +115,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Comical quotes for terminal (see GitHub: nhejazi/good-news) 
+# Comical quotes for terminal (see GitHub: nhejazi/good-news)
+if [ ! -e ~/.goodnews ]; then
+  git clone https://github.com/nhejazi/good-news.git ~/.good-news
+  sh ~/.good-news/_setup.sh
+fi
 if [ `uname` == "Linux" ]; then
-	shuf -n1 ~/.goodnews
-	alias qf='shuf -n1 ~/.goodnews'
+  shuf -n1 ~/.goodnews
+  alias qf='shuf -n1 ~/.goodnews'
 else
-	# For OSX, add a line using Homebrew's GNU coreutils
-	gshuf -n1 ~/.goodnews
-	alias qf='gshuf -n1 ~/.goodnews'
+# for OSX, add a line using Homebrew's GNU coreutils
+  gshuf -n1 ~/.goodnews
+  alias qf='gshuf -n1 ~/.goodnews'
 fi
 
 
@@ -137,15 +135,18 @@ export SCALA_HOME=/usr/local/share/scala
 export PATH=$PATH:$SCALA_HOME/bin
 
 
-# Add various paths for Linuxbrew on Ubuntu
-if [ `uname` == "Linux" ]; then
-	export PATH="$HOME/.linuxbrew/bin:$PATH"
-	export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-	export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+# Workaround to Neovim mapping problem for <C-h>
+if [ `uname` == "Darwin" ]; then  #problem seems to only affect OSX for me
+  export TERMINFO="$HOME/.terminfo"
 fi
 
-# Aliases (personal additions)
-alias proc='ps aux | grep $USER'
+
+# Aliases for personal convenience
+alias lf='ls -aF'   #displays symlinks with @
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias prun='ps aux | grep $USER'
 alias jpynb='jupyter notebook --no-browser'
 alias r='R'
 alias py2='python2'
@@ -153,7 +154,7 @@ alias py3='python3'
 alias Julia='julia'
 alias ipy2='ipython2'
 if [ `uname` == "Darwin" ]; then
-	alias ipy3='ipython3 --pylab'
+  alias ipy3='ipython3 --pylab'
 else
-	alias ipy3='ipython3'
+  alias ipy3='ipython3'
 fi
