@@ -3,6 +3,11 @@ if [ -f ~/.bash_color ]; then
   . ~/.bash_color;
 fi
 
+# add GitHub completion (source: donnemartin/gitsome)
+if [ -e ~/.gh_complete.sh ]; then
+  source ~/.gh_complete.sh
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
