@@ -24,6 +24,14 @@ if [ -e ~/.profile ]; then
 fi
 ln -s ~/.dotfiles/profile ~/.profile
 
+# alias settings for bash
+if [ -e ~/.bash_aliases ]; then
+    echo "bash_aliases dotfile exists...will be removed.";
+    rm -f ~/.bash_aliases;
+fi
+ln -s ~/.dotfiles/bash_aliases ~/.bash_aliases
+
+# color settings for bash
 if [ -e ~/.bash_color ]; then
     echo "bash_color dotfile exists...will be removed.";
     rm -f ~/.bash_color;
