@@ -1,11 +1,19 @@
 # Make bash pretty
-if [ -f ~/.bash_color ]; then
+if [ -h ~/.bash_color ]; then
   . ~/.bash_color;
 fi
 
 # add GitHub completion (source: donnemartin/gitsome)
-if [ -e ~/.gh_complete.sh ]; then
+if [ -h ~/.gh_complete.sh ]; then
   source ~/.gh_complete.sh
+fi
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -h ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
 # If not running interactively, don't do anything
@@ -101,13 +109,6 @@ fi
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -125,14 +126,6 @@ if [ ! -e ~/.goodnews ]; then
   git clone https://github.com/nhejazi/good-news.git ~/.good-news
   sh ~/.good-news/_setup.sh
 fi
-if [ `uname` == "Linux" ]; then
-  shuf -n1 ~/.goodnews
-  alias qf='shuf -n1 ~/.goodnews'
-else
-# for OSX, add a line using Homebrew's GNU coreutils
-  gshuf -n1 ~/.goodnews
-  alias qf='gshuf -n1 ~/.goodnews'
-fi
 
 
 # Setting PATH for Scala
@@ -143,23 +136,4 @@ export PATH=$PATH:$SCALA_HOME/bin
 # Workaround to Neovim mapping problem for <C-h>
 if [ `uname` == "Darwin" ]; then  #problem seems to only affect OSX for me
   export TERMINFO="$HOME/.terminfo"
-fi
-
-
-# Aliases for personal convenience
-alias lf='ls -aF'   #displays symlinks with @
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias prun='ps aux | grep $USER'
-alias jpynb='jupyter notebook --no-browser'
-alias r='R'
-alias py2='python2'
-alias py3='python3'
-alias Julia='julia'
-alias ipy2='ipython2'
-if [ `uname` == "Darwin" ]; then
-  alias ipy3='ipython3 --pylab'
-else
-  alias ipy3='ipython3'
 fi
