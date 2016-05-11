@@ -1,3 +1,15 @@
+
+# a few modules for convenience
+import os
+import sys
 import numpy as np
 import scipy as sp
 import pandas as pd
+import statsmodels as sm
+
+_ORIG_PATH = list($PATH)
+_ORIG_PROMPT = $PROMPT
+
+#$PROMPT = '{BLUE}{user}{WHITE}@{GREEN}{hostname}{WHITE}:{RED}{cwd}{YELLOW}{curr_branch}{WHITE}\n $ '
+#aliases['gits'] = ['git', 'status']
+#aliases['gitl'] = ['git', 'log']
