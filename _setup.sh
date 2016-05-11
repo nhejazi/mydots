@@ -72,6 +72,6 @@ ln -s ~/.dotfiles/gitmessage.txt ~/.gitmessage.txt
 
 if [ -e ~/.gh_complete.sh ]; then
     echo "github_complete already exists...will be removed.";
-    rm -f ~/.gh_complete;
+    rm -f ~/.gh_complete.sh;
 fi
 ln -s ~/.dotfiles/gh_complete.sh ~/.gh_complete.sh
