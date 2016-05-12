@@ -137,3 +137,8 @@ export PATH=$PATH:$SCALA_HOME/bin
 if [ `uname` == "Darwin" ]; then  #problem seems to only affect OSX for me
   export TERMINFO="$HOME/.terminfo"
 fi
+
+
+# make Xonsh shell work with GitHub completion via gitsome
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
