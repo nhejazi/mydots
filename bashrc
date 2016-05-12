@@ -68,12 +68,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+      # We have color support; assume it's compliant with Ecma-48
+      # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+      # a case would tend to support setf rather than setaf.)
+      color_prompt=yes
     else
-	color_prompt=
+      color_prompt=
     fi
 fi
 
@@ -133,12 +133,14 @@ export SCALA_HOME=/usr/local/share/scala
 export PATH=$PATH:$SCALA_HOME/bin
 
 
-# Workaround to Neovim mapping problem for <C-h>
-if [ `uname` == "Darwin" ]; then  #problem seems to only affect OSX for me
+# Workaround to Neovim mapping problem for <C-h> (only seems to affect OSX)
+if [ `uname` == "Darwin" ]; then
   export TERMINFO="$HOME/.terminfo"
 fi
 
 
-# make Xonsh shell work with GitHub completion via gitsome
-export LC_ALL=C.UTF-8
-export LANG=C.UTF-8
+# give Xonsh shell GitHub completion via gitsome (only seems needed on Ubuntu)
+if [ `uname` == "Linux" ]; then
+  export LC_ALL=C.UTF-8
+  export LANG=C.UTF-8
+fi
