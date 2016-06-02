@@ -75,3 +75,9 @@ if [ -e ~/.gh_complete.sh ]; then
     rm -f ~/.gh_complete.sh;
 fi
 ln -s ~/.dotfiles/gh_complete.sh ~/.gh_complete.sh
+
+if [ -e ~/.Rprofile ]; then
+  echo "Rprofile already exists...will be removed.";
+  rm -f ~/.Rprofile;
+fi
+ln -s ~/.dotfiles/Rprofile ~/.Rprofile
