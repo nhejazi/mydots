@@ -2,6 +2,8 @@
 
 > _easy customization for shell and git_
 
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
 Collection of configuration files for [the bash shell](https://www.gnu.org/software/bash/), [the xonsh shell](http://xon.sh/), and [Git](https://git-scm.com/) with [GitHub](https://github.com/), on Mac OSX and Linux Ubuntu.
 
 ## Directions/Guide
@@ -9,7 +11,8 @@ Collection of configuration files for [the bash shell](https://www.gnu.org/softw
 git clone https://github.com/nhejazi/mydotfiles.git ~/.dotfiles
 sh ~/.dotfiles/_setup.sh
 ```
-N.B., before running `sh ~/.dotfiles/_setup.sh`, update _user.name_ and _user.email_ in the `gitconfig` file appropriately.
+__N.B.__, before running `sh ~/.dotfiles/_setup.sh`, update _user.name_ and _user.email_ in the `gitconfig`
+file appropriately.
 
 ---
 
