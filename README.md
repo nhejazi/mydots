@@ -1,6 +1,6 @@
 # MyDotfiles
 
-> _easy customization for shell and git_
+> _my configuration files for easy customization ~ being like me just got a whole lot easier..._
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
