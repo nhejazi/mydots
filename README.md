@@ -16,7 +16,11 @@ git clone https://github.com/nhejazi/mydotfiles.git ~/.dotfiles
 sh ~/.dotfiles/_setup.sh
 ```
 __N.B.__, before running `sh ~/.dotfiles/_setup.sh`, update _user.name_ and
-_user.email_ in the `gitconfig` file appropriately.
+_user.email_ in the `gitconfig` file appropriately. If using the `gitsome` CLI
+tool for integrating Xonsh with GitHub, it's likely best to update the file
+`~/.gitsomeconfig` via the command `gh configure`; the `gitsomeconfig` file
+is included here exclusively for my convenience, and the _password_ field must
+be updated.
 
 ---
 
