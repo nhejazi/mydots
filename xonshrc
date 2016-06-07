@@ -1,3 +1,8 @@
+###############################
+### my .xonshrc config file ###
+### symlinked to ~/.xonshrc ###
+###############################
+
 
 # a few modules for convenience
 import os
@@ -5,8 +10,20 @@ import sys
 import numpy as np
 import scipy as sp
 import pandas as pd
-import statsmodels as sm
 
-$PROMPT = '{BLUE}{user}{WHITE}@{GREEN}{hostname}{WHITE}:{RED}{cwd}{YELLOW}{curr_branch}{WHITE}\n $ '
+
+# convenience functions for evaluating various parameters of interest
+# ...empty for now...
+
+# configure display prompt
+$PROMPT = '{BOLD_BLUE}{user}{WHITE}@{YELLOW}{hostname}{WHITE}:{BOLD_GREEN}{cwd}'
+$PROMPT += '{BOLD_RED}{curr_branch}{WHITE}\n $ '
+
+$PATH = list(np.unique(list($PATH)))
+
+
+# custom aliases for convenience
 aliases['gits'] = ['git', 'status']
 aliases['gitl'] = ['git', 'log']
+aliases['gitd'] = ['git', 'diff']
+aliases['gita'] = ['git', 'add', '-A']

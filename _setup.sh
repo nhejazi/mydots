@@ -45,13 +45,6 @@ if [ -e ~/.xonshrc ]; then
 fi
 ln -s ~/.dotfiles/xonshrc ~/.xonshrc
 
-# for gitsome CLI tool customization
-if [ -e ~/.gitsomeconfig ]; then
-    echo "gitsomeconfig dotfile exists...will be removed.";
-    rm -f ~/.gitsomeconfig;
-fi
-ln -s ~/.dotfiles/gitsomeconfig ~/.gitsomeconfig
-
 # for git configuration and customization
 if [ -e ~/.git-prompt.sh ]; then
     echo "git-prompt dotfile exists...will be removed.";
@@ -87,4 +80,4 @@ if [ -e ~/.Rprofile ]; then
   echo "Rprofile already exists...will be removed.";
   rm -f ~/.Rprofile;
 fi
-ln -s ~/.dotfiles/Rprofile ~/.Rprofile
+ln -s ~/.dotfiles/rprofile ~/.Rprofile
