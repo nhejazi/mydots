@@ -25,10 +25,10 @@ import pandas as pd
 # convenience functions for evaluating various parameters of interest
 # ...empty for now...
 
+
 # configure display prompt
 $PROMPT = '{BOLD_BLUE}{user}{WHITE}@{YELLOW}{hostname}{WHITE}:{BOLD_GREEN}{cwd}'
 $PROMPT += '{BOLD_RED}{curr_branch}{WHITE}\n $ '
-
 $PATH = list(np.unique(list($PATH)))
 
 
