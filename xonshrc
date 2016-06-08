@@ -1,7 +1,24 @@
-###############################
-### my .xonshrc config file ###
-### symlinked to ~/.xonshrc ###
-###############################
+#####################################
+##### xonsh shell & gitsome CLI #####
+##### my .xonshrc configuration #####
+##### symlink is at: ~/.xonshrc #####
+#####################################
+
+
+# convenience functions for evaluating parameters of interest
+# ...empty for now...
+
+
+# a few standard modules for convenience
+import os
+import sys
+import numpy as np
+import scipy as sp
+import pandas as pd
+import statsmodels as sm
+from bashplotlib.scatterplot import plot_scatter
+from bashplotlib.histogram import plot_hist
+
 
 # better colors for `ls` command
 $LS_COLORS = 'rs=0:di=01;36:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;'
@@ -14,18 +31,6 @@ $XONSH_SHOW_TRACEBACK = True
 $XONSH_STORE_STDOUT = True
 
 
-# a few modules for convenience
-import os
-import sys
-import numpy as np
-import scipy as sp
-import pandas as pd
-
-
-# convenience functions for evaluating various parameters of interest
-# ...empty for now...
-
-
 # configure display prompt
 $PROMPT = '{BOLD_BLUE}{user}{WHITE}@{YELLOW}{hostname}{WHITE}:{BOLD_GREEN}{cwd}'
 $PROMPT += '{BOLD_RED}{curr_branch}{WHITE}\n $ '
@@ -34,6 +39,7 @@ $PATH = list(np.unique(list($PATH)))
 
 # custom aliases for convenience
 aliases['gits'] = ['git', 'status']
-aliases['gitl'] = ['git', 'log']
-aliases['gitd'] = ['git', 'diff']
+aliases['gitl'] = ['git', 'log', '--oneline']
 aliases['gita'] = ['git', 'add', '-A']
+aliases['gitc'] = ['git', 'commit', '-m']
+aliases['gitd'] = ['git', 'diff']
