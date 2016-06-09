@@ -124,7 +124,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
 # Comical quotes for terminal (see GitHub: nhejazi/good-news)
+# NOTE June 2016: this appears to cause some issues with logging in to servers
+# to copy files (affects tools including `scp`, `rsync`, Cyberduck, Filezilla)
+# working fix (by sysadmin): comment this mod out on servers like Bluevelvet...
 if [ ! -e ~/.goodnews ]; then
   git clone https://github.com/nhejazi/good-news.git ~/.good-news
   sh ~/.good-news/_setup.sh
@@ -143,6 +147,8 @@ fi
 
 
 # give Xonsh shell GitHub completion via gitsome (only seems needed on Ubuntu)
+# NOTE June 2016: this causes an issue on Enterprise Linux systems that are
+# running OS Red Hat (notably Berkeley's HPC Savio)...comment out on Red Hat.
 if [ `uname` == "Linux" ]; then
   export LC_ALL=C.UTF-8
   export LANG=C.UTF-8
