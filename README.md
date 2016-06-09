@@ -7,10 +7,10 @@
 
 Collection of configuration files for the [bash
 shell](https://www.gnu.org/software/bash/), the [xonsh
-shell](http://xon.sh/), and [Git](https://git-scm.com/) with
-[GitHub](https://github.com/), as well as Git/GitHub shell
+shell](http://xon.sh/), and [Git](http://git-scm.com/) with
+[GitHub](http://github.com/), as well as Git/GitHub shell
 completion via the [gitsome
-CLI](https://github.com/donnemartin/gitsome) on Mac OSX and
+CLI](http://github.com/donnemartin/gitsome) on Mac OSX and
 Linux Ubuntu.
 
 ## Directions/Roadmap
@@ -23,10 +23,10 @@ __N.B.__,
 *  Before running `sh ~/.dotfiles/_setup.sh`, update _user.name_ and
    _user.email_ in the `gitconfig` file appropriately.
 
-*  To use the `gitsome` CLI tool (to add GitHub integration to `Xonsh`),
-   simply run `gh-configure` after installing `gitsome` via
-   `pip install gitsome` (this assumes `Xonsh` has been properly installed
-   already, via `pip install xonsh`).
+*  To use the gitsome CLI (to add GitHub integration to xonsh),
+   simply run `gh-configure` after installing gitsome via
+   `pip install gitsome`. This assumes `Xonsh` has been properly
+   installed already (via `pip install xonsh`).
 
 ---
 
