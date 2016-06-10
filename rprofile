@@ -1,9 +1,9 @@
 ###########################################################
 ### avoid package library issues with R version changes ###
-if ("Nima" %in% substr(as.character(Sys.info()["nodename"]),1,4)) {
+if (substr(as.character(Sys.info()["nodename"]),1,4) == "Nima") {
   # THIS IS TEMPORARY: QUICK FIX FOR MACBOOK, BUT WILL NEED ADJUSTMENT
-  if (system("uname") == "Darwin") {
-    .libPaths("~/.Rlibrary")
+  if (as.character(Sys.info()["sysname"]) == "Darwin") {
+    .libPaths("~/.Rlibrary/")
   }
 }
 ###########################################################
