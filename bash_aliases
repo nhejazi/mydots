@@ -23,11 +23,11 @@ alias jpynb='jupyter notebook --no-browser'
 
 
 # make OS-specific setup+alias for good-news prompt
-if [ `uname` == "Linux" ]; then
-  shuf -n1 ~/.goodnews
-  alias qf='shuf -n1 ~/.goodnews'
-else
+#if [ `uname` == "Linux" ]; then
+#  shuf -n1 ~/.goodnews
+#  alias qf='shuf -n1 ~/.goodnews'
+#else
 # for OSX, add a line using Homebrew's GNU coreutils
-  gshuf -n1 ~/.goodnews
-  alias qf='gshuf -n1 ~/.goodnews'
-fi
+#  gshuf -n1 ~/.goodnews
+#  alias qf='gshuf -n1 ~/.goodnews'
+#fi
