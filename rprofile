@@ -1,4 +1,14 @@
 ###########################################################
+### avoid package library issues with R version changes ###
+if ("Nima" %in% substr(as.character(Sys.info()["nodename"]),1,4)) {
+  # THIS IS TEMPORARY: QUICK FIX FOR MACBOOK, BUT WILL NEED ADJUSTMENT
+  if (system("uname") == "Darwin") {
+    .libPaths("~/.Rlibrary")
+  }
+}
+###########################################################
+
+###########################################################
 ############ load packages I rely on a lot ################
 library("devtools")
 library("ggplot2")
