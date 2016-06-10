@@ -13,9 +13,6 @@
 [rerere]
 	enabled = true
 	autoupdate = true
-[push]
-	default = simple
-	followTags = true
 [color]
 	ui = true
 [color "branch"]

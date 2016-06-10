@@ -1,12 +1,29 @@
+#####################################
+##### my Bash shell preferences #####
+##### .bashrc setup/config file #####
+##### is symlinked to ~/.bashrc #####
+#####################################
+
+
+# For Berkeley HPC Savio - source global definitions
+if [ `uname -n | cut -d'_' -f 2` == "brc" ]; then
+	if [ -f /etc/bashrc ]; then
+  		. /etc/bashrc
+	fi
+fi
+
+
 # Make bash pretty
 if [ -h ~/.bash_color ]; then
   . ~/.bash_color;
 fi
 
-# add GitHub completion (source: donnemartin/gitsome)
+
+# add GitHub completion (source: donnemartin/gitsome on GitHub)
 if [ -h ~/.gh_complete.sh ]; then
   . ~/.gh_complete.sh;
 fi
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -15,6 +32,7 @@ fi
 if [ -h ~/.bash_aliases ]; then
   . ~/.bash_aliases;
 fi
+
 
 # If not running interactively, don't do anything
 case $- in
@@ -129,10 +147,11 @@ fi
 # NOTE June 2016: this appears to cause some issues with logging in to servers
 # to copy files (affects tools including `scp`, `rsync`, Cyberduck, Filezilla)
 # working fix (by sysadmin): comment this mod out on servers like Bluevelvet...
-if [ ! -e ~/.goodnews ]; then
-  git clone https://github.com/nhejazi/good-news.git ~/.good-news
-  sh ~/.good-news/_setup.sh
-fi
+#if [ ! -e ~/.goodnews ]; then
+#  git clone https://github.com/nhejazi/good-news.git ~/.good-news
+#  sh ~/.good-news/_setup.sh
+#fi
+# Install the above project locally if the quotes are worth it...
 
 
 # Setting PATH for Scala
@@ -149,7 +168,9 @@ fi
 # give Xonsh shell GitHub completion via gitsome (only seems needed on Ubuntu)
 # NOTE June 2016: this causes an issue on Enterprise Linux systems that are
 # running OS Red Hat (notably Berkeley's HPC Savio)...comment out on Red Hat.
-if [ `uname` == "Linux" ]; then
-  export LC_ALL=C.UTF-8
-  export LANG=C.UTF-8
+if [ `uname -n | cut -d'_' -f 2` != "brc" ]; then
+	if [ `uname` == "Linux" ]; then
+  		export LC_ALL=C.UTF-8
+  		export LANG=C.UTF-8
+	fi
 fi
