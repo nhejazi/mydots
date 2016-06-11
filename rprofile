@@ -1,32 +1,34 @@
-###########################################################
-### avoid package library issues with R version changes ###
-if (substr(as.character(Sys.info()["nodename"]),1,4) == "Nima") {
-  # THIS IS TEMPORARY: QUICK FIX FOR MACBOOK, BUT WILL NEED ADJUSTMENT
-  if (as.character(Sys.info()["sysname"]) == "Darwin") {
-    .libPaths("~/.Rlibrary/")
-  }
+#################################################################
+####### avoid package library issues with R version changes #####
+if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
+####### my usernames: local == nimahejazi, clusters == nhejazi ##
+  .libPaths("~/.Rlibrary")
 }
-###########################################################
+#################################################################
 
-###########################################################
-############ load packages I rely on a lot ################
+#################################################################
+####### load packages I rely on a lot ###########################
 library("devtools")
 library("ggplot2")
 library("data.table")
-###########################################################
+#################################################################
 
-###########################################################
-############## load self-defined shorthand ################
+#################################################################
+####### load self-defined shorthand #############################
 "%ni%" = Negate("%in%")
-###########################################################
+#################################################################
 
-###########################################################
-######### find and load my utilities package ##############
-library("base"); library("utils")
-pkg_list <- as.data.frame(installed.packages())
-if ( "nima" %ni% names(pkg_list$Package)) {
-  devtools::install_github("nhejazi/nima", ref = "develop")
+#################################################################
+####### find and load my utilities package ######################
+if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
+####### best to force install only on my own machines ###########
+####### my usernames: local == nimahejazi, clusters == nhejazi ##
+  library("base"); library("utils")
+  pkg_list <- as.data.frame(installed.packages())
+  if ( "nima" %ni% names(pkg_list$Package)) {
+    devtools::install_github("nhejazi/nima", ref = "develop")
+  }
+  rm(pkg_list)
 }
-rm(pkg_list)
 library("nima")
-###########################################################
+#################################################################
