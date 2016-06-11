@@ -19,6 +19,12 @@ if [ -h ~/.bash_color ]; then
 fi
 
 
+# add GitHub completion (source: donnemartin/gitsome on GitHub)
+if [ -h ~/.gh_complete.sh ]; then
+  . ~/.gh_complete.sh;
+fi
+
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -166,13 +172,5 @@ if [[ (`uname -n | cut -d'.' -f 2` != "brc") || (`uname -n | cut -d'.' -f 2` != 
 	if [ `uname` == "Linux" ]; then
   		export LC_ALL=C.UTF-8
   		export LANG=C.UTF-8
-	fi
-fi
-
-
-# add GitHub completion (source: donnemartin/gitsome on GitHub)
-if [[ (`uname -n | cut -d'.' -f 2` != "brc") || (`uname -n | cut -d'.' -f 2` != "biostat") ]]; then
-	if [ -h ~/.gh_complete.sh ]; then
-  		. ~/.gh_complete.sh;
 	fi
 fi
