@@ -147,11 +147,12 @@ fi
 # NOTE June 2016: this appears to cause some issues with logging in to servers
 # to copy files (affects tools including `scp`, `rsync`, Cyberduck, Filezilla)
 # working fix (by sysadmin): comment this mod out on servers like Bluevelvet...
-#if [ ! -e ~/.goodnews ]; then
-#  git clone https://github.com/nhejazi/good-news.git ~/.good-news
-#  sh ~/.good-news/_setup.sh
-#fi
-# Install the above project locally if the quotes are worth it...
+if [[ $USER == "nimahejazi" ]]; then  ## local user accounts only
+  if [ ! -e ~/.goodnews ]; then
+    git clone https://github.com/nhejazi/good-news.git ~/.good-news
+    sh ~/.good-news/_setup.sh
+  fi
+fi
 
 
 # Setting PATH for Scala
@@ -168,9 +169,11 @@ fi
 # give Xonsh shell GitHub completion via gitsome (only seems needed on Ubuntu)
 # NOTE June 2016: this causes an issue on Enterprise Linux systems that are
 # running OS Red Hat (notably Berkeley's HPC Savio and Biostat's Bluevelvet).
-if [[ (`uname -n | cut -d'.' -f 2` != "brc") || (`uname -n | cut -d'.' -f 2` != "biostat") ]]; then
-	if [ `uname` == "Linux" ]; then
-  		export LC_ALL=C.UTF-8
-  		export LANG=C.UTF-8
-	fi
+if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
+  :
+else
+  if [ `uname` == "Linux" ]; then
+    export LC_ALL=C.UTF-8
+    export LANG=C.UTF-8
+  fi
 fi
