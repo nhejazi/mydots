@@ -5,7 +5,7 @@
 #####################################
 
 
-# For Berkeley HPC Savio - source global definitions
+# source global definitions (for clusters: Berkeley HPC Savio and Biostat Bluevelvet)
 if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 1` == "bluevelvet") ]]; then
 	if [ -f /etc/bashrc ]; then
   		. /etc/bashrc
@@ -168,7 +168,7 @@ fi
 # give Xonsh shell GitHub completion via gitsome (only seems needed on Ubuntu)
 # NOTE June 2016: this causes an issue on Enterprise Linux systems that are
 # running OS Red Hat (notably Berkeley's HPC Savio and Biostat's Bluevelvet).
-if [[ (`uname -n | cut -d'.' -f 2` != "brc") && (`uname -n | cut -d'.' -f 1` != "bluevelvet") ]]; then
+if [[ (`uname -n | cut -d'.' -f 2` != "brc") || (`uname -n | cut -d'.' -f 1` != "bluevelvet") ]]; then
 	if [ `uname` == "Linux" ]; then
   		export LC_ALL=C.UTF-8
   		export LANG=C.UTF-8
