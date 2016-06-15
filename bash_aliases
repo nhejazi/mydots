@@ -5,11 +5,11 @@ alias lf='ls -aF'   #displays symlinks with @
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias prun='ps aux | grep $USER'
+alias prme='ps aux | grep $USER'
 
 
 # make common tools easier to use...
-alias r='R'
+alias rr='R'
 alias py2='python2'
 alias py3='python3'
 alias Julia='julia'
