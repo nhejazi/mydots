@@ -1,4 +1,4 @@
-# MyDotfiles
+# myDotfiles
 
 > _collection of my config files for easy customization - i.e., copying my style
 > made really simple..._
