@@ -38,8 +38,13 @@ $PATH = list(np.unique(list($PATH)))
 
 
 # custom aliases for convenience
-aliases['gits'] = ['git', 'status']
-aliases['gitl'] = ['git', 'log', '--oneline']
-aliases['gita'] = ['git', 'add', '-A']
-aliases['gitc'] = ['git', 'commit', '-m']
-aliases['gitd'] = ['git', 'diff']
+aliases['gs'] = ['git', 'status']
+aliases['glog'] = ['git', 'log', '--oneline', '--topo-order', '--graph']
+aliases['ghist'] = ['git', 'log', '--all', '--graph', '--decorate', '--oneline']
+aliases['ga'] = ['git', 'add', '-A']
+aliases['gc'] = ['git', 'commit']
+aliases['gcm'] = ['git', 'commit', '-m']
+aliases['grv'] = ['git', 'remote', '-v']
+aliases['gb'] = ['git', 'branch']
+aliases['gd'] = ['git', 'diff']
+aliases['gp'] = ['git', 'pull']
