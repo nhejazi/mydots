@@ -52,7 +52,7 @@ ln -s ~/.dotfiles/xonshrc ~/.xonshrc
 #fi
 #ln -s ~/.dotfiles/git-prompt.sh ~/.git-prompt.sh
 
-if [ -e ~/.prompt-gi.sh ]; then
+if [ -e ~/.prompt-git.sh ]; then
     echo "prompt-git dotfile exists...removing...";
     rm -f ~/.prompt-git.sh;
 fi
@@ -82,8 +82,17 @@ if [ -e ~/.gh_complete.sh ]; then
 fi
 ln -s ~/.dotfiles/gh_complete.sh ~/.gh_complete.sh
 
+# session startup profile for R language/environment
 if [ -e ~/.Rprofile ]; then
   echo "Rprofile already exists...removing...";
   rm -f ~/.Rprofile;
 fi
 ln -s ~/.dotfiles/rprofile ~/.Rprofile
+
+# get terminal colors with `tput_colors`
+if [ -e ~/.tput_colors ]; then
+    echo "tput_colors file exists...removing...";
+    rm -f ~/.tput_colors;
+fi
+ln -s ~/.dotfiles/tput_colors ~/.tput_colors
+chmod u+x ~/.tput_colors  ## make executable
