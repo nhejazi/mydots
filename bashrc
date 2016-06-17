@@ -115,14 +115,14 @@ shopt -s checkwinsize
 if [[ "${USER}" == "root" ]]; then
 	userStyle="${bold}${blue}";
 else
-	userStyle="${orange}";
+	userStyle="${blue}";
 fi;
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-	hostStyle="${bold}${red}";
+	hostStyle="${bold}${orange}";
 else
-	hostStyle="${yellow}";
+	hostStyle="${orange}";
 fi;
 
 # Set the terminal title and prompt.
@@ -133,10 +133,10 @@ PS1+="\[${white}\] at ";
 PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory full path
-PS1+="\$(parse_git_branch \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
-export PS1
+export PS1;
 
 
 # set title of a terminal window to be the relative path
