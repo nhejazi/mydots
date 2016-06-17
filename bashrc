@@ -7,9 +7,9 @@
 
 # source global definitions (for clusters: Berkeley HPC Savio and Biostat Bluevelvet)
 if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
-	if [ -f /etc/bashrc ]; then
-  		. /etc/bashrc
-	fi
+  if [ -f /etc/bashrc ]; then
+      . /etc/bashrc
+  fi
 fi
 
 
@@ -113,16 +113,16 @@ shopt -s checkwinsize
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	userStyle="${bold}${blue}";
+  userStyle="${bold}${blue}";
 else
-	userStyle="${blue}";
+  userStyle="${blue}";
 fi;
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-	hostStyle="${bold}${orange}";
+  hostStyle="${bold}${purple}";
 else
-	hostStyle="${orange}";
+  hostStyle="${purple}";
 fi;
 
 # Set the terminal title and prompt.
@@ -133,7 +133,7 @@ PS1+="\[${white}\] at ";
 PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory full path
-PS1+="\$(prompt_git \"\[${white}\] on \[${red}\]\" \"\[${bold}${orange}\]\")"; # Git repository details
+PS1+="\$(prompt_git \"\[${white}\] on \[${bold}${orange}\]\" \"\[${bold}${yellow}\]\")"; # Git repository details
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;

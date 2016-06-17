@@ -88,11 +88,3 @@ if [ -e ~/.Rprofile ]; then
   rm -f ~/.Rprofile;
 fi
 ln -s ~/.dotfiles/rprofile ~/.Rprofile
-
-# get terminal colors with `tput_colors`
-if [ -e ~/.tput_colors ]; then
-    echo "tput_colors file exists...removing...";
-    rm -f ~/.tput_colors;
-fi
-ln -s ~/.dotfiles/tput_colors ~/.tput_colors
-chmod u+x ~/.tput_colors  ## make executable

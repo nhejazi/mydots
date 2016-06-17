@@ -22,30 +22,31 @@ BWHT="\[\033[47m\]" # background white
 
 
 if tput setaf 1 &> /dev/null; then
-	# colors personally chosen from list/chart of codes for 256-color scheme
-	# https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
-	tput sgr0; # reset colors
-	bold=$(tput bold);
-	reset=$(tput sgr0);
-	black=$(tput setaf 0);
-	blue=$(tput setaf 45);
-	green=$(tput setaf 76);
-	orange=$(tput setaf 178);
-	purple=$(tput setaf 129);
-	red=$(tput setaf 196);
-	white=$(tput setaf 15);
-	yellow=$(tput setaf 226);
+  # colors personally chosen from list/chart of codes for 256-color scheme
+  # https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
+  tput sgr0; # reset colors
+  bold=$(tput bold);
+  reset=$(tput sgr0);
+  black=$(tput setaf 0);
+  blue=$(tput setaf 45);
+  cyan=$(tput setaf 123);
+  green=$(tput setaf 76);
+  orange=$(tput setaf 202);
+  purple=$(tput setaf 141);
+  red=$(tput setaf 124);
+  white=$(tput setaf 15);
+  yellow=$(tput setaf 226);
 else
-	bold='';
-	reset="\e[0m";
-	black="\e[0;30m";
-	blue="\e[0;34m";
-	cyan="\e[0;36m";
-	green="\e[0;32m";
-	orange="\e[0;33m";
-	purple="\e[0;35m";
-	red="\e[0;31m";
-	violet="\e[0;35m";
-	white="\e[0;37m";
-	yellow="\e[0;33m";
+  bold='';
+  reset="\e[0m";
+  black="\e[0;30m";
+  blue="\e[0;34m";
+  cyan="\e[0;36m";
+  green="\e[0;32m";
+  orange="\e[0;33m";
+  purple="\e[0;35m";
+  red="\e[0;31m";
+  violet="\e[0;35m";
+  white="\e[0;37m";
+  yellow="\e[0;33m";
 fi;
