@@ -56,45 +56,45 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+##########################################################################################
+## OLD SHELL PROMPT (USES `git-prompt.sh`), DROPPED IN FAVOR OF METHOD OF MATHIASBYNENS ##
+##########################################################################################
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+#if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+#    debian_chroot=$(cat /etc/debian_chroot)
+#fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
+#case "$TERM" in
+#    xterm-color) color_prompt=yes;;
+#esac
 
 # Add git branch to prompt
-. ~/.git-prompt.sh
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
+#. ~/.git-prompt.sh
+#parse_git_branch() {
+#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+#}
 
+# uncomment for a colored prompt, if the terminal has the capability
+#force_color_prompt=yes
+#if [ -n "$force_color_prompt" ]; then
+#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+#      # We have color support; assume it's compliant with Ecma-48
+#      # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+#      # a case would tend to support setf rather than setaf.)
+#      color_prompt=yes
+#    else
+#      color_prompt=
+#    fi
+#fi
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-      # We have color support; assume it's compliant with Ecma-48
-      # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-      # a case would tend to support setf rather than setaf.)
-      color_prompt=yes
-    else
-      color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='\[\e[0;34m\]\u:\[\e[m\] \[\e[0;32m\]\w\[\e[m\] \[\e[1;31m\]$(parse_git_branch)\[\e[m\] \[\e[0;35m\]\$\[\e[m\] \[\e[0;37m\]'
-else
-    PS1='\u: \w $(parse_git_branch) \$ '
-fi
-unset color_prompt force_color_prompt
+#if [ "$color_prompt" = yes ]; then
+#    PS1='\[\e[0;34m\]\u:\[\e[m\] \[\e[0;32m\]\w\[\e[m\] '
+#    PS1+='\[\e[1;31m\]$(parse_git_branch)\[\e[m\] \[\e[0;35m\]\$\[\e[m\] \[\e[0;37m\]'
+#else
+#    PS1='\u: \w $(parse_git_branch) \$ '
+#fi
+#unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir (removed for shorter title)
 #case "$TERM" in
@@ -104,21 +104,57 @@ unset color_prompt force_color_prompt
 #*)
 #    ;;
 #esac
+##########################################################################################
+##########################################################################################
+
+
+# Use defined prompt_git from `prompt-git.sh` for mathiasbynens style
+. ~/.prompt-git.sh
+
+# Highlight the user name when logged in as root.
+if [[ "${USER}" == "root" ]]; then
+	userStyle="${bold}${blue}";
+else
+	userStyle="${orange}";
+fi;
+
+# Highlight the hostname when connected via SSH.
+if [[ "${SSH_TTY}" ]]; then
+	hostStyle="${bold}${red}";
+else
+	hostStyle="${yellow}";
+fi;
+
+# Set the terminal title and prompt.
+PS1="\[\033]0;\W\007\]"; # working directory base name
+PS1+="\[${bold}\]\n"; # newline
+PS1+="\[${userStyle}\]\u"; # username
+PS1+="\[${white}\] at ";
+PS1+="\[${hostStyle}\]\h"; # host
+PS1+="\[${white}\] in ";
+PS1+="\[${green}\]\w"; # working directory full path
+PS1+="\$(parse_git_branch \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+PS1+="\n";
+PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+export PS1
+
 
 # set title of a terminal window to be the relative path
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    # alias dir='dir --color=auto'
-    # alias vdir='vdir --color=auto'
+    alias ls='ls --color=auto'    ## ON MAC OSX, THIS IS OVERWRITTEN IN `.bash_profile`
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -140,7 +176,7 @@ fi
 # Comical quotes for terminal (see GitHub: nhejazi/good-news)
 # NOTE June 2016: this appears to cause some issues with logging in to servers
 # to copy files (affects tools including `scp`, `rsync`, Cyberduck, Filezilla)
-# working fix (by sysadmin): comment this mod out on servers like Bluevelvet...
+# my remote username is usually "nhejazi" ==> this seems to work fine now...
 if [[ $USER == "nimahejazi" ]]; then  ## local user accounts only
   if [ ! -e ~/.goodnews ]; then
     git clone https://github.com/nhejazi/good-news.git ~/.good-news
@@ -171,7 +207,7 @@ fi
 #    export LANG=C.UTF-8
 #  fi
 #fi
-# THE ABOVE DOES NOT SEEM NECESSARY ANYMORE, AS OF 15 JUNE 2016
+# THE ABOVE DOES NOT SEEM NECESSARY ANYMORE (REMOVED FROM GITSOME DIRECTIONS), AS OF 15 JUNE 2016
 
 
 # add GitHub completion (source: donnemartin/gitsome on GitHub)
