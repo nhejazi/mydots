@@ -24,11 +24,9 @@ if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
 ####### best to force install only on my own machines ###########
 ####### my usernames: local == nimahejazi, clusters == nhejazi ##
   library("base"); library("utils")
-  pkg_list <- as.data.frame(installed.packages())
-  if ( "nima" %ni% names(pkg_list$Package)) {
+  if (!require("nima")) {
     devtools::install_github("nhejazi/nima", ref = "develop")
   }
-  rm(pkg_list)
 }
 library("nima")
 #################################################################
