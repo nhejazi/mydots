@@ -1,7 +1,7 @@
 ####### =================================================== #####
 ####### avoid package library issues with R version changes #####
-if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
 ####### my usernames: local == nimahejazi, clusters == nhejazi ##
+if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
   .libPaths("~/.Rlibrary")
 }
 ####### =================================================== #####
@@ -10,7 +10,7 @@ if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
 ####### load packages I rely on a lot ###########################
 library("devtools")
 library("ggplot2")
-library("data.table")
+library("dplyr")
 ####### ============================= ###########################
 
 ####### =========================== #############################
@@ -18,25 +18,24 @@ library("data.table")
 "%ni%" = Negate("%in%")
 ####### =========================== #############################
 
-####### ================================== ######################
-####### find and load my utilities package ######################
-if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
-####### best to force install only on my own machines ###########
+####### ======================================== ################
+####### load and/or install convenience packages ################
+####### best to force install on my own machines ################
 ####### my usernames: local == nimahejazi, clusters == nhejazi ##
+if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
   library("base"); library("utils")
-  if (!require("nima")) {
-    devtools::install_github("nhejazi/nima", ref = "develop")
+  if ("nima" %ni%
+    names(as.data.frame(installed.packages())$Package)) {
+      devtools::install_github("nhejazi/nima", ref = "develop")
   }
 }
 library("nima")
-####### ================================== ######################
-
-####### ==================================== ####################
 ####### get package to add color to R output ####################
 if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
-  if (!require("colorout")) {
-    devtools::install_github("jalvesaq/colorout")
+  if ("colorout" %ni%
+    names(as.data.frame(install.packages())$Package)) {
+      devtools::install_github("jalvesaq/colorout")
   }
 }
 library("colorout")
-####### ==================================== ####################
+####### ======================================== ################
