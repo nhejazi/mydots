@@ -33,7 +33,7 @@ library("nima")
 ####### get package to add color to R output ####################
 if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
   if ("colorout" %ni%
-    names(as.data.frame(install.packages())$Package)) {
+    names(as.data.frame(installed.packages())$Package)) {
       devtools::install_github("jalvesaq/colorout")
   }
 }
