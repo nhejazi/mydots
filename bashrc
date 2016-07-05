@@ -18,7 +18,7 @@ if [ "$COLORTERM" == "xfce4-terminal" ]; then
 fi
 
 
-# Make bash pretty
+# Give bash shell a nice look
 if [ -h ~/.bash_color ]; then
   . ~/.bash_color;
 fi
@@ -30,6 +30,12 @@ fi
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 if [ -h ~/.bash_aliases ]; then
   . ~/.bash_aliases;
+fi
+
+
+# add GitHub completion (source: donnemartin/gitsome on GitHub)
+if [ -h ~/.gh_complete.sh ]; then
+  . ~/.gh_complete.sh;
 fi
 
 
@@ -201,21 +207,14 @@ if [ `uname` == "Darwin" ]; then
 fi
 
 
-# give Xonsh shell GitHub completion via gitsome (only seems needed on Ubuntu)
+# To use GitHub integration with gitsome CLI, the following is necessary: 
 # NOTE June 2016: this causes an issue on Enterprise Linux systems that are
 # running OS Red Hat (notably Berkeley's HPC Savio and Biostat's Bluevelvet).
-#if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
-#  :
-#else
-#  if [ `uname` == "Linux" ]; then
-#    export LC_ALL=C.UTF-8
-#    export LANG=C.UTF-8
-#  fi
-#fi
-# THE ABOVE DOES NOT SEEM NECESSARY ANYMORE (REMOVED FROM GITSOME DIRECTIONS), AS OF 15 JUNE 2016
-
-
-# add GitHub completion (source: donnemartin/gitsome on GitHub)
-if [ -h ~/.gh_complete.sh ]; then
-  . ~/.gh_complete.sh;
+if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
+  :
+else
+  if [ `uname` == "Linux" ]; then
+    export LC_ALL=C.UTF-8
+    export LANG=C.UTF-8
+  fi
 fi
