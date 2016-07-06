@@ -1,44 +1,128 @@
-####### =================================================== #####
-####### avoid package library issues with R version changes #####
-####### my usernames: local == nimahejazi, clusters == nhejazi ##
+####### ====================================================== ################
+####### my .Rprofile configuration (symlinked to ~/.Rprofile)  ################
+####### note: some parts force install on my own machines only ################
+####### my usernames: local == nimahejazi, clusters == nhejazi ################
+####### ====================================================== ################
+
+####### ====================================================== ################
+####### avoid package library issues with R version changes ###################
 if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
   .libPaths("~/.Rlibrary")
 }
-####### =================================================== #####
+####### ====================================================== ################
 
-####### ============================= ###########################
-####### load packages I rely on a lot ###########################
+####### ====================================================== ################
+####### miscellaneous changes to set things to my preferences  ################
+
+## Don't ask me for my CRAN mirror every time
+options("repos" = c(CRAN = "https://cran.rstudio.com/"))
+
+## Create a new invisible environment for all the functions to go in.
+.env <- new.env()
+
+## Returns a logical vector TRUE for elements of X not in Y
+.env$"%ni%" <- function(x, y) { !(x %in% y) }
+
+## Strip row names from a data frame (stolen from plyr)
+.env$unrowname <- function(x) {
+    rownames(x) <- NULL
+    x
+}
+
+## List objects and classes (from @_inundata, mod by ateucher)
+.env$lsa <- function() {
+    obj_type <- function(x) class(get(x, envir = .GlobalEnv))  # define env
+    foo = data.frame(sapply(ls(envir = .GlobalEnv), obj_type))
+    foo$object_name = rownames(foo)
+    names(foo)[1] = "class"
+    names(foo)[2] = "object"
+    return(unrowname(foo))
+}
+
+## List all functions in a package (also from @_inundata)
+.env$lsp <- function(package, all.names = FALSE, pattern) {
+    package <- deparse(substitute(package))
+    ls(
+        pos = paste("package", package, sep = ":"),
+        all.names = all.names,
+        pattern = pattern
+    )
+}
+
+## Open Finder to the current directory on Mac
+.env$o <- function(...) if(Sys.info()[1] == "Darwin") system("open .")
+
+## Attach all the variables above
+attach(.env)
+
+## Trying to avoid this problem permanently (WARNING: less reproducible code)
+options(stringsAsFactors = FALSE)
+
+## set a longer print history than normal
+options(max.print = 100)
+
+## follow convention for 80 columns
+options(width = 80)
+
+## No stars. Stars are bad.
+options(show.signif.stars = FALSE)
+
+## Tab-complete package names when calling `library()` and `require()`
+utils::rc.settings(ipck = TRUE)
+
+## copy the style of the Python interpreter/REPL
+#options(prompt = "> ")
+#options(continue = "... ")
+
+## run at R startup (includes pasting timestamp to Rhistory file)
+.First <- function() {
+  if(interactive()) {
+    library("utils")
+    timestamp(,prefix = paste("##------ [", getwd(), "] ", sep = ""))
+    cat("\nSuccessfully loaded .Rprofile at", date(), "\n")
+  }
+}
+
+## run before R closes (includes saving interactive console history)
+.Last <- function() {
+  if(interactive()) {
+    hist_file <- Sys.getenv("R_HISTFILE")
+    if(hist_file=="") hist_file <- "~/.RHistory"
+    savehistory(hist_file)
+    cat("\nGoodbye at ", date(), "\n")
+  }
+}
+
+## install `colorout` package on my machines if missing (REMOVED)
+#if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
+#  library("utils")
+#  if ("colorout" %ni%
+#    names(as.data.frame(installed.packages())$Package)) {
+#      devtools::install_github("jalvesaq/colorout")
+#  }
+#}
+
+## load `colorout` package at startup
+if(Sys.getenv("TERM") == "xterm-256color") { library("colorout") }
+
+## install my utilities package if missing on my machines (REMOVED)
+#if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
+#  library("utils")
+#  if ("nima" %ni%
+#    names(as.data.frame(installed.packages())$Package)) {
+#      devtools::install_github("nhejazi/nima", ref = "develop")
+#  }
+#}
+
+## load packages that are integral to my R experience
 library("data.table")
-library("devtools")
-library("ggplot2")
 library("dplyr")
+library("ggplot2")
+library("devtools")
 library("dtplyr")
 library("tibble")
-####### ============================= ###########################
 
-####### =========================== #############################
-####### load self-defined shorthand #############################
-"%ni%" = Negate("%in%")
-####### =========================== #############################
-
-####### ======================================== ################
-####### load and/or install convenience packages ################
-####### best to force install on my own machines ################
-####### my usernames: local == nimahejazi, clusters == nhejazi ##
-if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
-  library("base"); library("utils")
-  if ("nima" %ni%
-    names(as.data.frame(installed.packages())$Package)) {
-      devtools::install_github("nhejazi/nima", ref = "develop")
-  }
-}
+## load my utilities package
 library("nima")
-####### get package to add color to R output ####################
-if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
-  if ("colorout" %ni%
-    names(as.data.frame(installed.packages())$Package)) {
-      devtools::install_github("jalvesaq/colorout")
-  }
-}
-library("colorout")
-####### ======================================== ################
+
+####### ====================================================== ################
