@@ -11,7 +11,9 @@ alias prme='ps aux | grep $USER'
 # make common tools easier to use...
 alias rr='R'
 alias py2='python2'
-alias py3='python3'
+if [ `uname` == "Linux" ]; then
+  alias py3='python3.5'
+fi
 alias Julia='julia'
 alias ipy2='ipython2'
 if [ `uname` == "Darwin" ]; then
