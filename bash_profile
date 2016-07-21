@@ -25,11 +25,8 @@ if [ `uname` == "Darwin" ]; then
   # Setting up use the GNU "ls" utility
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
-  # Default editor switch to MacVim
-  export EDITOR=/usr/local/bin/mvim
-
-  # Set MacVim as the default Vim with alias
-  alias vimgui=/usr/local/bin/mvim
+  # Default editor switch to NeoVim
+  export EDITOR=/usr/local/bin/nvim
 
   # To fix Dropbox (recover from OS X sync error)
   alias restartDropbox="osascript -e 'tell application \"Dropbox\" to quit';killall Dropbox;open -a \"Dropbox\""
