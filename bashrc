@@ -218,3 +218,11 @@ else
     export LANG=C.UTF-8
   fi
 fi
+
+
+# bash completion set up by Mac-CLI tool (see GitHub: guarinogabriel/Mac-CLI)
+if [ `uname` == "Darwin" ]; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    source $(brew --prefix)/etc/bash_completion;
+  fi
+fi

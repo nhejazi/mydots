@@ -88,3 +88,11 @@ if [ -e ~/.Rprofile ]; then
   rm -f ~/.Rprofile;
 fi
 ln -s ~/.dotfiles/rprofile ~/.Rprofile
+
+# configuration file for the HyperTerm terminal
+if [ -e ~/.hyperterm.js ]; then
+  echo "hyperterm.js already exists...removing...";
+  rm -f ~/.hyperterm.js;
+fi
+ln -s ~/.dotfiles/hyperterm.js ~/.hyperterm.js
+
