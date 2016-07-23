@@ -58,7 +58,9 @@ module.exports = {
   plugins: [
     "hyperline",
     "hyperborder",
-    "hyperterm-blink"
+    "hyperterm-blink",
+    "hypertheme",
+    "hyperseti"
   ],
 
   // in development, you can create a directory under
