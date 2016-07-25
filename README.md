@@ -5,7 +5,7 @@
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-My collection of configuration files for [Git](https://git-scm.com/) and
+My collection of configuration files for [git](https://git-scm.com/) and
 [GitHub](https://github.com/), [bash](https://www.gnu.org/software/bash/),
 [xonsh](https://xon.sh/) (with GitHub integration via
 [gitsome](https://github.com/donnemartin/gitsome)), and

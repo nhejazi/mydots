@@ -57,9 +57,11 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hyperline",
-    "hyperborder",
+    //"hyperborder",
+    "hyperterm-final-say",
     "hyperterm-blink",
     "hypertheme",
+    //"hyperterm-solarized-dark",
     "hyperseti"
   ],
 
