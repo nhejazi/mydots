@@ -71,9 +71,8 @@ module.exports = {
     "hyperterm-final-say",
     "hyperterm-blink",
     "hypertheme",
-    //"hyperterm-solarized-dark",
     "hyperseti"
-  ]
+  ],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
