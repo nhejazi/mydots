@@ -68,7 +68,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 ##########################################################################################
-## OLD SHELL PROMPT (USES `git-prompt.sh`), DROPPED IN FAVOR OF METHOD OF MATHIASBYNENS ##
+## OLD SHELL PROMPT (USES `git-prompt.sh`) - DROPPED IN FAVOR OF USING `git-prompt2.sh` ##
 ##########################################################################################
 # set variable identifying the chroot you work in (used in the prompt below)
 #if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -120,7 +120,7 @@ shopt -s checkwinsize
 
 
 # Use defined prompt_git from `prompt-git.sh` for mathiasbynens style
-. ~/.prompt-git.sh
+. ~/.git-prompt2.sh
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
@@ -201,7 +201,7 @@ export SCALA_HOME=/usr/local/share/scala
 export PATH=$PATH:$SCALA_HOME/bin
 
 
-# Workaround to Neovim mapping problem for <C-h> (only seems to affect OSX)
+# Workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
 if [ `uname` == "Darwin" ]; then
   export TERMINFO="$HOME/.terminfo"
 fi
@@ -209,7 +209,7 @@ fi
 
 # To use GitHub integration with gitsome CLI, the following is necessary: 
 # NOTE June 2016: this causes an issue on Enterprise Linux systems that are
-# running OS Red Hat (notably Berkeley's HPC Savio and Biostat's Bluevelvet).
+# running Red Hat (notably Berkeley's HPC Savio and Biostat's Bluevelvet).
 if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
   :
 else
@@ -228,10 +228,10 @@ if [ `uname` == "Darwin" ]; then
 fi
 
 
-# Codi for Neovim
+# Codi for Vim
 # Usage: codi [filetype] [filename]
 codi() {
-  nvim "$2" -c \
+  vim "$2" -c \
     "let g:startify_disable_at_vimenter = 1 |\
     set bt=nofile ls=0 noru nonu nornu |\
     hi ColorColumn ctermbg=NONE |\
