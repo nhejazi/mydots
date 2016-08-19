@@ -52,11 +52,11 @@ ln -s ~/.dotfiles/xonshrc ~/.xonshrc
 #fi
 #ln -s ~/.dotfiles/git-prompt.sh ~/.git-prompt.sh
 
-if [ -e ~/.prompt-git.sh ]; then
-    echo "prompt-git dotfile exists...removing...";
-    rm -f ~/.prompt-git.sh;
+if [ -e ~/.git-prompt2.sh ]; then
+    echo "git-prompt2 dotfile exists...removing...";
+    rm -f ~/.git-prompt2.sh;
 fi
-ln -s ~/.dotfiles/prompt-git.sh ~/.prompt-git.sh
+ln -s ~/.dotfiles/git-prompt2.sh ~/.git-prompt2.sh
 
 if [ -e ~/.gitconfig ]; then
     echo "gitconfig dotfile exists...removing...";
