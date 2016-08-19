@@ -46,11 +46,11 @@ fi
 ln -s ~/.dotfiles/xonshrc ~/.xonshrc
 
 # for git configuration and customization
-#if [ -e ~/.git-prompt.sh ]; then
-#    echo "git-prompt dotfile exists...removing...";
-#    rm -f ~/.git-prompt.sh;
-#fi
-#ln -s ~/.dotfiles/git-prompt.sh ~/.git-prompt.sh
+if [ -e ~/.git-prompt.sh ]; then
+    echo "git-prompt dotfile exists...removing...";
+    rm -f ~/.git-prompt.sh;
+fi
+ln -s ~/.dotfiles/git-prompt.sh ~/.git-prompt.sh
 
 if [ -e ~/.git-prompt2.sh ]; then
     echo "git-prompt2 dotfile exists...removing...";
