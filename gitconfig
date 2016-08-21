@@ -46,6 +46,12 @@
   hotfix = hotfix-
   support = support-
   versiontag = v
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[url "https://"]
+  insteadOf = git://
 [alias]
   unstage = reset HEAD --
   slog = log --oneline --topo-order --graph
@@ -201,9 +207,3 @@
   #human = name-rev --name-only --refs=refs/heads/*
   #serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
   #snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-[filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
-  required = true
-[url "https://"]
-	insteadOf = git://
