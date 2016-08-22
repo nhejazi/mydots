@@ -29,11 +29,7 @@ alias Julia='julia'
 
 alias ipy2='ipython2'
 
-if [ `uname` == "Darwin" ]; then
-  alias ipy3='ipython3 --pylab'
-else
-  alias ipy3='ipython3'
-fi
+alias ipy3='ipython3'
 
 alias jpynb='jupyter notebook --no-browser'
 
