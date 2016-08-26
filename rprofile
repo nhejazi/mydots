@@ -115,11 +115,9 @@ if(Sys.getenv("TERM") == "xterm-256color") { library("colorout") }
 #}
 
 ## load packages that are integral to my R experience
-library("data.table")
 library("dplyr")
 library("ggplot2")
 library("devtools")
-library("dtplyr")
 library("tibble")
 
 ## load my utilities package
