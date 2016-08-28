@@ -15,7 +15,13 @@ alias prme='ps aux | grep $USER'
 # make common tools easier to use...
 alias rr='R'
 
-alias py2='python2'
+if [ `uname` == "Linux" ]; then
+  alias py2='python2.7'
+elif [ `uname` == "Darwin" ]; then
+  alias py2='python2'
+else
+  :
+fi
 
 if [ `uname` == "Linux" ]; then
   alias py3='python3.5'
@@ -34,13 +40,13 @@ alias ipy3='ipython3'
 alias jpynb='jupyter notebook --no-browser'
 
 
-# OS-specific alias for good-news prompt
+# system-specific alias for good-news prompt
 if [[ $USER == "nimahejazi" ]]; then
   if [ `uname` == "Linux" ]; then
     shuf -n1 ~/.goodnews
     alias qf='shuf -n1 ~/.goodnews'
   else
-  # for OSX, use Homebrew's GNU coreutils
+  # for macOS, use Homebrew's GNU coreutils
     gshuf -n1 ~/.goodnews
     alias qf='gshuf -n1 ~/.goodnews'
   fi
