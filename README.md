@@ -1,7 +1,7 @@
 # my.files
 
-> _collection of my config files for easy customization - i.e., copying my style
-> made really simple..._
+> _collection of my configuration/customization files (copying my style made
+> really simple...)_
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
