@@ -15,7 +15,6 @@ import sys
 import numpy as np
 import scipy as sp
 import pandas as pd
-import statsmodels as sm
 from bashplotlib.scatterplot import plot_scatter
 from bashplotlib.histogram import plot_hist
 

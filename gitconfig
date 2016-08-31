@@ -1,13 +1,13 @@
 [user]
-  name = Nima Hejazi
-  email = nima.hejazi7@gmail.com
+	name = Nima Hejazi
+	email = nima.hejazi7@gmail.com
 [core]
   editor = nvim
   pager =
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/nimahejazi/.gitignore_global
 [commit]
-  template = ~/.gitmessage.txt
+	template = ~/.gitmessage.txt
 [web]
   browser = google-chrome
 [rerere]
@@ -207,3 +207,9 @@
   #human = name-rev --name-only --refs=refs/heads/*
   #serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
   #snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

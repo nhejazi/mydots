@@ -10,7 +10,7 @@ if [ -e ~/.bashrc ]; then
 fi
 ln -s ~/.dotfiles/bashrc ~/.bashrc
 
-# using .bash_profile for OSX-specific changes
+# using .bash_profile for changes specific to macOS
 if [ -e ~/.bash_profile ]; then
     echo "bash_profile dotfile exists...removing...";
     rm -f ~/.bash_profile;
@@ -37,6 +37,13 @@ if [ -e ~/.bash_color ]; then
     rm -f ~/.bash_color;
 fi
 ln -s ~/.dotfiles/bash_color ~/.bash_color
+
+# for zsh shell customization
+if [ -e ~/.zshrc ]; then
+    echo "zshrc dotfile exists...removing...";
+    rm -f ~/.zshrc;
+fi
+ln -s ~/.dotfiles/zshrc ~/.zshrc
 
 # for xonsh shell customization
 if [ -e ~/.xonshrc ]; then
