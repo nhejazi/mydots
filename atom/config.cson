@@ -1,0 +1,52 @@
+"*":
+  Hydrogen: {}
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "repl-term"
+      "jupyter-notebook"
+      "language-gfm"
+    ]
+    openEmptyEditorOnStart: false
+    themes: [
+      "seti-ui"
+      "seti-syntax"
+    ]
+  editor:
+    invisibles: {}
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: "ceb72210-3bbf-ef71-d8fd-ac9521b8fc8b"
+  "julia-client":
+    enableMenu: true
+    enableToolBar: true
+    launchOnStartup: true
+  linter:
+    showErrorPanel: false
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+      selection: true
+      selectionDecorationsZIndex: 0
+  "one-dark-ui": {}
+  "r-exec":
+    advancePosition: false
+    focusWindow: true
+    notifications: true
+    whichApp: "iTerm"
+  "tool-bar":
+    position: "Left"
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  "uber-juno":
+    disable: true
+  welcome:
+    showOnStartup: false
