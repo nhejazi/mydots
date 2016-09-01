@@ -67,60 +67,8 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-##########################################################################################
-## OLD SHELL PROMPT (USES `git-prompt.sh`) - DROPPED IN FAVOR OF USING `git-prompt2.sh` ##
-##########################################################################################
-# set variable identifying the chroot you work in (used in the prompt below)
-#if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-#    debian_chroot=$(cat /etc/debian_chroot)
-#fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-#case "$TERM" in
-#    xterm-color) color_prompt=yes;;
-#esac
-
-# Add git branch to prompt
-#. ~/.git-prompt.sh
-#parse_git_branch() {
-#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-#}
-
-# uncomment for a colored prompt, if the terminal has the capability
-#force_color_prompt=yes
-#if [ -n "$force_color_prompt" ]; then
-#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-#      # We have color support; assume it's compliant with Ecma-48
-#      # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-#      # a case would tend to support setf rather than setaf.)
-#      color_prompt=yes
-#    else
-#      color_prompt=
-#    fi
-#fi
-
-#if [ "$color_prompt" = yes ]; then
-#    PS1='\[\e[0;34m\]\u:\[\e[m\] \[\e[0;32m\]\w\[\e[m\] '
-#    PS1+='\[\e[1;31m\]$(parse_git_branch)\[\e[m\] \[\e[0;35m\]\$\[\e[m\] \[\e[0;37m\]'
-#else
-#    PS1='\u: \w $(parse_git_branch) \$ '
-#fi
-#unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir (removed for shorter title)
-#case "$TERM" in
-#xterm*|rxvt*)
-#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-#    ;;
-#*)
-#    ;;
-#esac
-##########################################################################################
-##########################################################################################
-
-
 # Use defined prompt_git from `prompt-git.sh` for mathiasbynens style
-. ~/.git-prompt2.sh
+. ~/.git-prompt_mb.sh
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
