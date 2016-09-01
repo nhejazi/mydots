@@ -30,8 +30,8 @@ $XONSH_SHOW_TRACEBACK = True
 $XONSH_STORE_STDOUT = True
 
 
-# configure display prompt
-$PROMPT = '{BOLD_INTENSE_CYAN}{user} {WHITE}at {BOLD_INTENSE_BLUE}{hostname} '
+# configure Xonsh display prompt
+$PROMPT = '{BOLD_INTENSE_CYAN}{user} {WHITE}at {BOLD_RED}{hostname} '
 $PROMPT += '{WHITE}in {BOLD_INTENSE_YELLOW}{cwd} {branch_color}{curr_branch}'
 $PROMPT += '{BOLD_WHITE}\n$ '
 $PATH = list(np.unique(list($PATH)))
@@ -45,6 +45,7 @@ aliases['gb'] = ['git', 'branch']
 aliases['gd'] = ['git', 'diff']
 aliases['ga'] = ['git', 'add', '-A']
 aliases['gc'] = ['git', 'commit']
+aliases['gca'] = ['git', 'commit', '--amend']
 aliases['gcm'] = ['git', 'commit', '-m']
 aliases['grv'] = ['git', 'remote', '-v']
 aliases['gpl'] = ['git', 'pull']
