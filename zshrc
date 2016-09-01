@@ -16,7 +16,7 @@ export ZSH=/Users/nimahejazi/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="fino"
+ZSH_THEME="steeef"
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -87,11 +87,16 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+
+# Control length of history file
+HISTSIZE=1000
+SAVEHIST=1000
 
 
 # Compilation flags

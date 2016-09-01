@@ -104,4 +104,4 @@ fi
 ln -s ~/.dotfiles/hyperterm.js ~/.hyperterm.js
 
 # run setup script for Atom (text editor) configuration files
-sh ./atom/_setupAtom.sh
+sh ./atom/_linkAtomicDots.sh
