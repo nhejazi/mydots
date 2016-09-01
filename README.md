@@ -1,7 +1,6 @@
 # my.files
 
-> _collection of my configuration/customization files (copying my style made
-> really simple...)_
+> _a collection of my configuration/customization files_
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
@@ -16,11 +15,11 @@ My collection of configuration files for [git](https://git-scm.com/) and
 ## Directions/Roadmap
 ```bash
 git clone https://github.com/nhejazi/mydotfiles.git ~/.dotfiles
-sh ~/.dotfiles/_setup.sh
+sh ~/.dotfiles/_linkDots.sh
 ```
 
 __N.B.__,
-*  Before running `sh ~/.dotfiles/_setup.sh`, update _user.name_ and
+*  Before running `sh ~/.dotfiles/_linkDots.sh`, update _user.name_ and
     _user.email_ in the `gitconfig` file appropriately.
 
 *  To use the gitsome CLI (to add GitHub integration to xonsh), simply run
