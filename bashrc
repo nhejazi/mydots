@@ -12,6 +12,19 @@ if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == 
   fi
 fi
 
+
+# from bashrc on Berkeley Statistical Computing Facility (SCF) machines
+if [ -h ~skel/std.bashrc ]; then
+  . ~skel/std.bashrc;
+fi
+
+
+# from bash_profile on Berkeley Statistical Computing Facility (SCF) machines
+if [ -h ~skel/std.profile ]; then
+  . ~skel/std.profile;
+fi
+
+
 # Seems to fix lack of 256 colors in Xfce
 if [ "$COLORTERM" == "xfce4-terminal" ]; then
   export TERM=xterm-256color
