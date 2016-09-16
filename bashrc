@@ -5,11 +5,28 @@
 #####################################
 
 
-# source global definitions (for clusters: Berkeley HPC Savio and Biostat Bluevelvet)
+# for Berkeley/LBL Savio and Bluevelvet Biostat clusters - source global definitions
 if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
   if [ -f /etc/bashrc ]; then
       . /etc/bashrc
   fi
+fi
+
+# for Grizzlybear2 Biostat HPC cluster - definition, library, and module paths
+if [ `uname -n | cut -d'.' -f 1` == "grizzlybear2" ]; then
+  # Source global definitions
+  if [ -f /etc/bashrc ]; then
+      . /etc/bashrc
+  fi
+
+  # Create R_LIBS directory if it does not exist 
+  if [ ! -d "$HOME/.R-packages" ]; then 
+       mkdir $HOME/.R-packages 
+  fi 
+  export R_LIBS=~/.R-packages
+ 
+  module use /share/apps/modulefiles
+  module load /share/apps/modulefiles/R
 fi
 
 
