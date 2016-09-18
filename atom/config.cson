@@ -14,8 +14,11 @@
     ]
   editor:
     invisibles: {}
+    preferredLineLength: 80
+    showInvisibles: false
     softWrap: true
     softWrapAtPreferredLineLength: true
+    tabType: "soft"
   "exception-reporting":
     userId: "ceb72210-3bbf-ef71-d8fd-ac9521b8fc8b"
   "julia-client":

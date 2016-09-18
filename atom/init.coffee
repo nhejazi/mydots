@@ -10,6 +10,7 @@
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
 #
+process.env.PATH = ['/usr/local/bin/', process.env.PATH].join(':')
 atom.config.set('r-exec.whichApp', 'iTerm')
 atom.config.set('r-exec.advancePosition', false)
 atom.config.set('r-exec.focusWindow', true)
