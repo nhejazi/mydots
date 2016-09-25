@@ -6,10 +6,10 @@
 
 This collection of configuration files affects behavior of the following tools:
 * [git](https://git-scm.com/)
-* [bash](https://www.gnu.org/software/bash/),
+* [bash](https://www.gnu.org/software/bash/)
 * [zsh](http://zsh.sourceforge.net)
 * [xonsh](https://xon.sh/)
-* [gitsome](https://github.com/donnemartin/gitsome))
+* [gitsome](https://github.com/donnemartin/gitsome)
 * [HyperTerm](https://hyperterm.org/)
 * [the R language](https://www.r-project.org)
 * [the Atom editor](https://atom.io)
@@ -45,13 +45,12 @@ sh ~/.dotfiles/_linkDots.sh
 * [nhejazi/myvimconfig](https://github.com/nhejazi/myvimconfig) - a customized
     configuration for the popular editor [Vim](http://www.vim.org/index.php).
 
-* [nhejazi/ubuntu-fresh](https://github.com/nhejazi/macOS-fresh) - for setting
-    up macOS systems from scratch, easily installing many of the tools that
-    this configuration affects.
-
-* [nhejazi/macOS-fresh](https://github.com/nhejazi/ubuntu-fresh) - for setting
-    up Ubuntu systems, painlessly installing many of the tools affected by this
+* [nhejazi/ubuntu-fresh](https://github.com/nhejazi/ubuntu-fresh) - setup
+    scripts for Ubuntu, painlessly installing tools affected by this
     configuration.
+
+* [nhejazi/macOS-fresh](https://github.com/nhejazi/macOS-fresh) - setup scripts
+    for macOS, easily installing many tools that this configuration affects.
 
 ---
 
