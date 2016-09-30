@@ -6,6 +6,7 @@
       "repl-term"
       "jupyter-notebook"
       "language-gfm"
+      "activate-power-mode"
     ]
     openEmptyEditorOnStart: false
     themes: [
