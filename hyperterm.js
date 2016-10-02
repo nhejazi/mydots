@@ -52,6 +52,24 @@ module.exports = {
       lightWhite: '#ffffff'
     },
 
+    // customizable dropdown/hotkey overlay window
+    overlay: {
+      alwaysOnTop: true,
+      animate: true,
+      hasShadow: false,
+      hideDock: false,
+      hideOnBlur: false,
+      hotkeys: ['Option+Space'],
+      position: 'top',
+      primaryDisplay: false,
+      resizable: true,
+      startAlone: false,
+      startup: false,
+      size: 0.4,
+      tray: true,
+      unique: false
+    },
+
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
     shell: 'bash'
@@ -67,11 +85,17 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hyperline",
+    "hyperlinks",
     //"hyperborder",
+    "hyperterm-close-on-left",
     "hyperterm-final-say",
+    //"hyperterm-tab-icons",
+    "hyperterm-overlay",
+    "hyperterm-cursor",
     "hyperterm-blink",
-    "hypertheme",
-    "hyperseti"
+    "hyperterm-tabs",
+    "hyperseti"   // Seti theme
+    //"hyperterm-solarized-dark"   // Solarized-Dark theme
   ],
 
   // in development, you can create a directory under
