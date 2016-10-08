@@ -92,7 +92,7 @@ ln -s ~/.dotfiles/rprofile ~/.Rprofile
 
 # configuration file for the HyperTerm terminal
 if [ -e ~/.hyper.js ]; then
-  echo "hyperterm.js already exists...old version will be renamed...";
+  echo "hyper.js already exists...old version will be renamed...";
   mv -f ~/.hyper.js ~/.hyper_orig.js;
 fi
 ln -s ~/.dotfiles/hyper.js ~/.hyper.js
