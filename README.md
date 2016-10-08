@@ -10,7 +10,7 @@ This collection of configuration files affects behavior of the following tools:
 * [zsh](http://zsh.sourceforge.net)
 * [xonsh](https://xon.sh/)
 * [gitsome](https://github.com/donnemartin/gitsome)
-* [HyperTerm](https://hyperterm.org/)
+* [Hyper](https://hyper.is/)
 * [the R language](https://www.r-project.org)
 * [the Atom editor](https://atom.io)
 
