@@ -53,21 +53,9 @@ module.exports = {
     },
 
     // hyperterm-overlay: customizable dropdown/hotkey overlay window
-    overlay: {
-      alwaysOnTop: true,
-      animate: true,
-      hasShadow: false,
-      hideDock: false,
-      hideOnBlur: false,
-      hotkeys: ['Option+Space'],
-      position: 'top',
-      primaryDisplay: false,
-      resizable: true,
-      startAlone: false,
-      startup: false,
-      size: 0.4,
-      tray: true,
-      unique: false
+    visor: {
+      hotkey: 'Option+Space',
+      position: 'top', // or left, right, bottom
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -90,7 +78,7 @@ module.exports = {
     "hyperterm-tabs",
     "hyperterm-tab-icons",
     "hyperterm-close-on-left",
-    "hyperterm-overlay",
+    "hyperterm-visor",
     "hyperterm-cursor",
     "hyperterm-blink",
     "hyperterm-paste",
