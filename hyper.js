@@ -52,7 +52,7 @@ module.exports = {
       lightWhite: '#ffffff'
     },
 
-    // customizable dropdown/hotkey overlay window
+    // hyperterm-overlay: customizable dropdown/hotkey overlay window
     overlay: {
       alwaysOnTop: true,
       animate: true,
@@ -84,18 +84,17 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
+    "hypercwd",
     "hyperline",
     "hyperlinks",
-    //"hyperborder",
+    "hyperterm-tabs",
+    "hyperterm-tab-icons",
     "hyperterm-close-on-left",
-    "hyperterm-final-say",
-    //"hyperterm-tab-icons",
     "hyperterm-overlay",
     "hyperterm-cursor",
     "hyperterm-blink",
-    "hyperterm-tabs",
-    "hyperseti"   // Seti theme
-    //"hyperterm-solarized-dark"   // Solarized-Dark theme
+    "hyperterm-paste",
+    "hyperseti"    // Seti theme
   ],
 
   // in development, you can create a directory under
