@@ -9,10 +9,10 @@ This collection of configuration files affects behavior of the following tools:
 * [bash](https://www.gnu.org/software/bash/)
 * [zsh](http://zsh.sourceforge.net)
 * [xonsh](https://xon.sh/)
-* [gitsome](https://github.com/donnemartin/gitsome)
-* [Hyper](https://hyper.is/)
-* [the R language](https://www.r-project.org)
-* [the Atom editor](https://atom.io)
+* [gitsome (CLI)](https://github.com/donnemartin/gitsome)
+* [Hyper (terminal)](https://hyper.is/)
+* [Atom (editor)](https://atom.io)
+* [R (language)](https://www.r-project.org)
 
 ---
 

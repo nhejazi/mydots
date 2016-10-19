@@ -9,6 +9,7 @@
       "activate-power-mode"
     ]
     openEmptyEditorOnStart: false
+    telemetryConsent: "limited"
     themes: [
       "seti-ui"
       "seti-syntax"
