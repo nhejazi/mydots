@@ -4,43 +4,10 @@
 ##### is symlinked to ~/.bashrc #####
 #####################################
 
-
-# for Berkeley/LBL Savio and Bluevelvet Biostat clusters - source global definitions
-if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
-  if [ -f /etc/bashrc ]; then
-      . /etc/bashrc
-  fi
-fi
-
-# for Grizzlybear2 Biostat HPC cluster - definition, library, and module paths
-if [ `uname -n | cut -d'.' -f 1` == "grizzlybear2" ]; then
-  # Source global definitions
-  if [ -f /etc/bashrc ]; then
-      . /etc/bashrc
-  fi
-
-  # Create R_LIBS directory if it does not exist 
-  if [ ! -d "$HOME/.R-packages" ]; then 
-       mkdir $HOME/.R-packages 
-  fi 
-  export R_LIBS=~/.R-packages
- 
-  module use /share/apps/modulefiles
-  module load /share/apps/modulefiles/R
-fi
-
-
-# Seems to fix lack of 256 colors in Xfce
-if [ "$COLORTERM" == "xfce4-terminal" ]; then
-  export TERM=xterm-256color
-fi
-
-
 # Give bash shell a nice look
 if [ -h ~/.bash_color ]; then
   . ~/.bash_color;
 fi
-
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -50,12 +17,15 @@ if [ -h ~/.bash_aliases ]; then
   . ~/.bash_aliases;
 fi
 
-
 # add GitHub completion (source: donnemartin/gitsome on GitHub)
 if [ -h ~/.gh_complete.sh ]; then
   . ~/.gh_complete.sh;
 fi
 
+# seems to fix lack of 256 colors in Xfce
+if [ "$COLORTERM" == "xfce4-terminal" ]; then
+  export TERM=xterm-256color
+fi
 
 # If not running interactively, don't do anything
 case $- in
@@ -115,10 +85,8 @@ PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
-
 # set title of a terminal window to be the relative path
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
-
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -132,11 +100,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -148,30 +114,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-
-# Comical quotes for terminal (see GitHub: nhejazi/good-news)
-# NOTE June 2016: this appears to cause some issues with logging in to servers
-# to copy files (affects tools including `scp`, `rsync`, Cyberduck, Filezilla)
-# my remote username is usually "nhejazi" ==> this seems to work fine now...
-if [[ $USER == "nimahejazi" ]]; then  ## local user accounts only
-  if [ ! -e ~/.goodnews ]; then
-    git clone https://github.com/nhejazi/good-news.git ~/.good-news
-    sh ~/.good-news/_setup.sh
-  fi
-fi
-
-
-# Setting PATH for Scala
-export SCALA_HOME=/usr/local/share/scala
-export PATH=$PATH:$SCALA_HOME/bin
-
-
-# Workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
-if [ `uname` == "Darwin" ]; then
-  export TERMINFO="$HOME/.terminfo"
-fi
-
 
 # To use GitHub integration with gitsome CLI, the following is necessary: 
 # NOTE June 2016: this causes an issue on Enterprise Linux systems that are
@@ -185,14 +127,33 @@ else
   fi
 fi
 
+# Comical quotes for terminal (see GitHub: nhejazi/good-news)
+# NOTE June 2016: this appears to cause some issues with logging in to servers
+# to copy files (affects tools including `scp`, `rsync`, Cyberduck, Filezilla)
+# my remote username is usually "nhejazi" ==> this seems to work fine now...
+if [[ $USER == "nimahejazi" ]]; then  ## local user accounts only
+  if [ ! -e ~/.goodnews ]; then
+    git clone https://github.com/nhejazi/good-news.git ~/.good-news
+    sh ~/.good-news/_setup.sh
+  fi
+fi
 
-# bash completion set up by Mac-CLI tool (see GitHub: guarinogabriel/Mac-CLI)
+# Setting PATH for Scala
+export SCALA_HOME=/usr/local/share/scala
+export PATH=$PATH:$SCALA_HOME/bin
+
+# Workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
+if [ `uname` == "Darwin" ]; then
+  export TERMINFO="$HOME/.terminfo"
+fi
+
+# bash completions needed by Homebrew and Mac-CLI
+# (for Mac-CLI info, see GitHub: guarinogabriel/Mac-CLI)
 if [ `uname` == "Darwin" ]; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion;
   fi
 fi
-
 
 # Codi for Vim
 # Usage: codi [filetype] [filename]
@@ -206,7 +167,42 @@ codi() {
     Codi ${1:-python}"
 }
 
+# Codi for Neovim
+# Usage: codi2 [filetype] [filename]
+codi2() {
+  nvim "$2" -c \
+    "let g:startify_disable_at_vimenter = 1 |\
+    set bt=nofile ls=0 noru nonu nornu |\
+    hi ColorColumn ctermbg=NONE |\
+    hi VertSplit ctermbg=NONE |\
+    hi NonText ctermfg=0 |\
+    Codi ${1:-python}"
+}
 
-# Homebrew auto-addition for bash completions
-if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi
-if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi
+#####################################
+####### FOR REMOTE HOSTS ONLY #######
+#####################################
+# for Berkeley/LBL Savio and Bluevelvet Biostat clusters - source global definitions
+if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
+  if [ -f /etc/bashrc ]; then
+      . /etc/bashrc
+  fi
+fi
+
+# for Grizzlybear2 Biostat HPC cluster - definition, library, and module paths
+if [ `uname -n | cut -d'.' -f 1` == "grizzlybear2" ]; then
+  # Source global definitions
+  if [ -f /etc/bashrc ]; then
+      . /etc/bashrc
+  fi
+
+  # Create R_LIBS directory if it does not exist 
+  if [ ! -d "$HOME/.R-packages" ]; then 
+       mkdir $HOME/.R-packages 
+  fi 
+  export R_LIBS=~/.R-packages
+ 
+  module use /share/apps/modulefiles
+  module load /share/apps/modulefiles/R
+fi
+#####################################
