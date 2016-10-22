@@ -3,10 +3,8 @@
   core:
     audioBeep: false
     disabledPackages: [
-      "repl-term"
-      "jupyter-notebook"
+      "linter-lintr"
       "language-gfm"
-      "activate-power-mode"
     ]
     openEmptyEditorOnStart: false
     telemetryConsent: "limited"
@@ -43,7 +41,6 @@
       pigmentsDecorationsZIndex: 0
       selection: true
       selectionDecorationsZIndex: 0
-  "one-dark-ui": {}
   "r-exec":
     advancePosition: false
     focusWindow: true
