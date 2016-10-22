@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 13,
 
     // font family with optional fallbacks
     fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
@@ -54,7 +54,7 @@ module.exports = {
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
-    shell: '',
+    shell: 'bash',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
     // by default ['--login'] will be used
@@ -73,6 +73,12 @@ module.exports = {
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+    // hyperterm-visor: customizable dropdown/hotkey overlay window
+    visor: {
+      hotkey: 'Option+Space',
+      position: 'top', // or left, right, bottom
+    },
   },
 
   // a list of plugins to fetch and install from npm
@@ -81,8 +87,19 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
-
+  plugins: [
+    "hypercwd",
+    "hyperline",
+    "hyperlinks",
+    "hyperterm-tabs",
+    "hyperterm-bold-tab",
+    "hyperterm-close-on-left",
+    "hyperterm-cursor",
+    "hyperterm-blink",
+    "hyperterm-paste",
+    "hyperterm-visor",
+    "hyperseti"    // Seti theme
+  ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
