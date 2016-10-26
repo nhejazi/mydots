@@ -62,7 +62,7 @@ module.exports = {
     // if left empty, your system's login shell will be used by default
     shell: 'bash',
 
-    // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
+    // for setting shell arguments (i.e. using interactive shellArgs: ['-i'])
     // by default ['--login'] will be used
     shellArgs: ['--login'],
 
@@ -89,17 +89,18 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hypercwd",
-    "hyperline",
+    //"hyperline",
     "hyperlinks",
-    "hyperterm-tabs",
-    "hyperterm-tab-cwd",
+    //"hyperterm-tabs",
+    //"hyperterm-tab-cwd",
     "hyperterm-bold-tab",
     "hyperterm-close-on-left",
     "hyperterm-visor",
     "hyperterm-cursor",
     "hyperterm-blink",
     "hyperterm-paste",
-    "hyperseti"    // Seti theme
+    "hyper-snazzy"    // Snazzy theme
+    //"hyperseti"    // Seti theme
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
