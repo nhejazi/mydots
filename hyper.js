@@ -92,7 +92,6 @@ module.exports = {
     //"hyperline",
     "hyperlinks",
     //"hyperterm-tabs",
-    //"hyperterm-tab-cwd",
     "hyperterm-bold-tab",
     "hyperterm-close-on-left",
     "hyperterm-visor",
