@@ -1,18 +1,11 @@
 ####### ====================================================== ################
 ####### my .Rprofile configuration (symlinked to ~/.Rprofile)  ################
-####### my usernames: local == nimahejazi, clusters == nhejazi ################
-####### note: some parts used to force installs on my machines ################
 ####### ====================================================== ################
 
-####### ====================================================== ################
-####### avoid package library issues with R version changes ###################
+## avoid package library issues with R version changes
 if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
   .libPaths("~/.Rlibrary")
 }
-####### ====================================================== ################
-
-####### ====================================================== ################
-####### miscellaneous changes that add various useful features ################
 
 ## Give REPL prompts that are clearer
 options(prompt = "R > ", continue = "... ")
@@ -92,33 +85,13 @@ utils::rc.settings(ipck = TRUE)
   }
 }
 
-## install `colorout` package on my machines if missing (REMOVED)
-#if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
-#  library("utils")
-#  if ("colorout" %ni%
-#    names(as.data.frame(installed.packages())$Package)) {
-#      devtools::install_github("jalvesaq/colorout")
-#  }
-#}
-
-## install my utilities package if missing on my machines (REMOVED)
-#if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
-#  library("utils")
-#  if ("nima" %ni%
-#    names(as.data.frame(installed.packages())$Package)) {
-#      devtools::install_github("nhejazi/nima", ref = "develop")
-#  }
-#}
-
 ## load `colorout` package at startup
 if ("colorout" %in% utils::installed.packages()[, 1]) {
   if(Sys.getenv("TERM") == "xterm-256color") { library("colorout") }
 }
 
 ## load my package with miscellaneous utility functions
-if ("nima" %in% utils::installed.packages()[, 1]) {
-  library("nima")
-}
+if ("nima" %in% utils::installed.packages()[, 1]) { library("nima") }
 
 ## load packages that are integral to my R experience
 suppressMessages(library("devtools"))
@@ -127,5 +100,3 @@ suppressMessages(library("dplyr"))
 suppressMessages(library("tibble"))
 suppressMessages(library("data.table"))
 suppressMessages(library("dtplyr"))
-
-####### ====================================================== ################
