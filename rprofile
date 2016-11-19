@@ -1,7 +1,7 @@
 ####### ====================================================== ################
 ####### my .Rprofile configuration (symlinked to ~/.Rprofile)  ################
-####### note: some parts force install on my own machines only ################
 ####### my usernames: local == nimahejazi, clusters == nhejazi ################
+####### note: some parts used to force installs on my machines ################
 ####### ====================================================== ################
 
 ####### ====================================================== ################
@@ -12,9 +12,12 @@ if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
 ####### ====================================================== ################
 
 ####### ====================================================== ################
-####### miscellaneous changes to set things to my preferences  ################
+####### miscellaneous changes that add various useful features ################
 
-## Don't ask me for my CRAN mirror every time
+## Give REPL prompts that are clearer
+options(prompt = "R > ", continue = "... ")
+
+## Stop asking for CRAN mirror every time
 options("repos" = c(CRAN = "https://cran.rstudio.com/"))
 
 ## Create a new invisible environment for all the functions to go in.
@@ -70,10 +73,6 @@ options(show.signif.stars = FALSE)
 ## Tab-complete package names when calling `library()` and `require()`
 utils::rc.settings(ipck = TRUE)
 
-## copy the style of the Python interpreter/REPL
-#options(prompt = "> ")
-#options(continue = "... ")
-
 ## run at R startup (includes pasting timestamp to Rhistory file)
 .First <- function() {
   if(interactive()) {
@@ -102,9 +101,6 @@ utils::rc.settings(ipck = TRUE)
 #  }
 #}
 
-## load `colorout` package at startup
-if(Sys.getenv("TERM") == "xterm-256color") { library("colorout") }
-
 ## install my utilities package if missing on my machines (REMOVED)
 #if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
 #  library("utils")
@@ -114,13 +110,22 @@ if(Sys.getenv("TERM") == "xterm-256color") { library("colorout") }
 #  }
 #}
 
-## load packages that are integral to my R experience
-suppressMessages(library("dplyr"))
-suppressMessages(library("ggplot2"))
-suppressMessages(library("devtools"))
-suppressMessages(library("tibble"))
+## load `colorout` package at startup
+if ("colorout" %in% utils::installed.packages()[, 1]) {
+  if(Sys.getenv("TERM") == "xterm-256color") { library("colorout") }
+}
 
-## load my utilities package
-library("nima")
+## load my package with miscellaneous utility functions
+if ("nima" %in% utils::installed.packages()[, 1]) {
+  library("nima")
+}
+
+## load packages that are integral to my R experience
+suppressMessages(library("devtools"))
+suppressMessages(library("ggplot2"))
+suppressMessages(library("dplyr"))
+suppressMessages(library("tibble"))
+suppressMessages(library("data.table"))
+suppressMessages(library("dtplyr"))
 
 ####### ====================================================== ################

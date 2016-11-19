@@ -89,9 +89,7 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hypercwd",
-    //"hyperline",
     "hyperlinks",
-    //"hyperterm-tabs",
     "hyperterm-bold-tab",
     "hyperterm-close-on-left",
     "hyperterm-visor",
@@ -99,7 +97,6 @@ module.exports = {
     "hyperterm-blink",
     "hyperterm-paste",
     "hyper-snazzy"    // Snazzy theme
-    //"hyperseti"    // Seti theme
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
