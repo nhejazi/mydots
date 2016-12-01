@@ -1,10 +1,19 @@
 "*":
-  Hydrogen: {}
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+    defaultProvider: "Fuzzy"
   core:
     audioBeep: false
     disabledPackages: [
       "linter-lintr"
-      "language-gfm"
+    ]
+    followSymlinks: true
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "*.pyc"
     ]
     openEmptyEditorOnStart: false
     telemetryConsent: "limited"
@@ -13,18 +22,28 @@
       "seti-syntax"
     ]
   editor:
-    invisibles: {}
+    fontSize: 13
+    invisibles:
+      cr: "↩"
+      eol: " "
+      tab: "⇥"
     preferredLineLength: 80
+    scrollPastEnd: true
+    showIndentGuide: true
     showInvisibles: false
     softWrap: true
     softWrapAtPreferredLineLength: true
     tabType: "soft"
   "exception-reporting":
     userId: "ceb72210-3bbf-ef71-d8fd-ac9521b8fc8b"
+  "file-icons":
+    coloured: false
+  "highlight-selected":
+    showInStatusBar: false
   "julia-client":
     enableMenu: true
     enableToolBar: true
-    launchOnStartup: true
+    launchOnStartup: false
   linter:
     showErrorPanel: false
   minimap:
@@ -45,11 +64,18 @@
     advancePosition: false
     focusWindow: true
     notifications: true
-    whichApp: "iTerm"
+    whichApp: "Google Chrome"
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
   "tool-bar":
     position: "Left"
   "tree-view":
     hideVcsIgnoredFiles: true
+  "vim-mode": {}
   "uber-juno":
     disable: true
   welcome:

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # remove broken symlinks
 find -L ~ -maxdepth 1 -type l -exec rm {} +
@@ -17,7 +17,6 @@ if [ -e ~/.bash_profile ]; then
 fi
 ln -s ~/.dotfiles/bash_profile ~/.bash_profile
 
-# using .profile for Linux-specific changes
 if [ -e ~/.profile ]; then
     echo "profile dotfile exists...old version will be renamed...";
     mv -f ~/.profile ~/.profile_orig;
@@ -71,26 +70,28 @@ if [ -e ~/.gitignore_global ]; then
 fi
 ln -s ~/.dotfiles/gitignore_global ~/.gitignore_global
 
+# message template for git commits
 if [ -e ~/.gitmessage.txt ]; then
     echo "gitmessage dotfile exists...old version will be renamed...";
     mv -f ~/.gitmessage.txt ~/.gitmessage_orig.txt;
 fi
 ln -s ~/.dotfiles/gitmessage.txt ~/.gitmessage.txt
 
+# GitHub autocompletions script
 if [ -e ~/.gh_complete.sh ]; then
     echo "github_complete already exists...old version will be renamed...";
     mv -f ~/.gh_complete.sh ~/.gh_complete_orig.sh;
 fi
 ln -s ~/.dotfiles/gh_complete.sh ~/.gh_complete.sh
 
-# session startup profile for R language/environment
+# session startup profile for the R language
 if [ -e ~/.Rprofile ]; then
   echo "Rprofile already exists...old version will be renamed...";
   mv -f ~/.Rprofile ~/.Rprofile_orig;
 fi
 ln -s ~/.dotfiles/rprofile ~/.Rprofile
 
-# configuration file for the HyperTerm terminal
+# configuration file for the terminal emulater Hyper
 if [ -e ~/.hyper.js ]; then
   echo "hyper.js already exists...old version will be renamed...";
   mv -f ~/.hyper.js ~/.hyper_orig.js;

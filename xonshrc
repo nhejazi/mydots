@@ -15,8 +15,6 @@ import sys
 import numpy as np
 import scipy as sp
 import pandas as pd
-from bashplotlib.scatterplot import plot_scatter
-from bashplotlib.histogram import plot_hist
 
 
 # better colors for `ls` command
@@ -38,15 +36,20 @@ $PATH = list(np.unique(list($PATH)))
 
 
 # custom aliases for convenience
-aliases['glog'] = ['git', 'log', '--oneline', '--topo-order', '--graph']
-aliases['ghist'] = ['git', 'log', '--all', '--graph', '--decorate', '--oneline']
-aliases['gs'] = ['git', 'status']
-aliases['gb'] = ['git', 'branch']
-aliases['gd'] = ['git', 'diff']
-aliases['ga'] = ['git', 'add', '-A']
-aliases['gc'] = ['git', 'commit']
-aliases['gca'] = ['git', 'commit', '--amend']
-aliases['gcm'] = ['git', 'commit', '-m']
-aliases['grv'] = ['git', 'remote', '-v']
-aliases['gpl'] = ['git', 'pull']
-aliases['gps'] = ['git', 'push']
+## Git aliases that overwrite defaults
+aliases['g log'] = ['git', 'log', '--oneline', '--topo-order', '--graph']
+aliases['g hist'] = ['git', 'log', '--all', '--graph', '--decorate', '--oneline']
+aliases['g stat'] = ['git', 'status']
+aliases['g diff'] = ['git', 'diff']
+aliases['g a'] = ['git', 'add', '-A']
+aliases['g cm'] = ['git', 'commit']
+aliases['g cm a'] = ['git', 'commit', '--amend']
+aliases['g cm m'] = ['git', 'commit', '-m']
+aliases['g rem v'] = ['git', 'remote', '-v']
+aliases['g pull'] = ['git', 'pull']
+aliases['g push'] = ['git', 'push']
+## select Bash aliases (not automatically honored...)
+aliases['lf'] = ['ls', '-aF']
+aliases['prme'] = ['ps', 'aux', '|', 'grep', '$USER']
+aliases['jpynb'] = ['jupyter', 'notebook', '--no-browser']
+aliases['rr'] = ['R']
