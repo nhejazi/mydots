@@ -83,15 +83,13 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hypercwd",
-    "hyperline",
+    //"hyperline",
     "hyperlinks",
     "hyper-blink",
     "hyperterm-bold-tab",
-    "hyperterm-tab-icons",
     "hyperterm-close-on-left",
     "hyperterm-cursor",
     "hyperterm-paste",
-    "hyperterm-title",
     "hyperterm-tabs",
     "hyper-snazzy"    // Snazzy theme
   ],
