@@ -6,6 +6,7 @@
     audioBeep: false
     disabledPackages: [
       "linter-lintr"
+      "language-gfm"
     ]
     followSymlinks: true
     ignoredNames: [
@@ -64,7 +65,7 @@
     advancePosition: false
     focusWindow: true
     notifications: true
-    whichApp: "Google Chrome"
+    whichApp: "iTerm"
   "split-diff":
     diffWords: true
     ignoreWhitespace: true
@@ -75,8 +76,8 @@
     position: "Left"
   "tree-view":
     hideVcsIgnoredFiles: true
-  "vim-mode": {}
   "uber-juno":
     disable: true
+  "vim-mode": {}
   welcome:
     showOnStartup: false

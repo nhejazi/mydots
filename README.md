@@ -25,10 +25,6 @@ git clone https://github.com/nhejazi/mydotfiles.git ~/.dotfiles
 sh ~/.dotfiles/_linkDots.sh
 ```
 
----
-
-## Notes
-
 *  Before running `_linkDots.sh`, update the _user.name_ and _user.email_ fields
     in the `gitconfig` file appropriately.
 
@@ -40,20 +36,20 @@ sh ~/.dotfiles/_linkDots.sh
 
 ## Related
 
-* [nhejazi/myneovimconfig](https://github.com/nhejazi/myneovimconfig) - a
+* __[nhejazi/myneovimconfig](https://github.com/nhejazi/myneovimconfig)__ - a
     minimal yet convenient configuration for the [Neovim](https://neovim.io)
     editor.
 
-* [nhejazi/myvimconfig](https://github.com/nhejazi/myvimconfig) - a customized
-    configuration for the essentially ubiquitous editor
+* __[nhejazi/myvimconfig](https://github.com/nhejazi/myvimconfig)__ - a
+    customized configuration for the essentially ubiquitous editor
     [Vim](http://www.vim.org/index.php).
 
-* [nhejazi/ubuntu-fresh](https://github.com/nhejazi/ubuntu-fresh) - setup
+* __[nhejazi/ubuntu-fresh](https://github.com/nhejazi/ubuntu-fresh)__ - setup
     scripts for Ubuntu, painlessly installing tools affected by this
     configuration.
 
-* [nhejazi/macOS-fresh](https://github.com/nhejazi/macOS-fresh) - setup scripts
-    for macOS, easily installing many tools that this configuration affects.
+* __[nhejazi/macOS-fresh](https://github.com/nhejazi/macOS-fresh)__ - setup
+    scripts for macOS, easily installing tools that this configuration affects.
 
 ---
 

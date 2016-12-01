@@ -1,13 +1,13 @@
 [user]
-	name = Nima Hejazi
-	email = nima.hejazi7@gmail.com
+  name = Nima Hejazi
+  email = nima.hejazi7@gmail.com
 [core]
   editor = nvim
   pager =
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /Users/nimahejazi/.gitignore_global
+  excludesfile = /Users/nimahejazi/.gitignore_global
 [commit]
-	template = ~/.gitmessage.txt
+  template = ~/.gitmessage.txt
 [web]
   browser = google-chrome
 [rerere]
@@ -35,9 +35,6 @@
   tool = vimdiff
 [difftool]
   prompt = false
-#[github]
-  #user = nhejazi
-  #token = token
 [credential]
   helper = cache --timeout=3600
 [gitflow "prefix"]
@@ -183,33 +180,3 @@
   w = show
   wp = show -p
   wr = show -p --no-color
-  #############
-  #svnr = svn rebase
-  #svnd = svn dcommit
-  #svnl = svn log --oneline --show-commit
-  #############
-  #assume = update-index --assume-unchanged
-  #unassume = update-index --no-assume-unchanged
-  #assumed = "!git ls-files -v | grep ^h | cut -c 3-"
-  #unassumeall = !git assumed | xargs git update-index --no-assume-unchanged
-  #assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
-  #############
-  #ours = "!f() { git checkout --ours $@ && git add $@; }; f"
-  #theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
-  #############
-  #whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
-  #whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
-  #############
-  #barebranch = !sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -
-  #flat = clone --depth 1
-  #subpull = !git submodule foreach git pull --tags origin master
-  #subrepo = !sh -c 'filter-branch --prune-empty --subdirectory-filter $1 master' -
-  #human = name-rev --name-only --refs=refs/heads/*
-  #serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
-  #snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
