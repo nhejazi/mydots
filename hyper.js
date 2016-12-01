@@ -52,12 +52,6 @@ module.exports = {
       lightWhite: '#ffffff'
     },
 
-    // hyperterm-visor: customizable dropdown/hotkey overlay window
-    visor: {
-      hotkey: 'Option+Space',
-      position: 'top', // or left, right, bottom
-    },
-
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
     shell: 'bash',
@@ -89,13 +83,16 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hypercwd",
+    "hyperline",
     "hyperlinks",
+    "hyper-blink",
     "hyperterm-bold-tab",
+    "hyperterm-tab-icons",
     "hyperterm-close-on-left",
-    "hyperterm-visor",
     "hyperterm-cursor",
-    "hyperterm-blink",
     "hyperterm-paste",
+    "hyperterm-title",
+    "hyperterm-tabs",
     "hyper-snazzy"    // Snazzy theme
   ],
   // in development, you can create a directory under
