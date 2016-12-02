@@ -90,7 +90,6 @@ module.exports = {
     "hyperterm-close-on-left",
     "hyperterm-cursor",
     "hyperterm-paste",
-    "hyperterm-tabs",
     "hyper-snazzy"    // Snazzy theme
   ],
   // in development, you can create a directory under
