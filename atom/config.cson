@@ -2,6 +2,8 @@
   "autocomplete-plus":
     confirmCompletion: "tab"
     defaultProvider: "Fuzzy"
+  "autocomplete-python":
+    useKite: false
   core:
     audioBeep: false
     disabledPackages: [
