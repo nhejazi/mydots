@@ -147,6 +147,11 @@ if [ `uname` == "Darwin" ]; then
   export TERMINFO="$HOME/.terminfo"
 fi
 
+# for Hub command line tool (GitHub wrapper around git)
+if [ `uname` == "Darwin" ]; then
+  eval "$(hub alias -s)"
+fi
+
 # bash completions needed by Homebrew and Mac-CLI
 # (for Mac-CLI info, see GitHub: guarinogabriel/Mac-CLI)
 if [ `uname` == "Darwin" ]; then
