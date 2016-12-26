@@ -9,18 +9,18 @@ if [ -h ~/.bash_color ]; then
   . ~/.bash_color;
 fi
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# Alias definitions
 if [ -h ~/.bash_aliases ]; then
   . ~/.bash_aliases;
 fi
 
-# add GitHub completion (source: donnemartin/gitsome on GitHub)
+# add GitHub completion (GitHub source: donnemartin/gitsome)
 if [ -h ~/.gh_complete.sh ]; then
   . ~/.gh_complete.sh;
 fi
+
+# set up specifics for remote hosts
+. ~/.remote_config.sh
 
 # seems to fix lack of 256 colors in Xfce
 if [ "$COLORTERM" == "xfce4-terminal" ]; then
@@ -34,7 +34,6 @@ case $- in
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
@@ -91,7 +90,7 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'    ## ON MAC OSX, THIS IS OVERWRITTEN IN `.bash_profile`
+    alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 
@@ -100,13 +99,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
+# Add an "alert" alias for long running commands. (usage e.g., sleep 10; alert)
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# enable programmable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -115,9 +111,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# To use GitHub integration with gitsome CLI, the following is necessary: 
-# NOTE June 2016: this causes an issue on Enterprise Linux systems that are
-# running Red Hat (notably Berkeley's HPC Savio and Biostat's Bluevelvet).
+# To use GitHub integration with gitsome CLI, the following is necessary:
+# NOTE June 2016: this causes an issue on Red Hat Linux systems.
 if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
   :
 else
@@ -127,7 +122,7 @@ else
   fi
 fi
 
-# Comical quotes for terminal (see GitHub: nhejazi/good-news)
+# Comical quotes for terminal (GitHub source: nhejazi/good-news)
 # NOTE June 2016: this appears to cause some issues with logging in to servers
 # to copy files (affects tools including `scp`, `rsync`, Cyberduck, Filezilla)
 # my remote username is usually "nhejazi" ==> this seems to work fine now...
@@ -147,13 +142,14 @@ if [ `uname` == "Darwin" ]; then
   export TERMINFO="$HOME/.terminfo"
 fi
 
-# for Hub command line tool (GitHub wrapper around git)
+# for Hub command line tool, GitHub wrapper around git
+# (GitHub source: github/hub)
 if [ `uname` == "Darwin" ]; then
   eval "$(hub alias -s)"
 fi
 
 # bash completions needed by Homebrew and Mac-CLI
-# (for Mac-CLI info, see GitHub: guarinogabriel/Mac-CLI)
+# (GitHub source: guarinogabriel/Mac-CLI)
 if [ `uname` == "Darwin" ]; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion;
@@ -183,31 +179,3 @@ codi2() {
     hi NonText ctermfg=0 |\
     Codi ${1:-python}"
 }
-
-#####################################
-####### FOR REMOTE HOSTS ONLY #######
-#####################################
-# for Berkeley/LBL Savio and Bluevelvet Biostat clusters - source global definitions
-if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
-  if [ -f /etc/bashrc ]; then
-      . /etc/bashrc
-  fi
-fi
-
-# for Grizzlybear2 Biostat HPC cluster - definition, library, and module paths
-if [ `uname -n | cut -d'.' -f 1` == "grizzlybear2" ]; then
-  # Source global definitions
-  if [ -f /etc/bashrc ]; then
-      . /etc/bashrc
-  fi
-
-  # Create R_LIBS directory if it does not exist 
-  if [ ! -d "$HOME/.R-packages" ]; then 
-       mkdir $HOME/.R-packages 
-  fi 
-  export R_LIBS=~/.R-packages
- 
-  module use /share/apps/modulefiles
-  module load /share/apps/modulefiles/R
-fi
-#####################################

@@ -3,30 +3,7 @@ if [ -f "$HOME/.bashrc" ]; then
     . "$HOME/.bashrc"
 fi
 
-
-# user-specific environment and startup programs for Berkeley Biostat Bluevelvet cluster
-if [ `uname -n | cut -d'.' -f 1` == "bluevelvet" ]; then
-  PATH=/usr/local/cuda/bin:$HOME/bin:/usr/local/bowtie2:/usr/local/subread-1.4.5-p1/bin:$PATH
-  LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-
-  export PATH
-  export LD_LIBRARY_PATH
-
-  # Create symbolic link to /data partition if it does not exist
-  if [ ! -d "$HOME/data" ]; then
-      ln -s /data "$HOME/."
-  fi
-fi
-
-
-# user-specific environment and startup programs for Berkeley Biostat Grizzlybear2 HPC cluster
-if [ `uname -n | cut -d'.' -f 1` == "grizzlybear2" ]; then
-  PATH=$PATH:$HOME/bin
-  export PATH
-fi
-
-
-# making Homebrew and manual stuff specific to macOS
+# assorted configuration alterations specific to the use of macOS
 if [ `uname` == "Darwin" ]; then
   # Setting up use the GNU "ls" utility
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"

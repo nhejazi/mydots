@@ -98,5 +98,12 @@ if [ -e ~/.hyper.js ]; then
 fi
 ln -s ~/.dotfiles/hyper.js ~/.hyper.js
 
+# script for setting up remote host configurations
+if [ -e ~/.remote_config.sh ]; then
+    echo "remote_config.sh already exists...old version will be renamed...";
+    mv -f ~/.remote_config.sh ~/.remote_config_orig.sh;
+fi
+ln -s ~/.dotfiles/remote_config.sh ~/.remote_config.sh
+
 # run setup script for Atom (text editor) configuration files
 sh ./atom/_linkAtomicDots.sh
