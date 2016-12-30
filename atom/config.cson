@@ -41,6 +41,9 @@
     userId: "ceb72210-3bbf-ef71-d8fd-ac9521b8fc8b"
   "file-icons":
     coloured: false
+  "git-plus":
+    general:
+      _analyticsUserId: "885f78b0-1cd7-45f0-a6f6-895aca468599"
   "highlight-selected":
     showInStatusBar: false
   "julia-client":
