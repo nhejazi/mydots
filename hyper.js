@@ -67,10 +67,15 @@ module.exports = {
     bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false
+    copyOnSelect: false,
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
+
+    hyperStatusLine: {
+      //footerTransparent: false,
+      //dirtyColor: 'pink'
+    }
 
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
@@ -83,14 +88,15 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hypercwd",
-    //"hyperline",
+    "hyper-statusline",
     "hyperlinks",
     "hyper-blink",
     "hyperterm-bold-tab",
     "hyperterm-close-on-left",
     "hyperterm-cursor",
     "hyperterm-paste",
-    "hyper-snazzy"    // Snazzy theme
+    //"hyper-chesterish", // Chesterish theme
+    "hyper-snazzy" // Snazzy theme
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
