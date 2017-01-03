@@ -27,6 +27,16 @@ module.exports = {
     // custom css to embed in the terminal window
     termCSS: '',
 
+    // set to `true` if you're using a Linux set up
+    // that doesn't shows native menus
+    // default: `false` on Linux, `true` on Windows (ignored on macOS)
+    showHamburgerMenu: true,
+
+    // set to `false` to hide the minimize, maximize and close buttons
+    // set to `'left'` if you want them on the left, like in Ubuntu
+    // default: `true` on windows and Linux (ignored on macOS)
+    showWindowControls: '',
+
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
 
@@ -72,9 +82,15 @@ module.exports = {
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
+    // settings for hyperlinks plugin
+    hyperlinks: {
+      defaultBrowser: false
+    },
+
+    // settings for statusline plugin
     hyperStatusLine: {
-      //footerTransparent: false,
-      //dirtyColor: 'pink'
+      footerTransparent: false,
+      dirtyColor: 'pink'
     }
 
     // for advanced config flags please refer to https://hyper.is/#cfg
@@ -88,14 +104,12 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hypercwd",
-    "hyper-statusline",
     "hyperlinks",
     "hyper-blink",
-    "hyperterm-bold-tab",
-    "hyperterm-close-on-left",
-    "hyperterm-cursor",
     "hyperterm-paste",
-    //"hyper-chesterish", // Chesterish theme
+    "hyperterm-cursor",
+    "hyper-statusline",
+    "hyperterm-bold-tab",
     "hyper-snazzy" // Snazzy theme
   ],
   // in development, you can create a directory under

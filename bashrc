@@ -1,5 +1,4 @@
 #####################################
-##### my Bash shell preferences #####
 ##### .bashrc setup/config file #####
 ##### is symlinked to ~/.bashrc #####
 #####################################
