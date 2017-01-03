@@ -32,7 +32,6 @@ zplug "zplug/zplug"
 
 # add assorted useful plug-ins
 zplug "Valiev/almostontop", from:github  # clear screen after each command
-zplug "chrissicool/zsh-bash", from:github  # conform more to bash
 zplug "marzocchi/zsh-notify", from:github  # desktop notifications
 zplug "b4b4r07/enhancd", from:github, use:init.sh  # better cd command
 zplug "psprint/history-search-multi-word", from:github  # AND-style searching
@@ -50,7 +49,9 @@ zplug "plugins/z", from:oh-my-zsh  # frequency-based directory navigation
 # add Pure prompt and theme
 zplug "mafredri/zsh-async", from:github, defer:0  # Load this first
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-zplug "zsh-users/zsh-syntx-highlighting", defer:2
+
+# get proper syntax highlighting (NOTE: must be last)
+zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
 
 # install any plug-ins that are currently uninstalled
 if ! zplug check --verbose; then
