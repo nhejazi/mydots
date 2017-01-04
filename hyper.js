@@ -106,6 +106,7 @@ module.exports = {
     "hypercwd",
     "hyperlinks",
     "hyper-blink",
+    "hyperterm-tabs",
     "hyperterm-paste",
     "hyperterm-cursor",
     "hyper-statusline",

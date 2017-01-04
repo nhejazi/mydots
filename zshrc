@@ -4,7 +4,6 @@
 ###################################
 
 
-
 # manually set language environment
 export LANG=en_US.UTF-8
 
@@ -22,6 +21,21 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 
+# Set personal aliases, overriding those provided by plugins and themes.
+# For a full list of active aliases, run `alias`.
+## add color support
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+## convenience aliases
+alias rr='R'
+alias lf='ls -aF'
+alias jpynb='jupyter notebook --no-browser'
+
+
 ####################################
 # using zplug for plug-in management
 ####################################
@@ -30,27 +44,29 @@ source ~/.zplug/init.zsh
 # Let zplug manage zplug
 zplug "zplug/zplug"
 
-# add assorted useful plug-ins
-zplug "Valiev/almostontop", from:github  # clear screen after each command
-zplug "marzocchi/zsh-notify", from:github  # desktop notifications
-zplug "b4b4r07/enhancd", from:github, use:init.sh  # better cd command
-zplug "psprint/history-search-multi-word", from:github  # AND-style searching
+# assorted useful plug-ins
 zplug "supercrabtree/k", from:github  # nice directory listings, for humans
-zplug "bric3/nice-exit-code", from:github  # map exit codes for readability
-zplug "sindresorhus/pretty-time-zsh", from:github  # seconds to human time
+zplug "b4b4r07/enhancd", from:github, use:init.sh  # better cd command
 zplug "peterhurford/up.zsh", from:github  # go up directories using numbers
+zplug "marzocchi/zsh-notify", from:github  # desktop notifications
+zplug "Valiev/almostontop", from:github  # clear screen after each command
+zplug "sindresorhus/pretty-time-zsh", from:github  # seconds to human time
+zplug "psprint/history-search-multi-word", from:github  # AND-style searching
 
 # use oh-my-zsh plug-ins
 zplug "plugins/git", from:oh-my-zsh  # for using git
-zplug "plugins/history", from:oh-my-zsh  # history plug-in
 zplug "plugins/wd", from:oh-my-zsh  # warp between directories using names
 zplug "plugins/z", from:oh-my-zsh  # frequency-based directory navigation
+zplug "plugins/git-flow", from:oh-my-zsh  # for using the Git Flow model
+
+# use prezto plug-ins
+zplug "modules/history", from:prezto  # a nice history tool
 
 # add Pure prompt and theme
 zplug "mafredri/zsh-async", from:github, defer:0  # Load this first
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
-# get proper syntax highlighting (NOTE: must be last)
+# proper syntax highlighting (NOTE: must be last)
 zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
 
 # install any plug-ins that are currently uninstalled
@@ -65,5 +81,26 @@ fi
 zplug load --verbose
 
 
-# Set personal aliases, overriding those provided by plugins and themes.
-# For a full list of active aliases, run `alias`.
+# Codi plug-in for Vim
+# Usage: codi [filetype] [filename]
+codi() {
+  vim "$2" -c \
+    "let g:startify_disable_at_vimenter = 1 |\
+    set bt=nofile ls=0 noru nonu nornu |\
+    hi ColorColumn ctermbg=NONE |\
+    hi VertSplit ctermbg=NONE |\
+    hi NonText ctermfg=0 |\
+    Codi ${1:-python}"
+}
+
+# Codi for Neovim
+# Usage: codi2 [filetype] [filename]
+ncodi() {
+  nvim "$2" -c \
+    "let g:startify_disable_at_vimenter = 1 |\
+    set bt=nofile ls=0 noru nonu nornu |\
+    hi ColorColumn ctermbg=NONE |\
+    hi VertSplit ctermbg=NONE |\
+    hi NonText ctermfg=0 |\
+    Codi ${1:-python}"
+}
