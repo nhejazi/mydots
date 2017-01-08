@@ -85,18 +85,27 @@ utils::rc.settings(ipck = TRUE)
   }
 }
 
-## load `colorout` package at startup
+## load package colorout at startup
 if ("colorout" %in% utils::installed.packages()[, 1]) {
-  if(Sys.getenv("TERM") == "xterm-256color") { library("colorout") }
+  if(Sys.getenv("TERM") == "xterm-256color") {
+    suppressMessages(library("colorout"))
+  }
+}
+
+## load package prompt and customize R prompt
+if ("prompt" %in% utils::installed.packages()[, 1]) {
+  suppressMessages(library("prompt"))
+  set_prompt(prompt_fancy)
 }
 
 ## load my package with miscellaneous utility functions
-if ("nima" %in% utils::installed.packages()[, 1]) { library("nima") }
+if ("nima" %in% utils::installed.packages()[, 1]) {
+  suppressMessages(library("nima"))
+}
 
-## load packages that are integral to my R experience
+## load heavily used packages at startup for convenience
 suppressMessages(library("devtools"))
 suppressMessages(library("ggplot2"))
 suppressMessages(library("dplyr"))
-suppressMessages(library("tibble"))
 suppressMessages(library("data.table"))
 suppressMessages(library("dtplyr"))
