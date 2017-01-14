@@ -93,10 +93,10 @@ if ("colorout" %in% utils::installed.packages()[, 1]) {
 }
 
 ## load package prompt and customize R prompt
-if ("prompt" %in% utils::installed.packages()[, 1]) {
-  suppressMessages(library("prompt"))
-  set_prompt(prompt_fancy)
-}
+#if ("prompt" %in% utils::installed.packages()[, 1]) {
+#  suppressMessages(library("prompt"))
+#  set_prompt(prompt_fancy)
+#}
 
 ## load my package with miscellaneous utility functions
 if ("nima" %in% utils::installed.packages()[, 1]) {
