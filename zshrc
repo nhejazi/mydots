@@ -23,7 +23,12 @@ SAVEHIST=1000
 
 # Set personal aliases, overriding those provided by plugins and themes.
 # For a full list of active aliases, run `alias`.
-## add color support
+## export Homebrew path to fix "ls"
+### see https://github.com/sorin-ionescu/prezto/issues/966
+if [[ uname == "Darwin" ]]; then
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+fi
+  ## add color support
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
