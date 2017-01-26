@@ -64,7 +64,7 @@ module.exports = {
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
-    shell: 'bash',
+    shell: 'zsh',
 
     // for setting shell arguments (i.e. using interactive shellArgs: ['-i'])
     // by default ['--login'] will be used
@@ -109,9 +109,9 @@ module.exports = {
     "hyperterm-tabs",
     "hyperterm-paste",
     "hyperterm-cursor",
-    "hyper-statusline",
     "hyperterm-bold-tab",
-    "hyper-snazzy" // Snazzy theme
+    "hyper-snazzy",// Snazzy theme
+    "hyper-statusline"// goes after theme
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
