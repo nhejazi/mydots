@@ -23,9 +23,9 @@ SAVEHIST=1000
 
 # Set personal aliases, overriding those provided by plugins and themes.
 # For a full list of active aliases, run `alias`.
-## export Homebrew path to fix "ls"
+## export Homebrew path explicitly to fix issue with "ls"
 ### see https://github.com/sorin-ionescu/prezto/issues/966
-if [[ uname == "Darwin" ]]; then
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 fi
   ## add color support
