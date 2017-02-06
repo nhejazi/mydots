@@ -84,6 +84,13 @@ if [ -e ~/.gh_complete.sh ]; then
 fi
 ln -s ~/.dotfiles/gh_complete.sh ~/.gh_complete.sh
 
+# configuration of the terminal multiplexer tmux
+if [ -e ~/.tmux.conf ]; then
+  echo "Tmux config already exists...old version will be renamed...";
+  mv -f ~/.tmux.conf ~/.tmux.conf_orig;
+fi
+ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+
 # session startup profile for the R language
 if [ -e ~/.Rprofile ]; then
   echo "Rprofile already exists...old version will be renamed...";
