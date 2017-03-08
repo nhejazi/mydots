@@ -1,7 +1,4 @@
-# my.files
-
-[![MIT
-license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+# my.files [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 > _a collection of my configuration/customization files_
 
@@ -36,13 +33,13 @@ sh ~/.dotfiles/_linkDots.sh
 
 ## Related
 
-* __[nhejazi/myneovimconfig](https://github.com/nhejazi/myneovimconfig)__ - a
-    minimal yet convenient configuration for the [Neovim](https://neovim.io)
-    editor.
-
 * __[nhejazi/myvimconfig](https://github.com/nhejazi/myvimconfig)__ - a
     customized configuration for the essentially ubiquitous editor
     [Vim](http://www.vim.org/index.php).
+
+* __[nhejazi/myneovimconfig](https://github.com/nhejazi/myneovimconfig)__ - a
+    minimal yet convenient configuration for the [Neovim](https://neovim.io)
+    editor.
 
 * __[nhejazi/ubuntu-fresh](https://github.com/nhejazi/ubuntu-fresh)__ - setup
     scripts for Ubuntu, painlessly installing tools affected by this
@@ -55,7 +52,7 @@ sh ~/.dotfiles/_linkDots.sh
 
 ## License
 
-&copy; 2016 [Nima Hejazi](http://nimahejazi.org)
+&copy; 2016-2017 [Nima Hejazi](http://nimahejazi.org)
 
 The contents of this repository are distributed under the MIT license. See file
 `LICENSE` for details.

@@ -11,6 +11,8 @@ alias l='ls -CF'
 
 alias prme='ps aux | grep $USER'
 
+alias c='clear'
+
 
 # make common tools easier to use...
 alias rr='R'
