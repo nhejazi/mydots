@@ -28,7 +28,7 @@ $XONSH_STORE_STDOUT = True
 
 
 # configure Xonsh display prompt
-$PROMPT = '{BOLD_INTENSE_CYAN}{user} {WHITE}at {BOLD_INTENSE_RED}{hostname} '
+$PROMPT = '{BOLD_INTENSE_GREEN}{user} {WHITE}at {BOLD_INTENSE_RED}{hostname} '
 $PROMPT += '{WHITE}in {BOLD_INTENSE_YELLOW}{cwd} {branch_color}{curr_branch}'
 $PROMPT += '{BOLD_WHITE}\n$ '
 
@@ -40,6 +40,8 @@ aliases['githist'] = ['git', 'log', '--all', '--graph', '--decorate', '--oneline
 ## add color support
 aliases['ls'] = ['ls', '--color=auto']
 ## select Bash aliases (not automatically honored...)
-aliases['rr'] = ['R']
+aliases['c'] = ['clear']
 aliases['lf'] = ['ls', '-aF']
+aliases['rr'] = ['R']
+aliases['rlite'] = ['R --vanilla']
 aliases['jpynb'] = ['jupyter', 'notebook', '--no-browser']
