@@ -39,7 +39,7 @@ alias ipy2='ipython2'
 
 alias ipy3='ipython3'
 
-alias jpynb='jupyter notebook --no-browser'
+alias jpynb='jupyter notebook'
 
 
 # system-specific alias for good-news prompt
