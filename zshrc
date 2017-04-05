@@ -3,7 +3,6 @@
 ##### symlink is at: ~/.zshrc #####
 ###################################
 
-
 # manually set language environment
 export LANG=en_US.UTF-8
 
@@ -111,3 +110,7 @@ ncodi() {
     hi NonText ctermfg=0 |\
     Codi ${1:-python}"
 }
+
+
+# emacs keybindings (match bash)
+bindkey -e
