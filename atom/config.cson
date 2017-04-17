@@ -9,6 +9,7 @@
     disabledPackages: [
       "linter-lintr"
       "language-gfm"
+      "atomify"
     ]
     followSymlinks: true
     ignoredNames: [
@@ -21,8 +22,8 @@
     openEmptyEditorOnStart: false
     telemetryConsent: "limited"
     themes: [
-      "seti-ui"
-      "seti-syntax"
+      "nord-atom-ui"
+      "nord-atom-syntax"
     ]
   editor:
     fontSize: 13
@@ -32,6 +33,7 @@
       tab: "⇥"
     preferredLineLength: 80
     scrollPastEnd: true
+    scrollSensitivity: 60
     showIndentGuide: true
     showInvisibles: false
     softWrap: true
@@ -50,8 +52,8 @@
     enableMenu: true
     enableToolBar: true
     launchOnStartup: false
-  linter:
-    showErrorPanel: false
+  linter: {}
+  "linter-ui-default": {}
   minimap:
     plugins:
       cursorline: true

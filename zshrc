@@ -26,6 +26,7 @@ SAVEHIST=1000
 ### see https://github.com/sorin-ionescu/prezto/issues/966
 if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+  fpath=(/usr/local/share/zsh-completions $fpath)
 fi
   ## add color support
 alias ls='ls --color=auto'
