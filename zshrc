@@ -42,6 +42,10 @@ alias lf='ls -aF'
 alias jpynb='jupyter notebook'
 
 
+# "the fuck", tool to fix command-line errors
+eval "$(thefuck --alias)"
+
+
 ####################################
 # using zplug for plug-in management
 ####################################

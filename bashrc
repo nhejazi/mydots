@@ -155,6 +155,9 @@ if [ `uname` == "Darwin" ]; then
   fi
 fi
 
+# "the fuck", tool to fix command-line errors
+eval "$(thefuck --alias)"
+
 # Codi for Vim
 # Usage: codi [filetype] [filename]
 codi() {
