@@ -20,6 +20,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 
+# fix path issue to respect homebrew
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  export PATH=/usr/local/bin:$PATH
+fi
+
 # Set personal aliases, overriding those provided by plugins and themes.
 # For a full list of active aliases, run `alias`.
 ## export Homebrew path explicitly to fix issue with "ls"

@@ -181,4 +181,3 @@ codi2() {
     hi NonText ctermfg=0 |\
     Codi ${1:-python}"
 }
-if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi
