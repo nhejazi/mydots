@@ -107,7 +107,6 @@ module.exports = {
     "hyperlinks",
     "hyper-blink",
     "hyperterm-tabs",
-    "hyperterm-paste",
     "hyperterm-cursor",
     "hyperterm-bold-tab",
     "hyper-snazzy",// Snazzy theme
