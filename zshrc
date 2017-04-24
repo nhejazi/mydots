@@ -51,6 +51,12 @@ alias jpynb='jupyter notebook'
 eval "$(thefuck --alias)"
 
 
+# sets the tab title to current directory
+precmd() {
+  echo -ne "\e]1;${PWD##*/}\a"
+}
+
+
 ####################################
 # using zplug for plug-in management
 ####################################
