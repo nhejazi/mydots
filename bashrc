@@ -156,7 +156,9 @@ if [ `uname` == "Darwin" ]; then
 fi
 
 # "the fuck", tool to fix command-line errors
-eval "$(thefuck --alias)"
+if [[ $USER == "nimahejazi" ]]; then  ## local user accounts only
+  eval "$(thefuck --alias)"
+fi
 
 # Codi for Vim
 # Usage: codi [filetype] [filename]
