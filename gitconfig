@@ -176,3 +176,8 @@
   w = show
   wp = show -p
   wr = show -p --no-color
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
