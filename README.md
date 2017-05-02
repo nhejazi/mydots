@@ -33,13 +33,9 @@ sh ~/.dotfiles/_linkDots.sh
 
 ## Related
 
-* __[nhejazi/myvimconfig](https://github.com/nhejazi/myvimconfig)__ - a
-    customized configuration for the essentially ubiquitous editor
-    [Vim](http://www.vim.org/index.php).
-
-* __[nhejazi/myneovimconfig](https://github.com/nhejazi/myneovimconfig)__ - a
-    minimal yet convenient configuration for the [Neovim](https://neovim.io)
-    editor.
+* __[nhejazi/vimForLife](https://github.com/nhejazi/vimForLife)__ - convenient
+    configurations for both the [Vim](http://www.vim.org/index.php) and
+    [Neovim](https://neovim.io) editors.
 
 * __[nhejazi/ubuntu-fresh](https://github.com/nhejazi/ubuntu-fresh)__ - setup
     scripts for Ubuntu, painlessly installing tools affected by this

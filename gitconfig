@@ -2,7 +2,7 @@
   name = Nima Hejazi
   email = nh@nimahejazi.org
 [core]
-  editor = nvim
+  editor = vim
   pager =
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   excludesfile = /Users/nimahejazi/.gitignore_global
