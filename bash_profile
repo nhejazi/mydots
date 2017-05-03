@@ -8,13 +8,8 @@ if [ `uname` == "Darwin" ]; then
   # Setting up use the GNU "ls" utility
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
-  # Default editor switch to NeoVim
-  export EDITOR=/usr/local/bin/nvim
-
-  # Force iTerm to display only the current directory, not the full path
-  if [ $ITERM_SESSION_ID ]; then
-    export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
-  fi
+  # Default editor switch to Vim
+  export EDITOR=/usr/local/bin/vim
 
   # To fix Dropbox (recover from OS X sync error)
   alias restartDropbox="osascript -e 'tell application \"Dropbox\" to quit';killall Dropbox;open -a \"Dropbox\""

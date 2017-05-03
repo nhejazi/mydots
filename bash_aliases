@@ -2,15 +2,10 @@
 
 # make nice bash commands easier to use...
 alias lf='ls -aF'   #displays symlinks with @
-
 alias ll='ls -alF'
-
 alias la='ls -A'
-
 alias l='ls -CF'
-
 alias prme='ps aux | grep $USER'
-
 alias c='clear'
 
 
@@ -34,11 +29,8 @@ else
 fi
 
 alias Julia='julia'
-
 alias ipy2='ipython2'
-
 alias ipy3='ipython3'
-
 alias jpynb='jupyter notebook'
 
 
