@@ -173,8 +173,8 @@ codi() {
 }
 
 # Codi for Neovim
-# Usage: codi2 [filetype] [filename]
-codi2() {
+# Usage: ncodi [filetype] [filename]
+ncodi() {
   nvim "$2" -c \
     "let g:startify_disable_at_vimenter = 1 |\
     set bt=nofile ls=0 noru nonu nornu |\

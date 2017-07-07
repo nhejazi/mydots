@@ -53,7 +53,9 @@
     enableToolBar: true
     launchOnStartup: false
   linter: {}
-  "linter-ui-default": {}
+  "linter-ui-default":
+    panelHeight: 64
+    showPanel: true
   minimap:
     plugins:
       cursorline: true

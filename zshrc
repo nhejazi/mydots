@@ -84,6 +84,9 @@ zplug "plugins/git-flow", from:oh-my-zsh  # for using the Git Flow model
 # use prezto plug-ins
 zplug "modules/history", from:prezto  # a nice history tool
 
+# add Soliah prompt and theme
+#zplug "themes/Soliah", from:oh-my-zsh, as:theme
+
 # add Pure prompt and theme
 zplug "mafredri/zsh-async", from:github, defer:0  # Load this first
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
@@ -116,7 +119,7 @@ codi() {
 }
 
 # Codi for Neovim
-# Usage: codi2 [filetype] [filename]
+# Usage: ncodi [filetype] [filename]
 ncodi() {
   nvim "$2" -c \
     "let g:startify_disable_at_vimenter = 1 |\
