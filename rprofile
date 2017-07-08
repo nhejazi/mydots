@@ -71,7 +71,7 @@ utils::rc.settings(ipck = TRUE)
   if(interactive()) {
     library("utils")
     timestamp(,prefix = paste("##------ [", getwd(), "] ", sep = ""))
-    cat("\nSuccessfully loaded .Rprofile at", date(), "\n")
+    cat("\nSuccessfully loaded .Rprofile at", base::date(), "\n")
   }
 }
 
@@ -81,7 +81,7 @@ utils::rc.settings(ipck = TRUE)
     hist_file <- Sys.getenv("R_HISTFILE")
     if(hist_file=="") hist_file <- "~/.RHistory"
     savehistory(hist_file)
-    cat("\nGoodbye at ", date(), "\n")
+    cat("\nGoodbye at ", base::date(), "\n")
   }
 }
 
@@ -107,5 +107,3 @@ if ("nima" %in% utils::installed.packages()[, 1]) {
 suppressMessages(library("devtools"))
 suppressMessages(library("ggplot2"))
 suppressMessages(library("dplyr"))
-suppressMessages(library("data.table"))
-suppressMessages(library("dtplyr"))
