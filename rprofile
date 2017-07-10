@@ -112,4 +112,5 @@ if ("nima" %in% utils::installed.packages()[, 1]) {
 }
 
 ## enter the tidyverse
+library("devtools")
 library("tidyverse")
