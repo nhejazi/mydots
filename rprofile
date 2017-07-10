@@ -85,18 +85,21 @@ utils::rc.settings(ipck = TRUE)
   }
 }
 
-## load package colorout at startup
-if ("colorout" %in% utils::installed.packages()[, 1]) {
-  if(Sys.getenv("TERM") == "xterm-256color") {
-    suppressMessages(library("colorout"))
+## load select packages when not using RStudio
+if (interactive() & Sys.getenv("RSTUDIO") != 1) {
+  ## load package prompt and customize R prompt
+  if ("prompt" %in% utils::installed.packages()[, 1]) {
+    suppressMessages(library("prompt"))
+    set_prompt(prompt_fancy)
+  }
+
+  ## load package colorout at startup
+  if ("colorout" %in% utils::installed.packages()[, 1]) {
+    if(Sys.getenv("TERM") == "xterm-256color") {
+      suppressMessages(library("colorout"))
+    }
   }
 }
-
-## load package prompt and customize R prompt
-#if ("prompt" %in% utils::installed.packages()[, 1]) {
-#  suppressMessages(library("prompt"))
-#  set_prompt(prompt_fancy)
-#}
 
 ## load package for typing corrections
 if ("fcuk" %in% utils::installed.packages()[, 1]) {
