@@ -98,6 +98,11 @@ if ("colorout" %in% utils::installed.packages()[, 1]) {
 #  set_prompt(prompt_fancy)
 #}
 
+## load package for typing corrections
+if ("fcuk" %in% utils::installed.packages()[, 1]) {
+  suppressMessages(library("fcuk"))
+}
+
 ## load my package with miscellaneous utility functions
 if ("nima" %in% utils::installed.packages()[, 1]) {
   suppressMessages(library("nima"))
