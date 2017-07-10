@@ -111,7 +111,5 @@ if ("nima" %in% utils::installed.packages()[, 1]) {
   suppressMessages(library("nima"))
 }
 
-## load heavily used packages at startup for convenience
-suppressMessages(library("devtools"))
-suppressMessages(library("ggplot2"))
-suppressMessages(library("dplyr"))
+## enter the tidyverse
+library("tidyverse")
