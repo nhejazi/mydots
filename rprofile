@@ -101,6 +101,11 @@ if (interactive() & Sys.getenv("RSTUDIO") != 1) {
 }
 
 ## load package for typing corrections
+if ("prettycode" %in% utils::installed.packages()[, 1]) {
+  library("prettycode")
+}
+
+## load package for typing corrections
 if ("fcuk" %in% utils::installed.packages()[, 1]) {
   library("fcuk")
 }
