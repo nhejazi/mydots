@@ -9,6 +9,7 @@ This collection of configuration files affects behavior of the following tools:
 * [xonsh (shell)](https://xon.sh/)
 * [gitsome (CLI)](https://github.com/donnemartin/gitsome)
 * [Hyper (terminal)](https://hyper.is/)
+* [Jupyter notebook](http://jupyter.org/)
 * [Atom (editor)](https://atom.io)
 * [R (language)](https://www.r-project.org)
 

@@ -105,6 +105,15 @@ if [ -e ~/.hyper.js ]; then
 fi
 ln -s ~/.dotfiles/hyper.js ~/.hyper.js
 
+# configuration file for Jupyter notebooks
+if [ -e ~/.jupyter/jupyter_notebook_config.py ]; then
+    echo "jupyter_notebook_config exists...old version will be renamed...";
+    mv -f ~/.jupyter/jupyter_notebook_config.py \
+      ~/.jupyter/jupyter_notebook_config_orig.py;
+fi
+ln -s ~/.dotfiles/jupyter_notebook_config.py \
+  ~/.jupyter/jupyter_notebook_config.py
+
 # script for setting up remote host configurations
 if [ -e ~/.remote_config.sh ]; then
     echo "remote_config.sh already exists...old version will be renamed...";
