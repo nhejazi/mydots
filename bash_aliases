@@ -29,10 +29,8 @@ else
 fi
 
 alias Julia='julia'
-alias ipy2='ipython2'
-alias ipy3='ipython3'
-alias jpynb='jupyter notebook'
-
+alias ipy='ipython3'
+alias jpynb='jupyter notebook &> /dev/null &'
 
 # system-specific alias for good-news prompt
 if [[ $USER == "nimahejazi" ]]; then

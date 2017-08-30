@@ -44,8 +44,7 @@ alias egrep='egrep --color=auto'
 alias c='clear'
 alias rr='R'
 alias lf='ls -aF'
-alias jpynb='jupyter notebook'
-
+alias jpynb='jupyter notebook &> /dev/null &'
 
 # "the fuck", tool to fix command-line errors
 eval "$(thefuck --alias)"
