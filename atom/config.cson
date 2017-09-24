@@ -74,7 +74,7 @@
     advancePosition: false
     focusWindow: true
     notifications: true
-    whichApp: "iTerm2"
+    whichApp: "iTerm"
   "split-diff":
     diffWords: true
     ignoreWhitespace: true
