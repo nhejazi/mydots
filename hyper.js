@@ -6,7 +6,7 @@ module.exports = {
     // font family with optional fallbacks
     fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
-    // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
+    // terminal cursor background color/opacity (hex, rgb, hsl, hsv, hwb, cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
@@ -77,21 +77,27 @@ module.exports = {
     bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false,
+    copyOnSelect: true,
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
-    // settings for hyperlinks plugin
+    // settings for plugin: hyperlinks
     hyperlinks: {
       defaultBrowser: false
     },
 
-    // settings for statusline plugin
+    // settings for plugin: hyper-statusline
     hyperStatusLine: {
       footerTransparent: false,
       dirtyColor: 'pink'
-    }
+    },
+
+    // settings for plugin: hyper-tabs-enhanced
+    //hyperTabs: {
+      //trafficButtons: true,
+      //tabIconsColored: true
+    //}
 
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
@@ -109,12 +115,14 @@ module.exports = {
     "hyper-blink",
     "hyper-search",
     "hyperterm-tabs",
-    //"hyper-tab-icons",  // doesn't play well with zsh
+    "hyper-alt-click",
     "hyperterm-cursor",
     "hyper-transparent",
-    "hyperterm-bold-tab",
+    //"hyperterm-bold-tab",
+    //"hyper-tabs-enhanced",  // doesn't play well with theme
     "hyper-snazzy",  // Snazzy theme
-    "hyper-statusline"  // goes after theme
+    "hyper-statusline",  // goes after theme
+    "hyper-tab-icons"  // doesn't play well with zsh
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

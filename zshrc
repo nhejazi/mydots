@@ -50,10 +50,36 @@ alias jpynb='jupyter notebook &> /dev/null &'
 eval "$(thefuck --alias)"
 
 
-# sets the tab title to current directory
+# Setting tab titles in a smart way, allowing user to specify titles too
+# from: https://github.com/zeit/hyper/issues/1188 | post by audunolsen
+# references to the gitDirty variable removed since redundant with prompt pure
+
+# Override auto-title when static titles are desired ($ title My new title)
+title() { export TITLE_OVERRIDDEN=1; echo -en "\e]0;$*\a"}
+# Turn off static titles ($ autotitle)
+autotitle() { export TITLE_OVERRIDDEN=0 }; autotitle
+# Condition checking if title is overridden
+overridden() { [[ $TITLE_OVERRIDDEN == 1 ]]; }
+
+# Show cwd when shell prompts for input.
 precmd() {
-  echo -ne "\e]1;${PWD##*/}\a"
+   if overridden; then return; fi
+   pwd=$(pwd) # Store full path as variable
+   cwd=${pwd##*/} # Extract current working dir only
+   print -Pn "\e]0;$cwd\a" # Replace with $pwd to show full path
 }
+
+# Prepend command (w/o arguments) to cwd while waiting for command to complete.
+preexec() {
+   if overridden; then return; fi
+   printf "\033]0;%s\a" "${1%% *} | $cwd" # Omit construct from $1 to show args
+}
+
+
+# sets the tab title to current directory
+#precmd() {
+#  echo -ne "\e]1;${PWD##*/}\a"
+#}
 
 
 ####################################
@@ -87,7 +113,7 @@ zplug "modules/history", from:prezto  # a nice history tool
 #zplug "themes/Soliah", from:oh-my-zsh, as:theme
 
 # add Pure prompt and theme
-zplug "mafredri/zsh-async", from:github, defer:0  # Load this first
+zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 # proper syntax highlighting (NOTE: must be last)
@@ -132,3 +158,4 @@ ncodi() {
 
 # emacs keybindings (match bash)
 bindkey -e
+
