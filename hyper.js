@@ -120,9 +120,9 @@ module.exports = {
     "hyper-transparent",
     //"hyperterm-bold-tab",
     //"hyper-tabs-enhanced",  // doesn't play well with theme
+    //"hyper-tab-icons",  // doesn't play well with zsh
     "hyper-snazzy",  // Snazzy theme
-    "hyper-statusline",  // goes after theme
-    "hyper-tab-icons"  // doesn't play well with zsh
+    "hyper-statusline"  // goes after theme
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
