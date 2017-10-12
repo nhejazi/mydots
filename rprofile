@@ -118,3 +118,7 @@ if ("nima" %in% utils::installed.packages()[, 1]) {
 ## enter the tidyverse
 library("devtools")
 library("tidyverse")
+
+## make rice command line interface compatible with Nvim-R
+options(rice.auto_indentation = FALSE)
+
