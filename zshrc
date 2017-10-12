@@ -42,8 +42,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 ## convenience aliases
 alias c='clear'
-alias rr='R'
-alias rrr='rice'
+alias rr='R'  # regular R REPL
+alias rv='R --vanilla'  # plain R REPL
+alias rrr='rice'  # modern R command line interface
 alias lf='ls -aF'
 alias jpynb='jupyter notebook &> /dev/null &'
 

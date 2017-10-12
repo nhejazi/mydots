@@ -10,8 +10,9 @@ alias c='clear'
 
 
 # make common tools easier to use...
-alias rr='R'
-alias rrr='rice'
+alias rr='R'  # regular R REPL
+alias rv='R --vanilla'  # plain R REPL
+alias rrr='rice'  # modern R command line interface
 
 if [ `uname` == "Linux" ]; then
   alias py2='python2.7'
