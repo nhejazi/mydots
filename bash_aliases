@@ -11,6 +11,7 @@ alias c='clear'
 
 # make common tools easier to use...
 alias rr='R'
+alias rrr='rice'
 
 if [ `uname` == "Linux" ]; then
   alias py2='python2.7'

@@ -43,6 +43,7 @@ alias egrep='egrep --color=auto'
 ## convenience aliases
 alias c='clear'
 alias rr='R'
+alias rrr='rice'
 alias lf='ls -aF'
 alias jpynb='jupyter notebook &> /dev/null &'
 
@@ -159,3 +160,6 @@ ncodi() {
 # emacs keybindings (match bash)
 bindkey -e
 
+
+# added by travis gem
+[ -f /Users/nimahejazi/.travis/travis.sh ] && source /Users/nimahejazi/.travis/travis.sh

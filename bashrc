@@ -183,3 +183,6 @@ ncodi() {
     hi NonText ctermfg=0 |\
     Codi ${1:-python}"
 }
+
+# added by travis gem
+[ -f /Users/nimahejazi/.travis/travis.sh ] && source /Users/nimahejazi/.travis/travis.sh
