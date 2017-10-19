@@ -1,4 +1,7 @@
 "*":
+  "atom-ide-ui":
+    use:
+      "atom-ide-diagnostics-ui": false
   "autocomplete-plus":
     confirmCompletion: "tab"
     defaultProvider: "Fuzzy"
