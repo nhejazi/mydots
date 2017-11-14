@@ -181,3 +181,7 @@ if [ -e ~/.fzf ]; then
   source ~/.fzf/shell/completion.zsh
 fi
 
+
+# fzf keybindings for zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

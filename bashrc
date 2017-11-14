@@ -160,6 +160,13 @@ if [[ $USER == "nimahejazi" ]]; then  ## local user accounts only
   eval "$(thefuck --alias)"
 fi
 
+# added by travis gem
+[ -f /Users/nimahejazi/.travis/travis.sh ] && \
+  source /Users/nimahejazi/.travis/travis.sh
+
+# add fzf support
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # Codi for Vim
 # Usage: codi [filetype] [filename]
 codi() {
@@ -184,5 +191,3 @@ ncodi() {
     Codi ${1:-python}"
 }
 
-# added by travis gem
-[ -f /Users/nimahejazi/.travis/travis.sh ] && source /Users/nimahejazi/.travis/travis.sh
