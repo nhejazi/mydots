@@ -33,6 +33,7 @@ fi
 alias Julia='julia'
 alias ipy='ipython3'
 alias jpynb='jupyter notebook &> /dev/null &'
+alias qjpynb='kill $(pgrep jupyter)'
 
 # system-specific alias for good-news prompt
 if [[ $USER == "nimahejazi" ]]; then

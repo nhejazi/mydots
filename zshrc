@@ -47,6 +47,7 @@ alias rv='R --vanilla'  # plain R REPL
 alias rrr='rice'  # modern R command line interface
 alias lf='ls -aF'
 alias jpynb='jupyter notebook &> /dev/null &'
+alias qjpynb='kill $(pgrep jupyter)'
 
 # "the fuck", tool to fix command-line errors
 eval "$(thefuck --alias)"
@@ -168,9 +169,11 @@ bindkey -e
 
 
 # fzf via Homebrew
-if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
-  source /usr/local/opt/fzf/shell/key-bindings.zsh
-  source /usr/local/opt/fzf/shell/completion.zsh
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
+    source /usr/local/opt/fzf/shell/key-bindings.zsh
+    source /usr/local/opt/fzf/shell/completion.zsh
+  fi
 fi
 
 
@@ -184,4 +187,10 @@ fi
 
 # fzf keybindings for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# use homebrew's curl
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  export PATH="/usr/local/opt/curl/bin:$PATH"
+fi
 
