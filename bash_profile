@@ -24,3 +24,4 @@ if [ `uname` == "Darwin" ]; then
   export LS_COLORS
   alias ls="gls --color=auto"   #REQUIRES homebrew "coreutils"
 fi
+
