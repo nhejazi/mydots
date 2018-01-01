@@ -3,8 +3,9 @@
 ####### ====================================================== ################
 
 ## avoid package library issues with R version changes
-if (as.character(Sys.info()["effective_user"]) == "nimahejazi") {
-  .libPaths("~/.Rlibrary")
+if (as.character(Sys.info()["effective_user"]) %in%
+  c("nimahejazi", "nhejazi")) {
+    try(.libPaths("~/.Rlibrary"))
 }
 
 ## Give REPL prompts that are clearer
