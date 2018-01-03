@@ -121,5 +121,10 @@ if [ -e ~/.remote_config.sh ]; then
 fi
 ln -s ~/.dotfiles/remote_config.sh ~/.remote_config.sh
 
-# run setup script for Atom (text editor) configuration files
-sh ./atom/_linkAtomicDots.sh
+# configuration file for command line jrnl
+if [ -e ~/.jrnl_config ]; then
+    echo "jrnl_config already exists...old version will be renamed...";
+    mv -f ~/.jrnl_config ~/.jrnl_config_orig;
+fi
+ln -s ~/.dotfiles/jrnl_config ~/.jrnl_config
+

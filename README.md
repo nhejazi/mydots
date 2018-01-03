@@ -4,11 +4,14 @@
 
 This collection of configuration files affects behavior of the following tools:
 * [git](https://git-scm.com/)
+* [tmux](https://github.com/tmux/tmux/wiki)
+* [jrnl](http://jrnl.sh/index.html)
 * [zsh (shell)](http://zsh.sourceforge.net)
 * [bash (shell)](https://www.gnu.org/software/bash/)
 * [xonsh (shell)](https://xon.sh/)
 * [gitsome (CLI)](https://github.com/donnemartin/gitsome)
 * [Hyper (terminal)](https://hyper.is/)
+* [iTerm2 (macOS terminal)](https://iterm2.com/)
 * [Jupyter notebook](http://jupyter.org/)
 * [Atom (editor)](https://atom.io)
 * [R (language)](https://www.r-project.org)
@@ -20,7 +23,7 @@ This collection of configuration files affects behavior of the following tools:
 Setting up these configuration files is as easy as...
 ```bash
 git clone https://github.com/nhejazi/mydotfiles.git ~/.dotfiles
-sh ~/.dotfiles/_linkDots.sh
+cd ~/.dotfiles; make
 ```
 
 *  Before running `_linkDots.sh`, update the _user.name_ and _user.email_ fields
@@ -49,7 +52,8 @@ sh ~/.dotfiles/_linkDots.sh
 
 ## License
 
-&copy; 2016-2017 [Nima Hejazi](http://nimahejazi.org)
+&copy; 2016-2018 [Nima Hejazi](https://nimahejazi.org)
 
 The contents of this repository are distributed under the MIT license. See file
 `LICENSE` for details.
+
