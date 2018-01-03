@@ -7,8 +7,8 @@
   "default_minute": 0,
   "highlight": true,
   "journals": {
-    "personal": "~/Dropbox/jrnls/personal.txt",
-    "research": "~/Dropbox/jrnls/research.txt"
+    "pers": "~/Dropbox/jrnls/personal.txt",
+    "prof": "~/Dropbox/jrnls/research.txt"
   },
   "tagsymbols": "@"
 }
