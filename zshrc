@@ -194,9 +194,8 @@ if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   export PATH="/usr/local/opt/curl/bin:$PATH"
 fi
 
-
 # added by Miniconda3 installer
-if [ `uname` == "Darwin" ]; then
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   export PATH="/Users/nimahejazi/miniconda3/bin:$PATH"
 fi
 
