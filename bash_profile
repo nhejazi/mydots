@@ -25,3 +25,5 @@ if [ `uname` == "Darwin" ]; then
   alias ls="gls --color=auto"   #REQUIRES homebrew "coreutils"
 fi
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
