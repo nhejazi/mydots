@@ -2297,7 +2297,7 @@
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>HideTabCloseButton</key>
 	<false/>
 	<key>HideTabNumber</key>
@@ -2377,9 +2377,9 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 127 606 469 0 0 1280 778 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>231 248 1018 447 0 0 1280 778 </string>
+	<string>231 292 796 473 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>640 56 640 722 0 0 1280 778 </string>
+	<string>640 57 640 721 0 0 1280 778 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3255,6 +3255,10 @@
 	<string>E853486B-745C-41C6-AB2C-4253A13676DD</string>
 	<key>NoSyncLastTipTime</key>
 	<real>528060580.79996198</real>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
@@ -3415,7 +3419,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-11-11T08:16:36Z</date>
+	<date>2018-01-05T06:32:44Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -3430,6 +3434,8 @@
 	<true/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.19297376275062561</real>
+	<key>StretchTabsToFillBar</key>
+	<true/>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
@@ -3472,6 +3478,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.2</string>
+	<string>3.1.5</string>
 </dict>
 </plist>
