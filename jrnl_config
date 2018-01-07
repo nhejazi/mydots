@@ -10,7 +10,7 @@
   "journals": {
     "pers": {
       "journal": "~/Dropbox/jrnls/personal.txt", 
-      "encrypt": true
+      "encrypt": false
     }, 
     "prof": "~/Dropbox/jrnls/research.txt"
   }
