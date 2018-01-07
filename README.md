@@ -22,7 +22,7 @@ This collection of configuration files affects behavior of the following tools:
 
 Setting up these configuration files is as easy as...
 ```bash
-git clone https://github.com/nhejazi/mydotfiles.git ~/.dotfiles
+git clone https://github.com/nhejazi/mydots.git ~/.dotfiles
 cd ~/.dotfiles; make
 ```
 
