@@ -91,6 +91,13 @@ if [ -e ~/.tmux.conf ]; then
 fi
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
+# customized theme for the tmux statusline (via tmuxline.vim)
+if [ -e ~/.tmuxline ]; then
+  echo "Tmuxline config already exists...old version will be renamed...";
+  mv -f ~/.tmuxline ~/.tmuxline_orig;
+fi
+ln -s ~/.dotfiles/tmuxline ~/.tmuxline
+
 # session startup profile for the R language
 if [ -e ~/.Rprofile ]; then
   echo "Rprofile already exists...old version will be renamed...";
