@@ -4,8 +4,10 @@
 
 ## avoid package library issues with R version changes
 if (as.character(Sys.info()["effective_user"]) %in%
-  c("nimahejazi", "nhejazi")) {
-    try(.libPaths("~/.Rlibrary"))
+  c("nimahejazi", "nhejazi", "nsh")) {
+    if (dir.exists("~/.Rlibrary")) {
+      try(.libPaths("~/.Rlibrary"))
+    }
 }
 
 ## Give REPL prompts that are clearer
