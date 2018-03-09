@@ -6,7 +6,6 @@
 # manually set language environment
 export LANG=en_US.UTF-8
 
-
 # set preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -42,9 +41,8 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 ## convenience aliases
 alias c='clear'
-alias rr='R'  # regular R REPL
 alias rv='R --vanilla'  # plain R REPL
-alias rrr='rice'  # modern R command line interface
+alias rr='rice'  # modern R command line interface
 alias lf='ls -aF'
 alias jpynb='jupyter notebook &> /dev/null &'
 alias qjpynb='kill $(pgrep jupyter)'
@@ -184,7 +182,6 @@ if [ -e ~/.fzf ]; then
   source ~/.fzf/shell/completion.zsh
 fi
 
-
 # fzf keybindings for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -197,5 +194,10 @@ fi
 # added by Miniconda3 installer
 if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   export PATH="/Users/nimahejazi/miniconda3/bin:$PATH"
+fi
+
+# export environment variable for Homebrew GitHub access
+if [ -e ~/.homebrew.github ]; then
+  source ~/.homebrew.github
 fi
 

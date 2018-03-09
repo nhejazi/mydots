@@ -10,9 +10,8 @@ alias c='clear'
 
 
 # make common tools easier to use...
-alias rr='R'  # regular R REPL
 alias rv='R --vanilla'  # plain R REPL
-alias rrr='rice'  # modern R command line interface
+alias rr='rtichoke'  # modern R command line interface
 
 if [ `uname` == "Linux" ]; then
   alias py2='python2.7'
@@ -46,3 +45,4 @@ if [[ $USER == "nimahejazi" ]]; then
     alias qf='gshuf -n1 ~/.goodnews'
   fi
 fi
+

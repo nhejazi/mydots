@@ -42,6 +42,7 @@ aliases['ls'] = ['ls', '--color=auto']
 ## select Bash aliases (not automatically honored...)
 aliases['c'] = ['clear']
 aliases['lf'] = ['ls', '-aF']
-aliases['rr'] = ['R']
-aliases['rlite'] = ['R --vanilla']
+aliases['rr'] = ['rtichoke']
+aliases['rv'] = ['R --vanilla']
 aliases['jpynb'] = ['jupyter', 'notebook', '--no-browser']
+
