@@ -42,7 +42,7 @@ alias egrep='egrep --color=auto'
 ## convenience aliases
 alias c='clear'
 alias rv='R --vanilla'  # plain R REPL
-alias rr='rice'  # modern R command line interface
+alias rr='rtichoke'  # modern R command line interface
 alias lf='ls -aF'
 alias jpynb='jupyter notebook &> /dev/null &'
 alias qjpynb='kill $(pgrep jupyter)'
