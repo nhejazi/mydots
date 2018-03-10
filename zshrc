@@ -191,10 +191,13 @@ if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   export PATH="/usr/local/opt/curl/bin:$PATH"
 fi
 
-# added by Miniconda3 installer
+
+# toggle the macOS "do not disturb" feature from the command line
+# https://github.com/sindresorhus/do-not-disturb-cli
 if [ "$(uname 2> /dev/null)" != "Linux" ]; then
-  export PATH="/Users/nimahejazi/miniconda3/bin:$PATH"
+  alias dnd='do-not-disturb toggle'
 fi
+
 
 # export environment variable for Homebrew GitHub access
 if [ -e ~/.homebrew.github ]; then

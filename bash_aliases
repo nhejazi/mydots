@@ -29,6 +29,14 @@ else
   :
 fi
 
+# toggle the macOS "do not disturb" feature from the command line
+# https://github.com/sindresorhus/do-not-disturb-cli
+if [ `uname` == "Darwin" ]; then
+  alias dnd='do-not-disturb toggle'
+else
+  :
+fi
+
 alias Julia='julia'
 alias ipy='ipython3'
 alias jpynb='jupyter notebook &> /dev/null &'
