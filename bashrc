@@ -191,8 +191,7 @@ ncodi() {
     Codi ${1:-python}"
 }
 
-# added by Miniconda3 installer
-if [ `uname` == "Darwin" ]; then
-  export PATH="/Users/nimahejazi/miniconda3/bin:$PATH"
-fi
+# GPG signing for git
+# (from https://github.com/keybase/keybase-issues/issues/2798)
+export GPG_TTY=$(tty)
 

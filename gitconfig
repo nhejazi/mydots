@@ -1,6 +1,7 @@
 [user]
   name = Nima Hejazi
   email = nh@nimahejazi.org
+  signingkey = 1379523184003252
 [core]
   editor = vim
   pager =
@@ -9,7 +10,7 @@
 [commit]
   template = ~/.gitmessage.txt
 [web]
-  browser = google-chrome
+  browser = firefox
 [rerere]
   enabled = true
   autoupdate = true
@@ -177,7 +178,7 @@
   wp = show -p
   wr = show -p --no-color
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

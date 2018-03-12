@@ -10,7 +10,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='vim'
 fi
 
 
@@ -203,4 +203,9 @@ fi
 if [ -e ~/.homebrew.github ]; then
   source ~/.homebrew.github
 fi
+
+
+# GPG signing for git
+# (from https://github.com/keybase/keybase-issues/issues/2798)
+export GPG_TTY=$(tty)
 
