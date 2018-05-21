@@ -87,6 +87,11 @@ utils::rc.settings(ipck = TRUE)
   }
 }
 
+## convenience function to source latest biocLite() function from Bioconductor
+bioc <- function() {
+  source("https://bioconductor.org/biocLite.R")
+}
+
 ## load select packages when not using RStudio
 if (interactive() & Sys.getenv("RSTUDIO") != 1) {
   ## load package prompt and customize R prompt
