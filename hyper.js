@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 11,
 
     // font family with optional fallbacks
     fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
@@ -38,7 +38,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '6px 7px',
+    padding: '3px 4px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -111,18 +111,12 @@ module.exports = {
   plugins: [
     "hypercwd",
     "hyperlinks",
-    "hypergoogle",
+    "hyper-pane",
     "hyper-blink",
     "hyper-search",
-    "hyperterm-tabs",
-    "hyper-alt-click",
-    "hyperterm-cursor",
-    "hyper-transparent",
-    //"hyperterm-bold-tab",
-    //"hyper-tabs-enhanced",  // doesn't play well with theme
-    //"hyper-tab-icons",  // doesn't play well with zsh
-    "hyper-snazzy",  // Snazzy theme
-    "hyper-statusline"  // goes after theme
+    // themes: Verminal, Snazzy
+    //"verminal"
+    "hyper-snazzy"
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
