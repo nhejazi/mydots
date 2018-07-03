@@ -84,7 +84,13 @@ module.exports = {
 
     // settings for plugin: hyperlinks
     hyperlinks: {
-      defaultBrowser: false
+      defaultBrowser: 'firefox'
+    },
+
+    // set random border colors
+    hyperBorder: {
+        borderColors: ['random','random'],
+        borderWidth: '2px'
     },
 
     // settings for plugin: hyper-statusline
@@ -109,14 +115,16 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
+    // themes: Verminal, Snazzy
+    //"verminal",
+    "hyper-snazzy",
     "hypercwd",
+    "hyperline",
     "hyperlinks",
     "hyper-pane",
+    "hyperborder",
     "hyper-blink",
-    "hyper-search",
-    // themes: Verminal, Snazzy
-    //"verminal"
-    "hyper-snazzy"
+    "hyper-search"
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
