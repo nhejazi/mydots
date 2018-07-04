@@ -88,10 +88,10 @@ module.exports = {
     },
 
     // set random border colors
-    hyperBorder: {
-        borderColors: ['random','random'],
-        borderWidth: '2px'
-    },
+    //hyperBorder: {
+        //borderColors: ['random','random'],
+        //borderWidth: '2px'
+    //},
 
     // settings for plugin: hyper-statusline
     hyperStatusLine: {
@@ -122,7 +122,7 @@ module.exports = {
     "hyperline",
     "hyperlinks",
     "hyper-pane",
-    "hyperborder",
+    //"hyperborder",
     "hyper-blink",
     "hyper-search"
   ],
