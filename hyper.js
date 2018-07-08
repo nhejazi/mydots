@@ -119,7 +119,7 @@ module.exports = {
     //"verminal",
     "hyper-snazzy",
     "hypercwd",
-    "hyperline",
+    //"hyperline",
     "hyperlinks",
     "hyper-pane",
     //"hyperborder",
