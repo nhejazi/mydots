@@ -135,3 +135,10 @@ if [ -e ~/.jrnl_config ]; then
 fi
 ln -s ~/.dotfiles/jrnl_config ~/.jrnl_config
 
+# configuration file for i3 window manager
+if [ -e ~/.config/i3/config ]; then
+    echo "i3 config already exists...old version will be renamed...";
+    mv -f ~/.config/i3/config ~/.config/i3/config_orig;
+fi
+ln -s ~/.dotfiles/i3_config ~/.config/i3/config
+

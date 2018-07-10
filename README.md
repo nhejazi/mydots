@@ -15,6 +15,7 @@ This collection of configuration files affects behavior of the following tools:
 * [Jupyter notebook](http://jupyter.org/)
 * [Atom (editor)](https://atom.io)
 * [R (language)](https://www.r-project.org)
+* [i3 (Linux window manager](https://i3wm.org)
 
 ---
 

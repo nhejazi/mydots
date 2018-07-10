@@ -32,20 +32,27 @@ if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
-  ## add color support
+
+## add color support
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
 ## convenience aliases
 alias c='clear'
 alias rv='R --vanilla'  # plain R REPL
 alias rr='rtichoke'  # modern R command line interface
 alias lf='ls -aF'
-alias jpynb='jupyter notebook &> /dev/null &'
-alias qjpynb='kill $(pgrep jupyter)'
+
+
+## Linux-specific aliases
+if [ `uname` = "Linux" ]; then
+  alias open=xdg-open
+fi
+
 
 # "the fuck", tool to fix command-line errors
 eval "$(thefuck --alias)"
@@ -189,6 +196,12 @@ fi
 # use homebrew's curl
 if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   export PATH="/usr/local/opt/curl/bin:$PATH"
+fi
+
+
+# use Python applications from .local on Linux
+if [ `uname` = "Linux" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
 fi
 
 

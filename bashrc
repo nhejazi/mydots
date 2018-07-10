@@ -195,4 +195,3 @@ ncodi() {
 # (from https://github.com/keybase/keybase-issues/issues/2798)
 export GPG_TTY=$(tty)
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi
