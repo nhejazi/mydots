@@ -1,7 +1,7 @@
 [user]
   name = Nima Hejazi
   email = nh@nimahejazi.org
-	signingkey = 90773232
+  signingkey = 90773232
 [core]
   editor = vim
   pager =
@@ -183,4 +183,4 @@
   process = git-lfs filter-process
   required = true
 [gpg]
-	program = gpg2
+  program = gpg2
