@@ -165,11 +165,13 @@ exec --no-startup-id feh --randomize --bg-scale ~/.wallpaper/*  # set wallpaper
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
 bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse set Master toggle
-bindsym XF86AudioPlay exec mpc -q toggle
-bindsym XF86AudioPrev exec mpc -q prev
-bindsym XF86AudioNext exec mpc -q next
-bindsym XF86AudioStop exec mpc -q stop
-bindsym Ctrl+slash exec mpc -q toggle
-bindsym Ctrl+comma exec mpc -q prev
-bindsym Ctrl+period exec mpc -q next
+#bindsym XF86AudioPlay exec mpc -q toggle
+#bindsym XF86AudioPrev exec mpc -q prev
+#bindsym XF86AudioNext exec mpc -q next
+#bindsym XF86AudioStop exec mpc -q stop
+
+# enable multimedia keys for systems screen brightness
+# requires light (https://github.com/haikarainen/light)
+bindsym XF86MonBrightnessUp exec "light -A 5; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "light -U 5; notify-send 'brightness down'"
 
