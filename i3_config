@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 14
+font pango:monospace 16
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -159,6 +159,7 @@ bar {
 # start favorite apps in the background
 exec --no-startup-id dropbox start  # run Dropbox in background
 exec --no-startup-id feh --randomize --bg-scale ~/.wallpaper/*  # set wallpaper
+exec --no-startup-id gnome-keyring-daemon -s -f -c=secrets  # start for SSH
 
 # enable multimedia keys for systems audio
 # (https://faq.i3wm.org/question/125/how-to-change-the-systems-volume.1.html)

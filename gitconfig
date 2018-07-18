@@ -37,7 +37,7 @@
 [difftool]
   prompt = false
 [credential]
-  helper = cache --timeout=3600
+  helper = cache --timeout=7200
 [gitflow "prefix"]
   feature = feature-
   release = release-
