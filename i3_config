@@ -162,7 +162,7 @@ bar {
 # start favorite apps in the background
 exec --no-startup-id dropbox start  # run Dropbox in background
 exec --no-startup-id feh --randomize --bg-scale ~/.wallpaper/*  # set wallpaper
-exec --no-startup-id gnome-keyring-daemon -s -f -c=secrets  # start for SSH
+#exec --no-startup-id gnome-keyring-daemon -s -f -c=secrets  # start for SSH
 
 # enable multimedia keys for systems audio
 # (https://faq.i3wm.org/question/125/how-to-change-the-systems-volume.1.html)
