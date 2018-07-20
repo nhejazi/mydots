@@ -195,3 +195,8 @@ ncodi() {
 # (from https://github.com/keybase/keybase-issues/issues/2798)
 export GPG_TTY=$(tty)
 
+# set up ssh-agent via keychain utility
+if [ `uname` == "Linux" ]; then
+  keychain --eval --inherit local
+fi
+

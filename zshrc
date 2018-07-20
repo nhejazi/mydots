@@ -20,7 +20,7 @@ SAVEHIST=1000
 
 
 # fix path issue to respect homebrew
-if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+if [ `uname` != "Linux" ]; then
   export PATH=/usr/local/bin:$PATH
 fi
 
@@ -28,7 +28,7 @@ fi
 # For a full list of active aliases, run `alias`.
 ## export Homebrew path explicitly to fix issue with "ls"
 ### see https://github.com/sorin-ionescu/prezto/issues/966
-if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+if [ `uname` != "Linux" ]; then
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
@@ -193,26 +193,26 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-# use homebrew's curl
-if [ "$(uname 2> /dev/null)" != "Linux" ]; then
-  export PATH="/usr/local/opt/curl/bin:$PATH"
-fi
-
-
-# use Python applications from .local on Linux
+# set up ssh-agent via keychain utility
 if [ `uname` = "Linux" ]; then
-  export PATH="$HOME/.local/bin:$PATH"
+  keychain --eval --inherit local
 fi
 
 
 # toggle the macOS "do not disturb" feature from the command line
 # https://github.com/sindresorhus/do-not-disturb-cli
-if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+if [ `uname` != "Linux" ]; then
   alias dnd='do-not-disturb toggle'
 fi
 
 
-# export environment variable for Homebrew GitHub access
+# use version of curl from Homebrew on macOS
+if [ `uname` != "Linux" ]; then
+  export PATH="/usr/local/opt/curl/bin:$PATH"
+fi
+
+
+# export environment variables for GitHub access for Homebrew on macOS
 if [ -e ~/.homebrew.github ]; then
   source ~/.homebrew.github
 fi
