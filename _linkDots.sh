@@ -142,3 +142,10 @@ if [ -e ~/.config/i3/config ]; then
 fi
 ln -s ~/.dotfiles/i3_config ~/.config/i3/config
 
+# configuration file for SSH agent
+if [ -e ~/.ssh/config ]; then
+    echo "SSH config already exists...old version will be renamed...";
+    mv -f ~/.ssh/config ~/.ssh/config_orig;
+fi
+ln -s ~/.dotfiles/ssh_config ~/.ssh/config
+
