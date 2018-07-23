@@ -20,7 +20,7 @@ SAVEHIST=1000
 
 
 # fix path issue to respect homebrew
-if [ `uname` != "Linux" ]; then
+if [[ `uname` == "Darwin" ]]; then
   export PATH=/usr/local/bin:$PATH
 fi
 
@@ -28,7 +28,7 @@ fi
 # For a full list of active aliases, run `alias`.
 ## export Homebrew path explicitly to fix issue with "ls"
 ### see https://github.com/sorin-ionescu/prezto/issues/966
-if [ `uname` != "Linux" ]; then
+if [[ `uname` == "Darwin" ]]; then
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
@@ -49,7 +49,7 @@ alias lf='ls -aF'
 
 
 ## Linux-specific aliases
-if [ `uname` = "Linux" ]; then
+if [[ `uname` == "Linux" ]]; then
   alias open=xdg-open
 fi
 
@@ -174,7 +174,7 @@ bindkey -e
 
 
 # fzf via Homebrew
-if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+if [[ "$(uname 2> /dev/null)" == "Darwin" ]]; then
   if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
     source /usr/local/opt/fzf/shell/key-bindings.zsh
     source /usr/local/opt/fzf/shell/completion.zsh
@@ -194,20 +194,20 @@ fi
 
 
 # set up ssh-agent via keychain utility
-if [ `uname` = "Linux" ]; then
-  keychain --eval --inherit any
+if [[ `uname` == "Linux" ]]; then
+  keychain --eval --inherit local
 fi
 
 
 # toggle the macOS "do not disturb" feature from the command line
 # https://github.com/sindresorhus/do-not-disturb-cli
-if [ `uname` != "Linux" ]; then
+if [[ `uname` == "Darwin" ]]; then
   alias dnd='do-not-disturb toggle'
 fi
 
 
 # use version of curl from Homebrew on macOS
-if [ `uname` != "Linux" ]; then
+if [[ `uname` == "Linux" ]]; then
   export PATH="/usr/local/opt/curl/bin:$PATH"
 fi
 
