@@ -195,7 +195,7 @@ fi
 
 # set up ssh-agent via keychain utility
 if [[ `uname` == "Linux" ]]; then
-  keychain --eval --inherit local
+  eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
 fi
 
 
