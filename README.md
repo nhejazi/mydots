@@ -24,11 +24,12 @@ This collection of configuration files affects behavior of the following tools:
 Setting up these configuration files is as easy as...
 ```bash
 git clone https://github.com/nhejazi/mydots.git ~/.dotfiles
-cd ~/.dotfiles; make
+cd ~/.dotfiles
+sh place_files.sh
 ```
 
-*  Before running `_linkDots.sh`, update the _user.name_ and _user.email_ fields
-    in the `gitconfig` file appropriately.
+*  Before running `place_files.sh`, update the _user.name_ and _user.email_
+    fields in the `gitconfig` file appropriately.
 
 *  To use the gitsome CLI (to add GitHub integration to xonsh), simply run
     `gh-configure` after installing gitsome via `pip install gitsome`. This
