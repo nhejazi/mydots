@@ -195,8 +195,10 @@ ncodi() {
 # (from https://github.com/keybase/keybase-issues/issues/2798)
 export GPG_TTY=$(tty)
 
-# set up ssh-agent via keychain utility
+# set up socket for ssh-agent and use with the keychain utility
 if [ `uname` == "Linux" ]; then
+  # see https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
+  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
   eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
 fi
 
