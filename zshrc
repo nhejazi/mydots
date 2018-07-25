@@ -195,8 +195,11 @@ fi
 
 # set up socket for ssh-agent and use with the keychain utility
 if [[ `uname` == "Linux" ]]; then
-  # see https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
-  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+  # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
+  # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
+  eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
+  export SSH_AUTH_SOCK
+  #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
   eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
 fi
 
