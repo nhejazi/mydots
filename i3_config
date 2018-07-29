@@ -162,8 +162,8 @@ bar {
 # start favorite apps in the background
 exec --no-startup-id dropbox start  # run Dropbox in background
 exec --no-startup-id feh --randomize --bg-scale ~/.wallpaper/*  # set wallpaper
-exec --no-startup-id systemctl --user enable ssh-agent  # enable the ssh-agent
-exec --no-startup-id systemctl --user start ssh-agent  # start up the ssh-agent
+exec --no-startup-id eval `systemctl --user enable ssh-agent`  # enable the ssh-agent
+exec --no-startup-id eval `systemctl --user start ssh-agent`  # start up the ssh-agent
 exec --no-startup-id ssh-add ~/.ssh/id_rsa  # add keys to the running ssh-agent
 
 # enable multimedia keys for systems audio
