@@ -227,3 +227,8 @@ fi
 # (from https://github.com/keybase/keybase-issues/issues/2798)
 export GPG_TTY=$(tty)
 
+# autostart i3wm on login
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  startx
+fi
+

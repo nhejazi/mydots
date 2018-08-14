@@ -205,3 +205,8 @@ if [ `uname` == "Linux" ]; then
   eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
 fi
 
+# autostart i3wm on login
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  startx
+fi
+

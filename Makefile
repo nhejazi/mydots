@@ -1,5 +1,5 @@
 .PHONY : std
 
 std:
-	sh _linkDots.sh
+	sh place_files.sh
 

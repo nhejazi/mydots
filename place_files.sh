@@ -135,6 +135,20 @@ if [ -e ~/.jrnl_config ]; then
 fi
 ln -s ~/.dotfiles/jrnl_config ~/.jrnl_config
 
+# configuration file for SSH agent
+if [ -e ~/.ssh/config ]; then
+    echo "SSH config already exists...old version will be renamed...";
+    mv -f ~/.ssh/config ~/.ssh/config_orig;
+fi
+ln -s ~/.dotfiles/ssh_config ~/.ssh/config
+
+# configuration file for xinit
+if [ -e ~/.xinitrc ]; then
+    echo "xinit config already exists...old version will be renamed...";
+    mv -f ~/.xinitrc ~/.xinitrc_orig;
+fi
+ln -s ~/.dotfiles/xinitrc ~/.xinitrc
+
 # configuration file for i3 window manager
 if [ -e ~/.config/i3/config ]; then
     echo "i3 config already exists...old version will be renamed...";
@@ -142,10 +156,10 @@ if [ -e ~/.config/i3/config ]; then
 fi
 ln -s ~/.dotfiles/i3_config ~/.config/i3/config
 
-# configuration file for SSH agent
-if [ -e ~/.ssh/config ]; then
-    echo "SSH config already exists...old version will be renamed...";
-    mv -f ~/.ssh/config ~/.ssh/config_orig;
+# status bar configuration file for i3 window manager
+if [ -e ~/.config/i3/i3status ]; then
+    echo "i3status already exists...old version will be renamed...";
+    mv -f ~/.config/i3/i3status ~/.config/i3/i3status_orig;
 fi
-ln -s ~/.dotfiles/ssh_config ~/.ssh/config
+ln -s ~/.dotfiles/i3_status ~/.config/i3/i3status
 
