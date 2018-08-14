@@ -87,50 +87,53 @@ utils::rc.settings(ipck = TRUE)
   }
 }
 
-## convenience function to source latest biocLite() function from Bioconductor
-bioc <- function() {
-  source("https://bioconductor.org/biocLite.R")
-}
-
-## load select packages when not using RStudio
+# load select packages when not using RStudio
 if (interactive() & Sys.getenv("RSTUDIO") != 1) {
-  ## load package prompt and customize R prompt
+  # load package prompt and customize R prompt
   if ("prompt" %in% utils::installed.packages()[, 1]) {
     library("prompt")
     set_prompt(prompt_fancy)
   }
 
-  ## load package colorout at startup
+  # load package colorout at startup
   if ("colorout" %in% utils::installed.packages()[, 1]) {
     if(Sys.getenv("TERM") == "xterm-256color") {
       library("colorout")
     }
   }
-}
 
-## load package for typing corrections
-if ("prettycode" %in% utils::installed.packages()[, 1]) {
-  suppressMessages(library("prettycode"))
-}
+  # load package for typing corrections
+  if ("prettycode" %in% utils::installed.packages()[, 1]) {
+    suppressMessages(library("prettycode"))
+  }
 
-## load package for typing corrections
-if ("fcuk" %in% utils::installed.packages()[, 1]) {
-  library("fcuk")
-}
+  # load package for typing corrections
+  if ("fcuk" %in% utils::installed.packages()[, 1]) {
+    library("fcuk")
+  }
 
-## load my package with miscellaneous utility functions
-if ("nima" %in% utils::installed.packages()[, 1]) {
-  library("nima")
+  # load my package of miscellaneous utility functions
+  if ("nima" %in% utils::installed.packages()[, 1]) {
+    library("nima")
+  }
+
+  if ("devtools" %in% utils::installed.packages()[, 1]) {
+    library("devtools")
+  }
+
+  if ("usethis" %in% utils::installed.packages()[, 1]) {
+    library("usethis")
+  }
+
 }
 
 if (interactive()) {
-  ## enter the Tidyverse and other core tools
-  suppressMessages(require(usethis))
-  suppressMessages(require(devtools))
-  suppressMessages(require(tidyverse))
-  suppressMessages(require(ProjectTemplate))
+  # enter the Tidyverse and other core tools
+  if ("tidyverse" %in% utils::installed.packages()[, 1]) {
+    library("tidyverse")
+  }
 
-  ## make rtichoke REPL/CLI compatible with Nvim-R
+  # make rtichoke REPL/CLI compatible with Nvim-R
   options(
     # color scheme see [here](https://help.farbox.com/pygments.html) for a list
     # of supported color schemes, default is `"native"`
