@@ -73,18 +73,18 @@ run_watch VPN {
 }
 
 tztime local {
-        format = " %h %d |  %I:%M"
+        format = "%h %d |  %I:%M"
 }
 
 load {
-        format = " %1min"
+        format = "%1min"
 }
 
 disk "/" {
-        format = " %avail"
+        format = "%avail"
 }
 
 cpu_usage {
-	format = " %usage"
+	format = "%usage"
 }
 

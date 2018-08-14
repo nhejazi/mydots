@@ -229,6 +229,7 @@ export GPG_TTY=$(tty)
 
 # autostart i3wm on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  startx
+  ssh-agent startx
 fi
 
+cat ~/.ssh/id_rsa | SSH_ASKPASS="$HOME/.passfile" ssh-add - &>/dev/null
