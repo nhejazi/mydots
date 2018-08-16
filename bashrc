@@ -167,30 +167,6 @@ fi
 # add fzf support
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Codi for Vim
-# Usage: codi [filetype] [filename]
-codi() {
-  vim "$2" -c \
-    "let g:startify_disable_at_vimenter = 1 |\
-    set bt=nofile ls=0 noru nonu nornu |\
-    hi ColorColumn ctermbg=NONE |\
-    hi VertSplit ctermbg=NONE |\
-    hi NonText ctermfg=0 |\
-    Codi ${1:-python}"
-}
-
-# Codi for Neovim
-# Usage: ncodi [filetype] [filename]
-ncodi() {
-  nvim "$2" -c \
-    "let g:startify_disable_at_vimenter = 1 |\
-    set bt=nofile ls=0 noru nonu nornu |\
-    hi ColorColumn ctermbg=NONE |\
-    hi VertSplit ctermbg=NONE |\
-    hi NonText ctermfg=0 |\
-    Codi ${1:-python}"
-}
-
 # GPG signing for git
 # (from https://github.com/keybase/keybase-issues/issues/2798)
 export GPG_TTY=$(tty)
@@ -210,4 +186,9 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   ssh-agent startx
 fi
 
-cat ~/.ssh/id_rsa | SSH_ASKPASS="$HOME/.passfile" ssh-add - &>/dev/null
+# export gems for non-system Ruby
+if [ `uname` == "Linux" ]; then
+  export GEM_HOME=$HOME/gems
+  export PATH=$HOME/gems/bin:$PATH
+fi
+

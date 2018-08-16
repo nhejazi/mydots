@@ -139,31 +139,6 @@ fi
 zplug load --verbose
 
 
-# Codi plug-in for Vim
-# Usage: codi [filetype] [filename]
-codi() {
-  vim "$2" -c \
-    "let g:startify_disable_at_vimenter = 1 |\
-    set bt=nofile ls=0 noru nonu nornu |\
-    hi ColorColumn ctermbg=NONE |\
-    hi VertSplit ctermbg=NONE |\
-    hi NonText ctermfg=0 |\
-    Codi ${1:-python}"
-}
-
-# Codi for Neovim
-# Usage: ncodi [filetype] [filename]
-ncodi() {
-  nvim "$2" -c \
-    "let g:startify_disable_at_vimenter = 1 |\
-    set bt=nofile ls=0 noru nonu nornu |\
-    hi ColorColumn ctermbg=NONE |\
-    hi VertSplit ctermbg=NONE |\
-    hi NonText ctermfg=0 |\
-    Codi ${1:-python}"
-}
-
-
 # emacs keybindings (match bash)
 bindkey -e
 
@@ -212,8 +187,16 @@ fi
 
 
 # use version of curl from Homebrew on macOS
-if [[ `uname` == "Linux" ]]; then
+if [[ `uname` == "Darwin" ]]; then
   export PATH="/usr/local/opt/curl/bin:$PATH"
+
+fi
+
+
+# export gems for non-system Ruby
+if [[ `uname` == "Linux" ]]; then
+  export GEM_HOME=$HOME/gems
+  export PATH=$HOME/gems/bin:$PATH
 fi
 
 
@@ -232,4 +215,3 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   ssh-agent startx
 fi
 
-cat ~/.ssh/id_rsa | SSH_ASKPASS="$HOME/.passfile" ssh-add - &>/dev/null
