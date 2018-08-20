@@ -121,6 +121,29 @@ else
   fi
 fi
 
+# Setting PATH for Scala
+export SCALA_HOME=/usr/local/share/scala
+export PATH=$PATH:$SCALA_HOME/bin
+
+# added by travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
+# add fzf support
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# autostart i3wm on login
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  ssh-agent startx
+fi
+
+# GPG signing for git
+# (from https://github.com/keybase/keybase-issues/issues/2798)
+export GPG_TTY=$(tty)
+
+# "the fuck", tool to fix command-line errors
+eval "$(thefuck --alias)"
+
+
 # Comical quotes for terminal (GitHub source: nhejazi/good-news)
 # NOTE June 2016: this appears to cause some issues with logging in to servers
 # to copy files (affects tools including `scp`, `rsync`, Cyberduck, Filezilla)
@@ -132,63 +155,43 @@ if [[ $USER == "nimahejazi" ]]; then  ## local user accounts only
   fi
 fi
 
-# Setting PATH for Scala
-export SCALA_HOME=/usr/local/share/scala
-export PATH=$PATH:$SCALA_HOME/bin
 
-# Workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
-if [ `uname` == "Darwin" ]; then
-  export TERMINFO="$HOME/.terminfo"
-fi
+####################################
+## Linux                          ##
+####################################
+if [[ `uname` == "Linux" ]]; then
+  # on Ubuntu, python/pip installs executables here, so need to add to path
+  export PATH=$PATH:~/.local/bin
 
-# for Hub command line tool, GitHub wrapper around git
-# (GitHub source: github/hub)
-if [ `uname` == "Darwin" ]; then
-  eval "$(hub alias -s)"
-fi
-
-# bash completions needed by Homebrew and Mac-CLI
-# (GitHub source: guarinogabriel/Mac-CLI)
-if [ `uname` == "Darwin" ]; then
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion;
-  fi
-fi
-
-# "the fuck", tool to fix command-line errors
-if [[ $USER == "nimahejazi" ]]; then  ## local user accounts only
-  eval "$(thefuck --alias)"
-fi
-
-# added by travis gem
-[ -f /Users/nimahejazi/.travis/travis.sh ] && \
-  source /Users/nimahejazi/.travis/travis.sh
-
-# add fzf support
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# GPG signing for git
-# (from https://github.com/keybase/keybase-issues/issues/2798)
-export GPG_TTY=$(tty)
-
-# set up socket for ssh-agent and use with the keychain utility
-if [ `uname` == "Linux" ]; then
+  # set up socket for ssh-agent and use with the keychain utility
   # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
   # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
   eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
   export SSH_AUTH_SOCK
   #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
   eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
-fi
 
-# autostart i3wm on login
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  ssh-agent startx
-fi
-
-# export gems for non-system Ruby
-if [ `uname` == "Linux" ]; then
+  # export gems for non-system Ruby
   export GEM_HOME=$HOME/gems
   export PATH=$HOME/gems/bin:$PATH
+fi
+
+
+####################################
+## macOS (Darwin)                 ##
+####################################
+if [ `uname` == "Darwin" ]; then
+  # Workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
+  export TERMINFO="$HOME/.terminfo"
+
+  # for Hub command line tool, GitHub wrapper around git
+  # (GitHub source: github/hub)
+  eval "$(hub alias -s)"
+
+  # bash completions needed by Homebrew and Mac-CLI
+  # (GitHub source: guarinogabriel/Mac-CLI)
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    source $(brew --prefix)/etc/bash_completion;
+  fi
 fi
 

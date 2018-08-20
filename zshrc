@@ -13,25 +13,9 @@ else
   export EDITOR='vim'
 fi
 
-
 # control length of history file
 HISTSIZE=1000
 SAVEHIST=1000
-
-
-# fix path issue to respect homebrew
-if [[ `uname` == "Darwin" ]]; then
-  export PATH=/usr/local/bin:$PATH
-fi
-
-# Set personal aliases, overriding those provided by plugins and themes.
-# For a full list of active aliases, run `alias`.
-## export Homebrew path explicitly to fix issue with "ls"
-### see https://github.com/sorin-ionescu/prezto/issues/966
-if [[ `uname` == "Darwin" ]]; then
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-  fpath=(/usr/local/share/zsh-completions $fpath)
-fi
 
 ## add color support
 alias ls='ls --color=auto'
@@ -47,16 +31,22 @@ alias rv='R --vanilla'  # plain R REPL
 alias rr='rtichoke'  # modern R command line interface
 alias lf='ls -aF'
 
-
-## Linux-specific aliases
-if [[ `uname` == "Linux" ]]; then
-  alias open=xdg-open
+# export environment variables for GitHub access for Homebrew on macOS
+if [ -e ~/.homebrew.github ]; then
+  source ~/.homebrew.github
 fi
 
+# GPG signing for git
+# (from https://github.com/keybase/keybase-issues/issues/2798)
+export GPG_TTY=$(tty)
+
+# autostart i3wm on login
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  ssh-agent startx
+fi
 
 # "the fuck", tool to fix command-line errors
 eval "$(thefuck --alias)"
-
 
 # Setting tab titles in a smart way, allowing user to specify titles too
 # from: https://github.com/zeit/hyper/issues/1188 | post by audunolsen
@@ -83,16 +73,9 @@ preexec() {
    printf "\033]0;%s\a" "${1%% *} | $cwd" # Omit construct from $1 to show args
 }
 
-
-# sets the tab title to current directory
-#precmd() {
-#  echo -ne "\e]1;${PWD##*/}\a"
-#}
-
-
-####################################
-# using zplug for plug-in management
-####################################
+########################################
+## using zplug for plug-in management ##
+########################################
 source ~/.zplug/init.zsh
 
 # Let zplug manage zplug
@@ -138,24 +121,11 @@ fi
 # source plug-ins and add commands to $PATH
 zplug load --verbose
 
-
 # emacs keybindings (match bash)
 bindkey -e
 
-
 # added by travis gem
-[ -f /Users/nimahejazi/.travis/travis.sh ] && \
-  source /Users/nimahejazi/.travis/travis.sh
-
-
-# fzf via Homebrew
-if [[ "$(uname 2> /dev/null)" == "Darwin" ]]; then
-  if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
-    source /usr/local/opt/fzf/shell/key-bindings.zsh
-    source /usr/local/opt/fzf/shell/completion.zsh
-  fi
-fi
-
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 # fzf via local installation
 if [ -e ~/.fzf ]; then
@@ -167,51 +137,52 @@ fi
 # fzf keybindings for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-# set up socket for ssh-agent and use with the keychain utility
+####################################
+## Linux                          ##
+####################################
 if [[ `uname` == "Linux" ]]; then
+  # make open work like in macOS
+  alias open=xdg-open
+
+  # export gems for non-system Ruby
+  export GEM_HOME=$HOME/gems
+  export PATH=$HOME/gems/bin:$PATH
+
+  # set up socket for ssh-agent and use with the keychain utility
   # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
   # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
   eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
   export SSH_AUTH_SOCK
   #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
   eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
+
+  # on Ubuntu, python/pip installs executables here, so need to add to path
+  export PATH=$PATH:~/.local/bin
 fi
 
-
-# toggle the macOS "do not disturb" feature from the command line
-# https://github.com/sindresorhus/do-not-disturb-cli
+####################################
+## macOS (Darwin)                 ##
+####################################
 if [[ `uname` == "Darwin" ]]; then
-  alias dnd='do-not-disturb toggle'
-fi
+  # add to path to respect homebrew
+  export PATH=/usr/local/bin:$PATH
 
+  # export Homebrew path explicitly to fix issue with "ls"
+  # see https://github.com/sorin-ionescu/prezto/issues/966
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+  fpath=(/usr/local/share/zsh-completions $fpath)
 
-# use version of curl from Homebrew on macOS
-if [[ `uname` == "Darwin" ]]; then
+  # use version of curl from Homebrew
   export PATH="/usr/local/opt/curl/bin:$PATH"
 
-fi
+  # toggle the macOS "do not disturb" feature from the command line
+  # https://github.com/sindresorhus/do-not-disturb-cli
+  alias dnd='do-not-disturb toggle'
 
-
-# export gems for non-system Ruby
-if [[ `uname` == "Linux" ]]; then
-  export GEM_HOME=$HOME/gems
-  export PATH=$HOME/gems/bin:$PATH
-fi
-
-
-# export environment variables for GitHub access for Homebrew on macOS
-if [ -e ~/.homebrew.github ]; then
-  source ~/.homebrew.github
-fi
-
-
-# GPG signing for git
-# (from https://github.com/keybase/keybase-issues/issues/2798)
-export GPG_TTY=$(tty)
-
-# autostart i3wm on login
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  ssh-agent startx
+  # fzf via Homebrew
+  if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
+    source /usr/local/opt/fzf/shell/key-bindings.zsh
+    source /usr/local/opt/fzf/shell/completion.zsh
+  fi
 fi
 
