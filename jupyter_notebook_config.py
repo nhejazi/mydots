@@ -617,7 +617,9 @@ c.GitHubConfig.client_secret = 'c8091471842174282188eb178d605b4a03f136c8'
 # automatically strip output prior to saving notebook
 # (https://jupyter-notebook.readthedocs.io/en/stable/extending/savehooks.html)
 def scrub_output_pre_save(model, **kwargs):
-    """scrub output before saving notebooks"""
+    """
+    scrub output before saving notebooks
+    """
     # only run on notebooks
     if model['type'] != 'notebook':
         return
@@ -644,8 +646,8 @@ from notebook.utils import to_api_path
 _script_exporter = None
 
 def script_post_save(model, os_path, contents_manager, **kwargs):
-    """convert notebooks to Python script after save with nbconvert
-
+    """
+    convert notebooks to Python script after save with nbconvert
     replaces `ipython notebook --script`
     """
     from nbconvert.exporters.script import ScriptExporter
