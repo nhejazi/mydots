@@ -29,6 +29,12 @@ else
   :
 fi
 
+# for Linux-based systems, the Cisco AnyConnect VPN client
+if [ `uname` == "Linux" ]; then
+  alias vpn='/opt/cisco/anyconnect/bin/vpn'
+  alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
+fi
+
 # toggle the macOS "do not disturb" feature from the command line
 # https://github.com/sindresorhus/do-not-disturb-cli
 if [ `uname` == "Darwin" ]; then
