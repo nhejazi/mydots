@@ -125,6 +125,11 @@ if (interactive() & Sys.getenv("RSTUDIO") != 1) {
     library("usethis")
   }
 
+  # replacement for help
+  if ("lookup" %in% utils::installed.packages()[, 1]) {
+    suppressPackageStartupMessages(library("lookup"))
+  }
+
 }
 
 if (interactive()) {
