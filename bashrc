@@ -195,3 +195,6 @@ if [ `uname` == "Darwin" ]; then
   fi
 fi
 
+
+# added by travis gem
+[ -f /home/nsh/.travis/travis.sh ] && source /home/nsh/.travis/travis.sh
