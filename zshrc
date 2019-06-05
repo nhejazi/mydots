@@ -101,11 +101,12 @@ zplug "plugins/git-flow", from:oh-my-zsh  # for using the Git Flow model
 zplug "modules/history", from:prezto  # a nice history tool
 
 # add Soliah prompt and theme
-#zplug "themes/Soliah", from:oh-my-zsh, as:theme
+zplug "themes/Soliah", from:oh-my-zsh, as:theme
+#zplug "themes/frisk", from:oh-my-zsh, as:theme
 
 # add Pure prompt and theme
 zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+#zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 # proper syntax highlighting (NOTE: must be last)
 zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2

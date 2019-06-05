@@ -16,6 +16,9 @@ options(prompt = "R > ", continue = "... ")
 ## Stop asking for CRAN mirror every time
 options("repos" = c(CRAN = "https://cran.rstudio.com/"))
 
+## Attempt auto-recovery when errors occur
+options(error = recover)
+
 ## Create a new invisible environment for all the functions to go in.
 .env <- new.env()
 
