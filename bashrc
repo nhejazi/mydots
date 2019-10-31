@@ -216,5 +216,9 @@ fi
 unset __conda_setup
 # <<< conda init <<<
 
-# enable mujoco (Berkeley CS285)
+# enable mujoco 1.5 (Berkeley CS285)
 export LD_LIBRARY_PATH=~/.mujoco/mjpro150/bin/
+
+# enable mujoco 2.0 (Berkeley CS285)
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco200/bin/
+
