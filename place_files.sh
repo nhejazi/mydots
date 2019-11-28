@@ -113,11 +113,12 @@ fi
 ln -s ~/.dotfiles/hyper.js ~/.hyper.js
 
 # configuration file for the terminal emulater Alacritty
-if [ -e ~/.alacritty.yml ]; then
+if [ -e ~/.config/alacritty/alacritty.yml ]; then
   echo "alacritty.yml already exists...old version will be renamed...";
-  mv -f ~/.alacritty.yml ~/.alacritty_orig.yml;
+  mv -f ~/.config/alacritty/alacritty.yml \
+    ~/.config/alacritty/alacritty_orig.yml;
 fi
-ln -s ~/.dotfiles/alacritty.yml ~/.alacritty.yml
+ln -s ~/.dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 # configuration file for Jupyter notebooks
 if [ -e ~/.jupyter/jupyter_notebook_config.py ]; then
