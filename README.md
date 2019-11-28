@@ -3,20 +3,18 @@
 > _a collection of my configuration/customization files_
 
 This collection of configuration files affects behavior of the following tools:
-* [git](https://git-scm.com/)
-* [tmux](https://github.com/tmux/tmux/wiki)
+* [zsh](http://zsh.sourceforge.net)
+* [bash](https://www.gnu.org/software/bash/)
+* [xonsh](https://xon.sh/)
+* [Hyper](https://hyper.is/)
+* [Alacritty](https://github.com/jwilm/alacritty)
+* [Jupyter](http://jupyter.org/)
+* [Atom](https://atom.io)
 * [jrnl](http://jrnl.sh/index.html)
-* [zsh (shell)](http://zsh.sourceforge.net)
-* [bash (shell)](https://www.gnu.org/software/bash/)
-* [xonsh (shell)](https://xon.sh/)
-* [gitsome (CLI)](https://github.com/donnemartin/gitsome)
-* [Alacritty (terminal)](https://github.com/jwilm/alacritty)
-* [Hyper (terminal)](https://hyper.is/)
-* [iTerm2 (macOS terminal)](https://iterm2.com/)
-* [Jupyter notebook](http://jupyter.org/)
-* [Atom (editor)](https://atom.io)
-* [R (language)](https://www.r-project.org)
-* [i3 (Linux window manager](https://i3wm.org)
+* [tmux](https://github.com/tmux/tmux/wiki)
+* [git](https://git-scm.com/)
+* [i3](https://i3wm.org)
+* [R](https://www.r-project.org)
 
 ---
 
@@ -26,21 +24,17 @@ Setting up these configuration files is as easy as...
 ```bash
 git clone https://github.com/nhejazi/mydots.git ~/.dotfiles
 cd ~/.dotfiles
-sh place_files.sh
+make
 ```
 
-*  Before running `place_files.sh`, update the _user.name_ and _user.email_
-    fields in the `gitconfig` file appropriately.
-
-*  To use the gitsome CLI (to add GitHub integration to xonsh), simply run
-    `gh-configure` after installing gitsome via `pip install gitsome`. This
-    assumes xonsh has been properly installed already (via `pip install xonsh`).
+_Note:_ Before running `place_files.sh`, update the _user.name_ and _user.email_
+fields in the `gitconfig` file appropriately.
 
 ---
 
 ## Related
 
-* __[nhejazi/vimForLife](https://github.com/nhejazi/vimForLife)__ - convenient
+* __[nhejazi/vim_lyfe](https://github.com/nhejazi/vim_lyfe)__ - convenient
     configurations for both the [Vim](http://www.vim.org/index.php) and
     [Neovim](https://neovim.io) editors.
 
@@ -55,8 +49,7 @@ sh place_files.sh
 
 ## License
 
-&copy; 2016-2018 [Nima Hejazi](https://nimahejazi.org)
+&copy; 2016-2019 [Nima Hejazi](https://nimahejazi.org)
 
 The contents of this repository are distributed under the MIT license. See file
 `LICENSE` for details.
-

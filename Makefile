@@ -2,4 +2,3 @@
 
 std:
 	sh place_files.sh
-
