@@ -10,6 +10,7 @@ This collection of configuration files affects behavior of the following tools:
 * [bash (shell)](https://www.gnu.org/software/bash/)
 * [xonsh (shell)](https://xon.sh/)
 * [gitsome (CLI)](https://github.com/donnemartin/gitsome)
+* [Alacritty (terminal)](https://github.com/jwilm/alacritty)
 * [Hyper (terminal)](https://hyper.is/)
 * [iTerm2 (macOS terminal)](https://iterm2.com/)
 * [Jupyter notebook](http://jupyter.org/)
