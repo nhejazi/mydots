@@ -1,8 +1,8 @@
-####### ====================================================== ################
-####### my .Rprofile configuration (symlinked to ~/.Rprofile)  ################
-####### ====================================================== ################
+# ==============================================================================
+# my .Rprofile configuration (symlinked to ~/.Rprofile)
+# ==============================================================================
 
-## avoid package library issues with R version changes
+# avoid package library issues with R version changes
 if (as.character(Sys.info()["effective_user"]) %in%
   c("nimahejazi", "nhejazi", "nsh")) {
     if (dir.exists("~/.Rlibrary")) {
@@ -10,35 +10,19 @@ if (as.character(Sys.info()["effective_user"]) %in%
     }
 }
 
-## Give REPL prompts that are clearer
+# Give REPL prompts that are clearer
 options(prompt = "R > ", continue = "... ")
 
-## Stop asking for CRAN mirror every time
+# Stop asking for CRAN mirror every time
 options("repos" = c(CRAN = "https://cran.rstudio.com/"))
 
-## Create a new invisible environment for all the functions to go in.
+# Create a new invisible environment for all the functions to go in.
 .env <- new.env()
 
-## Returns a logical vector TRUE for elements of X not in Y
+# Returns a logical vector TRUE for elements of X not in Y
 .env$"%ni%" <- function(x, y) { !(x %in% y) }
 
-## Strip row names from a data frame (stolen from plyr)
-.env$unrowname <- function(x) {
-    rownames(x) <- NULL
-    x
-}
-
-## List objects and classes (from @_inundata, mod by ateucher)
-.env$lsa <- function() {
-    obj_type <- function(x) class(get(x, envir = .GlobalEnv))  # define env
-    foo = data.frame(sapply(ls(envir = .GlobalEnv), obj_type))
-    foo$object_name = rownames(foo)
-    names(foo)[1] = "class"
-    names(foo)[2] = "object"
-    return(unrowname(foo))
-}
-
-## List all functions in a package (also from @_inundata)
+# List all functions in a package (also from @_inundata)
 .env$lsp <- function(package, all.names = FALSE, pattern) {
     package <- deparse(substitute(package))
     ls(
@@ -48,28 +32,28 @@ options("repos" = c(CRAN = "https://cran.rstudio.com/"))
     )
 }
 
-## Open Finder to the current directory on Mac
+# Open Finder to the current directory on Mac
 .env$o <- function(...) if(Sys.info()[1] == "Darwin") system("open .")
 
-## Attach all the variables above
+# Attach all the variables above
 attach(.env)
 
-## Trying to avoid this problem permanently (WARNING: less reproducible code)
+# Avoid this awful default issue permanently
 options(stringsAsFactors = FALSE)
 
-## set a longer print history than normal
+# Set a longer print history than normal
 options(max.print = 100)
 
-## follow convention for 80 columns
+# Follow convention for 80 columns
 options(width = 80)
 
-## No stars. Stars are bad.
+# No stars. Stars are bad for statistics.
 options(show.signif.stars = FALSE)
 
-## Tab-complete package names when calling `library()` and `require()`
+# Tab-complete package names when calling `library()` and `require()`
 utils::rc.settings(ipck = TRUE)
 
-## run at R startup (includes pasting timestamp to Rhistory file)
+# Run at R startup (includes pasting timestamp to .Rhistory file)
 .First <- function() {
   if(interactive()) {
     utils::timestamp(, prefix = paste("##------ [", getwd(), "] ", sep = ""))
@@ -77,7 +61,7 @@ utils::rc.settings(ipck = TRUE)
   }
 }
 
-## run before R closes (includes saving interactive console history)
+# Run before R closes (includes saving interactive console history)
 .Last <- function() {
   if(interactive()) {
     hist_file <- Sys.getenv("R_HISTFILE")
@@ -87,49 +71,22 @@ utils::rc.settings(ipck = TRUE)
   }
 }
 
-# load select packages when not using RStudio
+# Load select packages when not using RStudio
 if (interactive() & Sys.getenv("RSTUDIO") != 1) {
-  # load package prompt and customize R prompt
-  if ("prompt" %in% utils::installed.packages()[, 1]) {
-    library("prompt")
-    set_prompt(prompt_fancy)
-  }
-
-  # load package colorout at startup
-  if ("colorout" %in% utils::installed.packages()[, 1]) {
-    if(Sys.getenv("TERM") == "xterm-256color") {
-      library("colorout")
+  # load useful packages if installed
+  pkg_list <- c("devtools", "remotes", "usethis", "fcuk", "nima")
+  for (pkg in pkg_list) {
+    if (pkg %in% utils::installed.packages()[, 1]) {
+      library(pkg)
     }
   }
 
-  # load package for typing corrections
-  if ("prettycode" %in% utils::installed.packages()[, 1]) {
-    suppressMessages(library("prettycode"))
+  # load package colorout at startup if terminal colors supported
+  if ("colorout" %in% utils::installed.packages()[, 1]) {
+    if ("256color" %in% unlist(strsplit(Sys.getenv("TERM"), "-")) {
+      library("colorout")
+    }
   }
-
-  # load package for typing corrections
-  if ("fcuk" %in% utils::installed.packages()[, 1]) {
-    library("fcuk")
-  }
-
-  # load my package of miscellaneous utility functions
-  if ("nima" %in% utils::installed.packages()[, 1]) {
-    library("nima")
-  }
-
-  if ("devtools" %in% utils::installed.packages()[, 1]) {
-    library("devtools")
-  }
-
-  if ("usethis" %in% utils::installed.packages()[, 1]) {
-    library("usethis")
-  }
-
-  # replacement for help
-  if ("lookup" %in% utils::installed.packages()[, 1]) {
-    suppressPackageStartupMessages(library("lookup"))
-  }
-
 }
 
 if (interactive()) {
@@ -138,42 +95,45 @@ if (interactive()) {
     library("tidyverse")
   }
 
-  # make rtichoke REPL/CLI compatible with Nvim-R
-  options(
-    # color scheme see [here](https://help.farbox.com/pygments.html) for a list
-    # of supported color schemes, default is `"native"`
-    rtichoke.color_scheme = "native",
+  # pygments supported color schemes; default scheme is "native"
+  options(radian.color_scheme = "native")
 
-    # either  `"emacs"` (default) or `"vi"`.
-    rtichoke.editing_mode = "vi",
+  # either  `"emacs"` (default) or `"vi"`.
+  options(radian.editing_mode = "vi")
 
-    # auto match brackets and quotes
-    rtichoke.auto_match = FALSE,
+  # indent continuation lines
+  # turn this off if you want to copy code without the extra indentation;
+  # but it leads to less elegent layout
+  options(radian.indent_lines = TRUE)
 
-    # auto indentation for new line and curly braces
-    rtichoke.auto_indentation = TRUE,
-    rtichoke.tab_size = 4,
+  # auto match brackets and quotes
+  options(radian.auto_match = TRUE)
 
-    # pop up completion while typing
-    rtichoke.complete_while_typing = TRUE,
+  # auto indentation for new line and curly braces
+  options(radian.auto_indentation = TRUE)
+  options(radian.tab_size = 4)
 
-    # automatically adjust R buffer size based on terminal width
-    rtichoke.auto_width = TRUE,
+  # pop up completion while typing
+  options(radian.complete_while_typing = TRUE)
+  # timeout in seconds to cancel completion if it takes too long
+  # set it to 0 to disable it
+  options(radian.completion_timeout = 0.05)
 
-    # insert new line between prompts
-    rtichoke.insert_new_line = TRUE,
+  # automatically adjust R buffer size based on terminal width
+  options(radian.auto_width = TRUE)
 
-    # when using history search (ctrl-r/ctrl-s in emacs mode), do not show
-    # duplicate results
-    rtichoke.history_search_no_duplicates = FALSE,
+  # insert new line between prompts, turning it off may hide buffered lines
+  options(radian.insert_new_line = TRUE)
 
-    # custom prompt for different modes
-    #rtichoke.prompt = "\033[0;34mr$>\033[0m ",
-    #rtichoke.shell_prompt = "\033[0;31m#!>\033[0m ",
-    #rtichoke.browse_prompt = "\033[0;33mBrowse[{}]>\033[0m ",
+  # when using history search, do not show duplicate results
+  options(radian.history_search_no_duplicates = FALSE)
 
-    # supress the loading message for reticulate
-    rtichoke.suppress_reticulate_message = FALSE
-  )
+  # show vi mode state when radian.editing_mode is `vi`
+  options(radian.show_vi_mode_prompt = TRUE)
+  options(radian.vi_mode_prompt = "\033[34m[{}]\033[0m ")
+
+  # suppress the loading message for reticulate
+  options(radian.suppress_reticulate_message = FALSE)
+  # enable reticulate prompt and trigger `~`
+  options(radian.enable_reticulate_prompt = TRUE)
 }
-

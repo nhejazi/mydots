@@ -27,9 +27,17 @@ alias egrep='egrep --color=auto'
 
 ## convenience aliases
 alias c='clear'
-alias rv='R --vanilla'  # plain R REPL
-alias rr='rtichoke'  # modern R command line interface
 alias lf='ls -aF'
+
+## aliases for common tools (R, python, Jupyter, etc)
+alias rr='R --no-save'  # R REPL without save prompt
+alias rv='R --vanilla'  # the most plain R REPL possible
+alias rad='radian --no-history'  # ipython-like R CLI
+alias py='python3'
+alias ipy='ipython'
+alias jplb='jupyter lab'
+alias jpnk='jupyter notebook'
+alias jl='julia'
 
 # export environment variables for GitHub access for Homebrew on macOS
 if [ -e ~/.homebrew.github ]; then
@@ -157,7 +165,7 @@ if [[ `uname` == "Linux" ]]; then
   #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
   eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
 
-  # on Ubuntu, python/pip installs executables here, so need to add to path
+  # on Ubuntu, python/pip installs executables here, so add to path
   export PATH=$PATH:~/.local/bin
 
   # for Linux-based systems, the Cisco AnyConnect VPN client
@@ -197,7 +205,8 @@ fi
 # added by Miniconda3 4.5.12 installer
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/nsh/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/nsh/miniconda3/bin/conda' \
+  shell.bash hook 2> /dev/null)"
 if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
 else

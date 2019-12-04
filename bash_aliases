@@ -8,26 +8,15 @@ alias l='ls -CF'
 alias prme='ps aux | grep $USER'
 alias c='clear'
 
-
 # make common tools easier to use...
-alias rv='R --vanilla'  # plain R REPL
-alias rr='rtichoke'  # modern R command line interface
-
-if [ `uname` == "Linux" ]; then
-  alias py2='python2.7'
-elif [ `uname` == "Darwin" ]; then
-  alias py2='python2'
-else
-  :
-fi
-
-if [ `uname` == "Linux" ]; then
-  alias py3='python3.5'
-elif [ `uname` == "Darwin" ]; then
-  alias py3='python3'
-else
-  :
-fi
+alias rr='R --no-save'  # R REPL without save prompt
+alias rv='R --vanilla'  # the most plain R REPL possible
+alias rad='radian --no-history'  # ipython-like R CLI
+alias py='python3'
+alias ipy='ipython'
+alias jplb='jupyter lab'
+alias jpnk='jupyter notebook'
+alias jl='julia'
 
 # for Linux-based systems, the Cisco AnyConnect VPN client
 if [ `uname` == "Linux" ]; then
@@ -42,21 +31,3 @@ if [ `uname` == "Darwin" ]; then
 else
   :
 fi
-
-alias Julia='julia'
-alias ipy='ipython3'
-alias jpynb='jupyter notebook &> /dev/null &'
-alias qjpynb='kill $(pgrep jupyter)'
-
-# system-specific alias for good-news prompt
-if [[ $USER == "nimahejazi" ]]; then
-  if [ `uname` == "Linux" ]; then
-    shuf -n1 ~/.goodnews
-    alias qf='shuf -n1 ~/.goodnews'
-  else
-  # for macOS, use Homebrew's GNU coreutils
-    gshuf -n1 ~/.goodnews
-    alias qf='gshuf -n1 ~/.goodnews'
-  fi
-fi
-
