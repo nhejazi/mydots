@@ -63,7 +63,7 @@ utils::rc.settings(ipck = TRUE)
 
 # Run before R closes (includes saving interactive console history)
 .Last <- function() {
-  if(interactive()) {
+  if(interactive() && commandArgs()[1] != "rchitect") {
     hist_file <- Sys.getenv("R_HISTFILE")
     if(hist_file == "") hist_file <- "~/.RHistory"
     savehistory(hist_file)
@@ -72,7 +72,7 @@ utils::rc.settings(ipck = TRUE)
 }
 
 # Load select packages when not using RStudio
-if (interactive() & Sys.getenv("RSTUDIO") != 1) {
+if (interactive() && Sys.getenv("RSTUDIO") != 1) {
   # load useful packages if installed
   pkg_list <- c("usethis", "remotes", "devtools", "fcuk", "nima")
   for (pkg in pkg_list) {
