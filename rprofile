@@ -32,8 +32,14 @@ options("repos" = c(CRAN = "https://cran.rstudio.com/"))
     )
 }
 
-# Open Finder to the current directory on Mac
-.env$o <- function(...) if(Sys.info()[1] == "Darwin") system("open .")
+# Open to the current directory on Mac or Linux
+.env$o <- function(...) {
+  if (Sys.info()[1] == "Darwin") {
+    system("open .")
+  } else if (Sys.info()[1] == "Linux") {
+    system("xdg-open .")
+  }
+}
 
 # Attach all the variables above
 attach(.env)
@@ -80,6 +86,7 @@ if (interactive() && Sys.getenv("RSTUDIO") != 1) {
       library(pkg, character.only = TRUE)
     }
   }
+  rm(pkg, pkg_list)
 
   # load package colorout at startup if terminal colors supported
   if ("colorout" %in% utils::installed.packages()[, 1]) {
