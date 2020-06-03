@@ -1,4 +1,7 @@
-AddKeysToAgent  yes
-
 Host *
-ServerAliveInterval 60
+  ForwardAgent no
+  ForwardX11 no
+  ForwardX11Trusted yes
+  ServerAliveInterval 60
+  ServerAliveCountMax 30
+  AddKeysToAgent yes
