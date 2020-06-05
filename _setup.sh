@@ -44,13 +44,6 @@ if [ -e ~/.zshrc ]; then
 fi
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 
-# for xonsh shell customization
-if [ -e ~/.xonshrc ]; then
-    echo "xonshrc dotfile exists...old version will be renamed...";
-    mv -f ~/.xonshrc ~/.xonshrc_orig;
-fi
-ln -s ~/.dotfiles/xonshrc ~/.xonshrc
-
 # for git configuration and customization
 if [ -e ~/.git-prompt_mb.sh ]; then
     echo "git-prompt_mb dotfile exists...old version will be renamed...";
@@ -105,13 +98,6 @@ if [ -e ~/.Rprofile ]; then
 fi
 ln -s ~/.dotfiles/rprofile ~/.Rprofile
 
-# configuration file for the terminal emulater Hyper
-if [ -e ~/.hyper.js ]; then
-  echo "hyper.js already exists...old version will be renamed...";
-  mv -f ~/.hyper.js ~/.hyper_orig.js;
-fi
-ln -s ~/.dotfiles/hyper.js ~/.hyper.js
-
 # configuration file for the terminal emulater Alacritty
 if [ -e ~/.config/alacritty/alacritty.yml ]; then
   echo "alacritty.yml already exists...old version will be renamed...";
@@ -128,13 +114,6 @@ if [ -e ~/.jupyter/jupyter_notebook_config.py ]; then
 fi
 ln -s ~/.dotfiles/jupyter_notebook_config.py \
   ~/.jupyter/jupyter_notebook_config.py
-
-# script for setting up remote host configurations
-if [ -e ~/.remote_config.sh ]; then
-    echo "remote_config.sh already exists...old version will be renamed...";
-    mv -f ~/.remote_config.sh ~/.remote_config_orig.sh;
-fi
-ln -s ~/.dotfiles/remote_config.sh ~/.remote_config.sh
 
 # configuration file for command line jrnl
 if [ -e ~/.jrnl_config ]; then
@@ -156,18 +135,3 @@ if [ -e ~/.xinitrc ]; then
     mv -f ~/.xinitrc ~/.xinitrc_orig;
 fi
 ln -s ~/.dotfiles/xinitrc ~/.xinitrc
-
-# configuration file for i3 window manager
-if [ -e ~/.config/i3/config ]; then
-    echo "i3 config already exists...old version will be renamed...";
-    mv -f ~/.config/i3/config ~/.config/i3/config_orig;
-fi
-ln -s ~/.dotfiles/i3_config ~/.config/i3/config
-
-# status bar configuration file for i3 window manager
-if [ -e ~/.config/i3/i3status ]; then
-    echo "i3status already exists...old version will be renamed...";
-    mv -f ~/.config/i3/i3status ~/.config/i3/i3status_orig;
-fi
-ln -s ~/.dotfiles/i3_status ~/.config/i3/i3status
-

@@ -18,9 +18,6 @@ if [ -h ~/.gh_complete.sh ]; then
   . ~/.gh_complete.sh;
 fi
 
-# set up specifics for remote hosts
-. ~/.remote_config.sh
-
 # seems to fix lack of 256 colors in Xfce
 if [ "$COLORTERM" == "xfce4-terminal" ]; then
   export TERM=xterm-256color

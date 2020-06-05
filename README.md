@@ -5,15 +5,11 @@
 This collection of configuration files affects behavior of the following tools:
 * [zsh](http://zsh.sourceforge.net)
 * [bash](https://www.gnu.org/software/bash/)
-* [xonsh](https://xon.sh/)
-* [Hyper](https://hyper.is/)
 * [Alacritty](https://github.com/jwilm/alacritty)
 * [Jupyter](http://jupyter.org/)
-* [Atom](https://atom.io)
 * [jrnl](http://jrnl.sh/index.html)
 * [tmux](https://github.com/tmux/tmux/wiki)
 * [git](https://git-scm.com/)
-* [i3](https://i3wm.org)
 * [R](https://www.r-project.org)
 
 ---
@@ -27,7 +23,7 @@ cd ~/.dotfiles
 make
 ```
 
-_Note:_ Before running `place_files.sh`, update the _user.name_ and _user.email_
+_Note:_ Before running `_setup.sh`, update the _user.name_ and _user.email_
 fields in the `gitconfig` file appropriately.
 
 ---

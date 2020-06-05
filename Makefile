@@ -1,4 +1,3 @@
-.PHONY : std
-
-std:
-	sh place_files.sh
+.PHONY : all
+all:
+	sh _setup.sh
