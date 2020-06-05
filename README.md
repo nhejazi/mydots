@@ -3,14 +3,15 @@
 > _a collection of my configuration/customization files_
 
 This collection of configuration files affects behavior of the following tools:
-* [zsh](http://zsh.sourceforge.net)
-* [bash](https://www.gnu.org/software/bash/)
-* [Alacritty](https://github.com/jwilm/alacritty)
-* [Jupyter](http://jupyter.org/)
-* [jrnl](http://jrnl.sh/index.html)
-* [tmux](https://github.com/tmux/tmux/wiki)
-* [git](https://git-scm.com/)
-* [R](https://www.r-project.org)
+* [zsh](http://zsh.sourceforge.net), the Z shell
+* [bash](https://www.gnu.org/software/bash/), the Bourne Again shell
+* [Alacritty](https://github.com/jwilm/alacritty), GPU-accelerated terminal
+   emulator
+* [Jupyter](http://jupyter.org/), notebook environment
+* [jrnl](http://jrnl.sh/index.html), command line journal
+* [tmux](https://github.com/tmux/tmux/wiki), terminal multiplexer
+* [git](https://git-scm.com/), version control system
+* [R](https://www.r-project.org), statistical computing language
 
 ---
 

@@ -8,11 +8,6 @@ if [ -h ~/.bash_color ]; then
   . ~/.bash_color;
 fi
 
-# Alias definitions
-if [ -h ~/.bash_aliases ]; then
-  . ~/.bash_aliases;
-fi
-
 # add GitHub completion (GitHub source: donnemartin/gitsome)
 if [ -h ~/.gh_complete.sh ]; then
   . ~/.gh_complete.sh;
@@ -28,6 +23,25 @@ case $- in
     *i*) ;;
       *) return;;
 esac
+
+# Alias definitions
+## make nice bash commands easier to use...
+alias lf='ls -aF'   #displays symlinks with @
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias prme='ps aux | grep $USER'
+alias c='clear'
+
+## make common tools easier to use...
+alias rr='R --no-save'  # R REPL without save prompt
+alias rv='R --vanilla'  # the most plain R REPL possible
+alias rad='radian --no-history'  # ipython-like R CLI
+alias py='python3'
+alias ipy='ipython'
+alias jplb='jupyter lab'
+alias jpnk='jupyter notebook'
+alias jl='julia'
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth

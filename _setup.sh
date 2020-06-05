@@ -17,12 +17,6 @@ if [ -e ~/.bash_profile ]; then
 fi
 ln -s ~/.dotfiles/bash_profile ~/.bash_profile
 
-if [ -e ~/.profile ]; then
-    echo "profile dotfile exists...old version will be renamed...";
-    mv -f ~/.profile ~/.profile_orig;
-fi
-ln -s ~/.dotfiles/profile ~/.profile
-
 # alias settings for bash
 if [ -e ~/.bash_aliases ]; then
     echo "bash_aliases dotfile exists...old version will be renamed...";

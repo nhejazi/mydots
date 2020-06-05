@@ -167,10 +167,6 @@ if [[ `uname` == "Linux" ]]; then
 
   # on Ubuntu, python/pip installs executables here, so add to path
   export PATH=$PATH:~/.local/bin
-
-  # for Linux-based systems, the Cisco AnyConnect VPN client
-  alias vpn='/opt/cisco/anyconnect/bin/vpn'
-  alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
 fi
 
 ####################################
