@@ -24,12 +24,3 @@ if [ `uname` == "Darwin" ]; then
   export LS_COLORS
   alias ls="gls --color=auto"   #REQUIRES homebrew "coreutils"
 fi
-
-# export for Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# export environment variable for Homebrew GitHub access
-if [ -f "$HOME/.homebrew.github" ]; then
-  . "$HOME/.homebrew.github"
-fi
-
