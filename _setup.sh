@@ -110,11 +110,11 @@ ln -s ~/.dotfiles/jupyter_notebook_config.py \
   ~/.jupyter/jupyter_notebook_config.py
 
 # configuration file for command line jrnl
-if [ -e ~/.config/jrnl/jrnl.yml ]; then
-    echo "jrnl.yml already exists...old version will be renamed...";
-    mv -f ~/.config/jrnl/jrnl.yml ~/.config/jrnl/jrnl_orig.yml;
+if [ -e ~/.config/jrnl/jrnl.yaml ]; then
+    echo "jrnl.yaml already exists...old version will be renamed...";
+    mv -f ~/.config/jrnl/jrnl.yaml ~/.config/jrnl/jrnl_orig.yaml;
 fi
-ln -s ~/.dotfiles/jrnl_config.yml ~/.config/jrnl/jrnl.yml
+ln -s ~/.dotfiles/jrnl_config.yaml ~/.config/jrnl/jrnl.yaml
 
 # configuration file for SSH agent
 if [ -e ~/.ssh/config ]; then
