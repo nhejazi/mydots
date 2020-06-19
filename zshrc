@@ -32,17 +32,11 @@ alias lf='ls -aF'
 ## aliases for common tools (R, python, Jupyter, etc)
 alias rr='R --no-save'  # R REPL without save prompt
 alias rv='R --vanilla'  # the most plain R REPL possible
-alias rad='radian --no-history'  # ipython-like R CLI
 alias py='python3'
 alias ipy='ipython'
-alias jplb='jupyter lab'
-alias jpnk='jupyter notebook'
+alias juplab='jupyter lab'
+alias jupnbk='jupyter notebook'
 alias jl='julia'
-
-# export environment variables for GitHub access for Homebrew on macOS
-if [ -e ~/.homebrew.github ]; then
-  source ~/.homebrew.github
-fi
 
 # GPG signing for git
 # (from https://github.com/keybase/keybase-issues/issues/2798)
@@ -52,13 +46,6 @@ export GPG_TTY=$(tty)
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   ssh-agent startx
 fi
-
-# "the fuck", tool to fix command-line errors
-eval "$(thefuck --alias)"
-
-# Setting tab titles in a smart way, allowing user to specify titles too
-# from: https://github.com/zeit/hyper/issues/1188 | post by audunolsen
-# references to the gitDirty variable removed since redundant with prompt pure
 
 # Override auto-title when static titles are desired ($ title My new title)
 title() { export TITLE_OVERRIDDEN=1; echo -en "\e]0;$*\a"}
@@ -133,22 +120,7 @@ zplug load --verbose
 # emacs keybindings (match bash)
 bindkey -e
 
-# added by travis gem
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-
-# fzf via local installation
-if [ -e ~/.fzf ]; then
-  _append_to_path ~/.fzf/bin
-  source ~/.fzf/shell/key-bindings.zsh
-  source ~/.fzf/shell/completion.zsh
-fi
-
-# fzf keybindings for zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-####################################
-## Linux                          ##
-####################################
+# Linux
 if [[ `uname` == "Linux" ]]; then
   # make open work like in macOS
   alias open=xdg-open
@@ -169,9 +141,7 @@ if [[ `uname` == "Linux" ]]; then
   export PATH=$PATH:~/.local/bin
 fi
 
-####################################
-## macOS (Darwin)                 ##
-####################################
+# macOS (Darwin)
 if [[ `uname` == "Darwin" ]]; then
   # add to path to respect homebrew
   export PATH=/usr/local/bin:$PATH
@@ -184,19 +154,19 @@ if [[ `uname` == "Darwin" ]]; then
   # use version of curl from Homebrew
   export PATH="/usr/local/opt/curl/bin:$PATH"
 
-  # toggle the macOS "do not disturb" feature from the command line
-  # https://github.com/sindresorhus/do-not-disturb-cli
-  alias dnd='do-not-disturb toggle'
-
-  # fzf via Homebrew
-  if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
-    source /usr/local/opt/fzf/shell/key-bindings.zsh
-    source /usr/local/opt/fzf/shell/completion.zsh
+  # export environment variables for GitHub access for Homebrew
+  if [ -e ~/.homebrew.github ]; then
+    source ~/.homebrew.github
   fi
 fi
 
+# "the fuck", tool to fix command-line errors
+if ! type "$thefuck" > /dev/null; then
+  eval "$(thefuck --alias)"
+fi
+
 # added by travis gem
-[ -f /home/nsh/.travis/travis.sh ] && source /home/nsh/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 # added by Miniconda3 4.5.12 installer
 if [[ `uname` == "Linux" ]]; then

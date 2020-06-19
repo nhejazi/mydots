@@ -36,11 +36,10 @@ alias c='clear'
 ## make common tools easier to use...
 alias rr='R --no-save'  # R REPL without save prompt
 alias rv='R --vanilla'  # the most plain R REPL possible
-alias rad='radian --no-history'  # ipython-like R CLI
 alias py='python3'
 alias ipy='ipython'
-alias jplb='jupyter lab'
-alias jpnk='jupyter notebook'
+alias juplab='jupyter lab'
+alias jupnbk='jupyter notebook'
 alias jl='julia'
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -139,9 +138,6 @@ export PATH=$PATH:$SCALA_HOME/bin
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
-# add fzf support
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # autostart i3wm on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   ssh-agent startx
@@ -152,23 +148,11 @@ fi
 export GPG_TTY=$(tty)
 
 # "the fuck", tool to fix command-line errors
-eval "$(thefuck --alias)"
-
-
-# Comical quotes for terminal (GitHub source: nhejazi/good-news)
-# NOTE June 2016: this appears to cause some issues with logging in to servers
-# to copy files (affects tools including `scp`, `rsync`, Cyberduck, Filezilla)
-# my remote username is usually "nhejazi" ==> this seems to work fine now...
-if [[ $USER == "nimahejazi" ]]; then  ## local user accounts only
-  if [ ! -e ~/.goodnews ]; then
-    git clone https://github.com/nhejazi/good-news.git ~/.good-news
-    sh ~/.good-news/_setup.sh
-  fi
+if [ -x "$(command -v thefuck)" ]; then
+  eval "$(thefuck --alias)"
 fi
 
-####################################
-## Linux                          ##
-####################################
+# Linux
 if [[ `uname` == "Linux" ]]; then
   # on Ubuntu, python/pip installs executables here, so need to add to path
   export PATH=$PATH:~/.local/bin
@@ -186,9 +170,7 @@ if [[ `uname` == "Linux" ]]; then
   export PATH=$HOME/gems/bin:$PATH
 fi
 
-####################################
-## macOSX (Darwin)                 ##
-####################################
+# macOSX (Darwin)
 if [ `uname` == "Darwin" ]; then
   # Workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
   export TERMINFO="$HOME/.terminfo"
@@ -203,9 +185,6 @@ if [ `uname` == "Darwin" ]; then
     source $(brew --prefix)/etc/bash_completion;
   fi
 fi
-
-# added by travis gem
-[ -f /home/nsh/.travis/travis.sh ] && source /home/nsh/.travis/travis.sh
 
 # added by Miniconda3 4.5.12 installer
 if [ `uname` == "Linux" ]; then

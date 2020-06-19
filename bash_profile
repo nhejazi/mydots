@@ -11,9 +11,6 @@ if [ `uname` == "Darwin" ]; then
   # Default editor switch to Vim
   export EDITOR=/usr/local/bin/vim
 
-  # To fix Dropbox (recover from OS X sync error)
-  alias restartDropbox="osascript -e 'tell application \"Dropbox\" to quit';killall Dropbox;open -a \"Dropbox\""
-
   # For having a "user" Ruby instead of OSX's standard "system" Ruby
   if which rbenv > /dev/null; then
     eval "$(rbenv init -)";
