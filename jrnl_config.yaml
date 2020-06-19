@@ -8,12 +8,9 @@ encrypt: false
 highlight: true
 indent_character: '|'
 journals:
-  default: ~/git/journal.txt
+  default: ~/git/jrnls/diary.txt
   food:
-    journal: ~/git/jrnls/food.txt
-  private:
-    encrypt: true
-    journal: ~/git/jrnls/personal.txt
+    journal: ~/git/jrnls/recipes.txt
   work:
     journal: ~/git/jrnls/work.txt
 linewrap: 79
