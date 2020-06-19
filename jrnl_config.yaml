@@ -1,6 +1,3 @@
-colors:
-  date: MAGENTA
-  title: BLUE
 default_hour: 9
 default_minute: 0
 editor: vim
