@@ -1,3 +1,8 @@
+colors:
+  body: none
+  date: none
+  tags: none
+  title: none
 default_hour: 9
 default_minute: 0
 editor: vim
