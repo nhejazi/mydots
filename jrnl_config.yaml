@@ -15,7 +15,7 @@ journals:
     journal: ~/git/jrnls/recipes.txt
   work:
     journal: ~/git/jrnls/work.txt
-linewrap: 79
+linewrap: none
 tagsymbols: '@'
 template: false
 timeformat: '%Y-%m-%d %H:%M'
