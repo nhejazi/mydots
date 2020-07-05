@@ -101,48 +101,6 @@ if (interactive()) {
   if ("tidyverse" %in% utils::installed.packages()[, 1]) {
     library("tidyverse")
   }
-
-  # pygments supported color schemes; default scheme is "native"
-  options(radian.color_scheme = "native")
-
-  # either  `"emacs"` (default) or `"vi"`.
-  options(radian.editing_mode = "vi")
-
-  # indent continuation lines
-  # turn this off if you want to copy code without the extra indentation;
-  # but it leads to less elegent layout
-  options(radian.indent_lines = TRUE)
-
-  # auto match brackets and quotes
-  options(radian.auto_match = TRUE)
-
-  # auto indentation for new line and curly braces
-  options(radian.auto_indentation = TRUE)
-  options(radian.tab_size = 4)
-
-  # pop up completion while typing
-  options(radian.complete_while_typing = TRUE)
-  # timeout in seconds to cancel completion if it takes too long
-  # set it to 0 to disable it
-  options(radian.completion_timeout = 0.05)
-
-  # automatically adjust R buffer size based on terminal width
-  options(radian.auto_width = TRUE)
-
-  # insert new line between prompts, turning it off may hide buffered lines
-  options(radian.insert_new_line = TRUE)
-
-  # when using history search, do not show duplicate results
-  options(radian.history_search_no_duplicates = FALSE)
-
-  # show vi mode state when radian.editing_mode is `vi`
-  options(radian.show_vi_mode_prompt = TRUE)
-  options(radian.vi_mode_prompt = "\033[34m[{}]\033[0m ")
-
-  # suppress the loading message for reticulate
-  options(radian.suppress_reticulate_message = FALSE)
-  # enable reticulate prompt and trigger `~`
-  options(radian.enable_reticulate_prompt = TRUE)
 }
 
 # LanguageServer Setup Start (do not change this chunk)

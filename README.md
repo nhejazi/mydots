@@ -12,6 +12,7 @@ This collection of configuration files affects behavior of the following tools:
 * [tmux](https://github.com/tmux/tmux/wiki), terminal multiplexer
 * [git](https://git-scm.com/), version control system
 * [R](https://www.r-project.org), statistical computing language
+* [radian](https://github.com/randy3k/radian), a modern R REPL/console
 
 ---
 
