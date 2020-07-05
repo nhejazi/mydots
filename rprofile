@@ -61,7 +61,7 @@ utils::rc.settings(ipck = TRUE)
 
 # Run at R startup (includes pasting timestamp to .Rhistory file)
 .First <- function() {
-  if(interactive()) {
+  if (interactive()) {
     utils::timestamp(, prefix = paste("##------ [", getwd(), "] ", sep = ""))
     cat("\nSuccessfully loaded .Rprofile at", base::date(), "\n")
   }
@@ -69,7 +69,7 @@ utils::rc.settings(ipck = TRUE)
 
 # Run before R closes (includes saving interactive console history)
 .Last <- function() {
-  if(interactive() && commandArgs()[1] != "rchitect") {
+  if (interactive() && commandArgs()[1] != "radian") {
     hist_file <- Sys.getenv("R_HISTFILE")
     if(hist_file == "") hist_file <- "~/.RHistory"
     savehistory(hist_file)
