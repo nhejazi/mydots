@@ -159,9 +159,7 @@ if [[ `uname` == "Darwin" ]]; then
 fi
 
 # "the fuck", tool to fix command-line errors
-if ! type "$thefuck" > /dev/null; then
-  eval "$(thefuck --alias)"
-fi
+eval "$(thefuck --alias)"
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
