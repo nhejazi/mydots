@@ -38,8 +38,6 @@ alias rr='R --no-save'  # R REPL without save prompt
 alias rv='R --vanilla'  # the most plain R REPL possible
 alias py='python3'
 alias ipy='ipython'
-alias juplab='jupyter lab'
-alias jupnbk='jupyter notebook'
 alias jl='julia'
 
 # don't put duplicate lines or lines starting with space in the history.

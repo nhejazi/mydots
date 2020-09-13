@@ -34,8 +34,6 @@ alias rr='R --no-save'  # R REPL without save prompt
 alias rv='R --vanilla'  # the most plain R REPL possible
 alias py='python3'
 alias ipy='ipython'
-alias juplab='jupyter lab'
-alias jupnbk='jupyter notebook'
 alias jl='julia'
 
 # GPG signing for git
@@ -122,7 +120,7 @@ bindkey -e
 
 # Linux
 if [[ `uname` == "Linux" ]]; then
-  # make open work like in macOS
+  # make `open` work like in macOS
   alias open=xdg-open
 
   # export gems for non-system Ruby
@@ -137,8 +135,8 @@ if [[ `uname` == "Linux" ]]; then
   #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
   eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
 
-  # on Ubuntu, python/pip installs executables here, so add to path
-  export PATH=$PATH:~/.local/bin
+  # export path for Julia
+  export PATH="$PATH:/home/nsh/julia-1.5.1/bin"
 fi
 
 # macOS (Darwin)
