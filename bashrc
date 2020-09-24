@@ -145,11 +145,6 @@ fi
 # (from https://github.com/keybase/keybase-issues/issues/2798)
 export GPG_TTY=$(tty)
 
-# "the fuck", tool to fix command-line errors
-if [ -x "$(command -v thefuck)" ]; then
-  eval "$(thefuck --alias)"
-fi
-
 # Linux
 if [[ `uname` == "Linux" ]]; then
   # on Ubuntu, python/pip installs executables here, so need to add to path
