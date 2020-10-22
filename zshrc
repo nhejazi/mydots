@@ -181,17 +181,14 @@ if [[ `uname` == "Linux" ]]; then
   # <<< conda init <<<
 fi
 
-# Python project enviornment management
-if [[ `uname` == "Linux" ]]; then
-  # add pyenv to PATH
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
+# pyenv: Python project enviornment management
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
-  # add `pyenv init` for shims and autocompletion
-  if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-  fi
-
-  # virtual environment integration with pyenv (conda compatible)
-  eval "$(pyenv virtualenv-init -)"
+# add `pyenv init` for shims and autocompletion
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
 fi
+
+# virtual environment integration with pyenv (conda compatible)
+eval "$(pyenv virtualenv-init -)"
