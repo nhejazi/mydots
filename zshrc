@@ -190,5 +190,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# virtual environment integration with pyenv (conda compatible)
-eval "$(pyenv virtualenv-init -)"
+# virtual environment integration with pyenv
+if command -v pyenv-virtualenv 1>/dev/null 2>&1; then
+  eval "$(pyenv virtualenv-init -)"
+fi
