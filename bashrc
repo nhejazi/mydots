@@ -179,20 +179,19 @@ if [ `uname` == "Darwin" ]; then
   fi
 fi
 
-# added by Miniconda3 4.5.12 installer
+# added by Miniconda3 installer
 if [ `uname` == "Linux" ]; then
   # >>> conda init >>>
   # !! Contents within this block are managed by 'conda init' !!
-  __conda_setup="$(CONDA_REPORT_ERRORS=false '/home/nsh/miniconda3/bin/conda' \
-    shell.bash hook 2> /dev/null)"
+  __conda_setup="$('/home/nsh/miniconda3/bin/conda' 'shell.bash' 'hook' \
+    2> /dev/null)"
   if [ $? -eq 0 ]; then
-      \eval "$__conda_setup"
+      eval "$__conda_setup"
   else
       if [ -f "/home/nsh/miniconda3/etc/profile.d/conda.sh" ]; then
-          . "/home/nsh/miniconda3/etc/profile.d/conda.sh"
-          CONDA_CHANGEPS1=false conda activate base
+          . "/home/nhejazi/miniconda3/etc/profile.d/conda.sh"
       else
-          \export PATH="/home/nsh/miniconda3/bin:$PATH"
+          export PATH="/home/nhejazi/miniconda3/bin:$PATH"
       fi
   fi
   unset __conda_setup
