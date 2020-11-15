@@ -129,10 +129,6 @@ else
   fi
 fi
 
-# Setting PATH for Scala
-export SCALA_HOME=/usr/local/share/scala
-export PATH=$PATH:$SCALA_HOME/bin
-
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
