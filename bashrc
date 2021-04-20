@@ -8,11 +8,6 @@ if [ -h ~/.bash_color ]; then
   . ~/.bash_color;
 fi
 
-# add GitHub completion (GitHub source: donnemartin/gitsome)
-if [ -h ~/.gh_complete.sh ]; then
-  . ~/.gh_complete.sh;
-fi
-
 # seems to fix lack of 256 colors in Xfce
 if [ "$COLORTERM" == "xfce4-terminal" ]; then
   export TERM=xterm-256color
@@ -115,17 +110,6 @@ if ! shopt -oq posix; then
     . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
-  fi
-fi
-
-# To use GitHub integration with gitsome CLI, the following is necessary:
-# NOTE June 2016: this causes an issue on Red Hat Linux systems.
-if [[ (`uname -n | cut -d'.' -f 2` == "brc") || (`uname -n | cut -d'.' -f 2` == "biostat") ]]; then
-  :
-else
-  if [ `uname` == "Linux" ]; then
-    export LC_ALL=C.UTF-8
-    export LANG=C.UTF-8
   fi
 fi
 

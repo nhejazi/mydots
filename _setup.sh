@@ -64,13 +64,6 @@ if [ -e ~/.gitmessage.txt ]; then
 fi
 ln -s ~/.dotfiles/gitmessage.txt ~/.gitmessage.txt
 
-# GitHub autocompletions script
-if [ -e ~/.gh_complete.sh ]; then
-    echo "github_complete already exists...old version will be renamed...";
-    mv -f ~/.gh_complete.sh ~/.gh_complete_backup.sh;
-fi
-ln -s ~/.dotfiles/gh_complete.sh ~/.gh_complete.sh
-
 # configuration of the terminal multiplexer tmux
 if [ -e ~/.tmux.conf ]; then
   echo "Tmux config already exists...old version will be renamed...";
