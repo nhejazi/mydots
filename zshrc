@@ -10,6 +10,7 @@ compinit
 setopt COMPLETE_IN_WORD
 
 # manually set language environment
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # set preferred editor for local and remote sessions
