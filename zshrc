@@ -3,6 +3,12 @@
 ##### symlink is at: ~/.zshrc #####
 ###################################
 
+autoload -U compinit
+compinit
+
+# allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
+
 # manually set language environment
 export LANG=en_US.UTF-8
 
@@ -29,7 +35,7 @@ alias egrep='egrep --color=auto'
 alias c='clear'
 alias lf='ls -aF'
 
-## aliases for common tools (R, python, Jupyter, etc)
+## aliases for common tools
 alias rr='R --no-save'  # R REPL without save prompt
 alias rv='R --vanilla'  # the most plain R REPL possible
 alias py='python3'
@@ -39,11 +45,6 @@ alias jl='julia'
 # GPG signing for git
 # (from https://github.com/keybase/keybase-issues/issues/2798)
 export GPG_TTY=$(tty)
-
-# autostart i3wm on login
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  ssh-agent startx
-fi
 
 # Override auto-title when static titles are desired ($ title My new title)
 title() { export TITLE_OVERRIDDEN=1; echo -en "\e]0;$*\a"}
@@ -126,14 +127,6 @@ if [[ `uname` == "Linux" ]]; then
   # export gems for non-system Ruby
   export GEM_HOME=$HOME/gems
   export PATH=$HOME/gems/bin:$PATH
-
-  # set up socket for ssh-agent and use with the keychain utility
-  # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
-  # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
-  eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
-  export SSH_AUTH_SOCK
-  #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-  eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
 
   # export path for Julia
   export PATH="$PATH:/home/nsh/julia-1.5.1/bin"

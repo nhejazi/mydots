@@ -3,6 +3,11 @@
 ##### is symlinked to ~/.bashrc #####
 #####################################
 
+# Source global definitions if these exist
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
 # Give bash shell a nice look
 if [ -h ~/.bash_color ]; then
   . ~/.bash_color;
@@ -130,14 +135,6 @@ if [[ `uname` == "Linux" ]]; then
   # on Ubuntu, python/pip installs executables here, so need to add to path
   export PATH=$PATH:~/.local/bin
 
-  # set up socket for ssh-agent and use with the keychain utility
-  # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
-  # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
-  eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
-  export SSH_AUTH_SOCK
-  #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-  eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
-
   # export gems for non-system Ruby
   export GEM_HOME=$HOME/gems
   export PATH=$HOME/gems/bin:$PATH
@@ -147,10 +144,6 @@ fi
 if [ `uname` == "Darwin" ]; then
   # Workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
   export TERMINFO="$HOME/.terminfo"
-
-  # for Hub command line tool, GitHub wrapper around git
-  # (GitHub source: github/hub)
-  eval "$(hub alias -s)"
 
   # bash completions needed by Homebrew and Mac-CLI
   # (GitHub source: guarinogabriel/Mac-CLI)
