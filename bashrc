@@ -121,11 +121,6 @@ fi
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
-# autostart i3wm on login
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  ssh-agent startx
-fi
-
 # GPG signing for git
 # (from https://github.com/keybase/keybase-issues/issues/2798)
 export GPG_TTY=$(tty)

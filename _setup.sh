@@ -17,13 +17,6 @@ if [ -e ~/.bash_profile ]; then
 fi
 ln -s ~/.dotfiles/bash_profile ~/.bash_profile
 
-# alias settings for bash
-if [ -e ~/.bash_aliases ]; then
-    echo "bash_aliases dotfile exists...old version will be renamed...";
-    mv -f ~/.bash_aliases ~/.bash_aliases_backup;
-fi
-ln -s ~/.dotfiles/bash_aliases ~/.bash_aliases
-
 # color settings for bash
 if [ -e ~/.bash_color ]; then
     echo "bash_color dotfile exists...old version will be renamed...";
@@ -71,13 +64,6 @@ if [ -e ~/.tmux.conf ]; then
 fi
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
-# customized theme for the tmux statusline (via tmuxline.vim)
-if [ -e ~/.tmuxline ]; then
-  echo "Tmuxline config already exists...old version will be renamed...";
-  mv -f ~/.tmuxline ~/.tmuxline_backup;
-fi
-ln -s ~/.dotfiles/tmuxline ~/.tmuxline
-
 # session startup profile for the R language
 if [ -e ~/.Rprofile ]; then
   echo "Rprofile already exists...old version will be renamed...";
@@ -122,10 +108,3 @@ if [ -e ~/.ssh/config ]; then
     mv -f ~/.ssh/config ~/.ssh/config_backup;
 fi
 ln -s ~/.dotfiles/ssh_config ~/.ssh/config
-
-# configuration file for xinit
-if [ -e ~/.xinitrc ]; then
-    echo "xinit config already exists...old version will be renamed...";
-    mv -f ~/.xinitrc ~/.xinitrc_backup;
-fi
-ln -s ~/.dotfiles/xinitrc ~/.xinitrc
