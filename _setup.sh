@@ -87,13 +87,13 @@ fi
 ln -s ~/.dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 # configuration file for Jupyter notebooks
-if [ -e ~/.jupyter/jupyter_notebook_config.py ]; then
-    echo "jupyter_notebook_config exists...old version will be renamed...";
-    mv -f ~/.jupyter/jupyter_notebook_config.py \
-      ~/.jupyter/jupyter_notebook_config_backup.py;
-fi
-ln -s ~/.dotfiles/jupyter_notebook_config.py \
-  ~/.jupyter/jupyter_notebook_config.py
+#if [ -e ~/.jupyter/jupyter_notebook_config.py ]; then
+    #echo "jupyter_notebook_config exists...old version will be renamed...";
+    #mv -f ~/.jupyter/jupyter_notebook_config.py \
+      #~/.jupyter/jupyter_notebook_config_backup.py;
+#fi
+#ln -s ~/.dotfiles/jupyter_notebook_config.py \
+  #~/.jupyter/jupyter_notebook_config.py
 
 # configuration file for command line jrnl
 if [ -e ~/.config/jrnl/jrnl.yaml ]; then
