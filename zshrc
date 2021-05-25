@@ -84,7 +84,6 @@ zplug "marzocchi/zsh-notify", from:github  # desktop notifications
 zplug "Valiev/almostontop", from:github  # clear screen after each command
 zplug "sindresorhus/pretty-time-zsh", from:github  # seconds to human time
 zplug "psprint/history-search-multi-word", from:github  # AND-style searching
-zplug "rauchg/wifi-password", from:github  # retrieve nearby WiFi passwords
 zplug "mafredri/zsh-async", from:github  # asynchronicity
 
 # use oh-my-zsh plug-ins
