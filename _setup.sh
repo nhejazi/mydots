@@ -10,7 +10,7 @@ if [ -e ~/.bashrc ]; then
 fi
 ln -s ~/.dotfiles/bashrc ~/.bashrc
 
-# using .bash_profile for changes specific to macOS
+# using .bash_profile (sources .bashrc)
 if [ -e ~/.bash_profile ]; then
     echo "bash_profile dotfile exists...old version will be renamed...";
     mv -f ~/.bash_profile ~/.bash_profile_backup;
@@ -30,6 +30,13 @@ if [ -e ~/.zshrc ]; then
     mv -f ~/.zshrc ~/.zshrc_backup;
 fi
 ln -s ~/.dotfiles/zshrc ~/.zshrc
+
+# using .zprofile
+if [ -e ~/.zprofile ]; then
+    echo "zprofile dotfile exists...old version will be renamed...";
+    mv -f ~/.zprofile ~/.zprofile_backup;
+fi
+ln -s ~/.dotfiles/zprofile ~/.zprofile
 
 # for git configuration and customization
 if [ -e ~/.git-prompt_mb.sh ]; then

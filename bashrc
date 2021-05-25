@@ -139,7 +139,7 @@ if [[ `uname` == "Linux" ]]; then
   export PATH=$HOME/gems/bin:$PATH
 fi
 
-# macOSX (Darwin)
+# macOS (Darwin)
 if [ `uname` == "Darwin" ]; then
   # Workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
   export TERMINFO="$HOME/.terminfo"
@@ -149,6 +149,17 @@ if [ `uname` == "Darwin" ]; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion;
   fi
+fi
+
+# pyenv: Python project enviornment management
+# NOTE: move to .bash_profile? https://github.com/pyenv/pyenv/issues/264
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
+# virtual environment integration with pyenv
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)";
 fi
 
 # added by Miniconda3 installer
@@ -168,18 +179,4 @@ if [ `uname` == "Linux" ]; then
   fi
   unset __conda_setup
   # <<< conda init <<<
-fi
-
-# pyenv: Python project enviornment management
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-# add `pyenv init` for shims and autocompletion
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# virtual environment integration with pyenv
-if command -v pyenv-virtualenv 1>/dev/null 2>&1; then
-  eval "$(pyenv virtualenv-init -)"
 fi
