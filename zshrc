@@ -129,6 +129,13 @@ if [[ `uname` == "Linux" ]]; then
   export GEM_HOME=$HOME/gems
   export PATH=$HOME/gems/bin:$PATH
 
+  # set up socket for ssh-agent and use with the keychain utility
+  # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
+  # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
+  eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
+  export SSH_AUTH_SOCK
+  eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
+
   # export path for Julia
   export PATH="$PATH:/home/nsh/julia-1.5.1/bin"
 fi

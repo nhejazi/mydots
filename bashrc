@@ -110,9 +110,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Add an "alert" alias for long running commands. (usage e.g., sleep 10; alert)
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # enable programmable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -133,6 +130,13 @@ export GPG_TTY=$(tty)
 if [[ `uname` == "Linux" ]]; then
   # on Ubuntu, python/pip installs executables here, so need to add to path
   export PATH=$PATH:~/.local/bin
+
+  # set up socket for ssh-agent and use with the keychain utility
+  # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
+  # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
+  eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
+  export SSH_AUTH_SOCK
+  eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
 
   # export gems for non-system Ruby
   export GEM_HOME=$HOME/gems
