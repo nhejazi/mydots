@@ -84,7 +84,7 @@ zplug "marzocchi/zsh-notify", from:github  # desktop notifications
 zplug "Valiev/almostontop", from:github  # clear screen after each command
 zplug "sindresorhus/pretty-time-zsh", from:github  # seconds to human time
 zplug "psprint/history-search-multi-word", from:github  # AND-style searching
-zplug "rauchg/wifi-password", from:github  # retrieve nearby WiFi passwords
+zplug "mafredri/zsh-async", from:github  # asynchronicity
 
 # use oh-my-zsh plug-ins
 zplug "plugins/git", from:oh-my-zsh  # for using git
@@ -95,12 +95,9 @@ zplug "plugins/git-flow", from:oh-my-zsh  # for using the Git Flow model
 # use prezto plug-ins
 zplug "modules/history", from:prezto  # a nice history tool
 
-# add Soliah prompt and theme
+# add prompts and themes
 zplug "themes/Soliah", from:oh-my-zsh, as:theme
 #zplug "themes/frisk", from:oh-my-zsh, as:theme
-
-# add Pure prompt and theme
-zplug "mafredri/zsh-async", from:github
 #zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 # proper syntax highlighting (NOTE: must be last)
@@ -159,6 +156,16 @@ if [[ `uname` == "Darwin" ]]; then
   fi
 fi
 
+# pyenv: Python project enviornment management
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
+# virtual environment integration with pyenv
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)";
+fi
+
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
@@ -180,18 +187,4 @@ if [[ `uname` == "Linux" ]]; then
   fi
   unset __conda_setup
   # <<< conda init <<<
-fi
-
-# pyenv: Python project enviornment management
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-# add `pyenv init` for shims and autocompletion
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# virtual environment integration with pyenv
-if command -v pyenv-virtualenv 1>/dev/null 2>&1; then
-  eval "$(pyenv virtualenv-init -)"
 fi
