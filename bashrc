@@ -165,22 +165,3 @@ fi
 if which pyenv-virtualenv-init > /dev/null; then
   eval "$(pyenv virtualenv-init -)";
 fi
-
-# added by Miniconda3 installer
-if [ `uname` == "Linux" ]; then
-  # >>> conda init >>>
-  # !! Contents within this block are managed by 'conda init' !!
-  __conda_setup="$('/home/nsh/miniconda3/bin/conda' 'shell.bash' 'hook' \
-    2> /dev/null)"
-  if [ $? -eq 0 ]; then
-      eval "$__conda_setup"
-  else
-      if [ -f "/home/nsh/miniconda3/etc/profile.d/conda.sh" ]; then
-          . "/home/nhejazi/miniconda3/etc/profile.d/conda.sh"
-      else
-          export PATH="/home/nhejazi/miniconda3/bin:$PATH"
-      fi
-  fi
-  unset __conda_setup
-  # <<< conda init <<<
-fi
