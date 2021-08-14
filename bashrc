@@ -155,14 +155,7 @@ if [ `uname` == "Darwin" ]; then
   fi
 fi
 
-# pyenv: Python project enviornment management
-# NOTE: move to .bash_profile? https://github.com/pyenv/pyenv/issues/264
-if which pyenv > /dev/null; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
-
-# virtual environment integration with pyenv
-if which pyenv-virtualenv-init > /dev/null; then
-  eval "$(pyenv virtualenv-init -)";
-fi
+# pyenv: Python project management, with virtual environment integration
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)";

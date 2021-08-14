@@ -156,13 +156,9 @@ if [[ `uname` == "Darwin" ]]; then
   fi
 fi
 
-# pyenv: Python project enviornment management
-if which pyenv > /dev/null; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
-
-# virtual environment integration with pyenv
-if which pyenv-virtualenv-init > /dev/null; then
-  eval "$(pyenv virtualenv-init -)";
-fi
+# pyenv: Python project management, with virtual environment integration
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)";

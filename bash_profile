@@ -13,3 +13,4 @@ export PATH
 
 # NOTE: pyenv says to add this at the very end of ~/.profile or similar
 eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
