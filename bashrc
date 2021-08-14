@@ -158,6 +158,7 @@ fi
 # pyenv: Python project enviornment management
 # NOTE: move to .bash_profile? https://github.com/pyenv/pyenv/issues/264
 if which pyenv > /dev/null; then
+  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
 fi
 
