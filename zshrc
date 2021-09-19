@@ -119,7 +119,10 @@ bindkey -e
 
 # Linux
 if [[ `uname` == "Linux" ]]; then
-  # make `open` work like in macOS
+  # add home directory bin/
+  export PATH=$PATH:$HOME/bin
+
+  # make `open` work like on macOS
   alias open=xdg-open
 
   # export gems for non-system Ruby
@@ -132,9 +135,6 @@ if [[ `uname` == "Linux" ]]; then
   eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
   export SSH_AUTH_SOCK
   eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
-
-  # export path for Julia
-  export PATH="$PATH:/home/nsh/julia-1.5.1/bin"
 fi
 
 # macOS (Darwin)

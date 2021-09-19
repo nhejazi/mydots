@@ -119,17 +119,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by travis gem
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-
 # GPG signing for git
 # (from https://github.com/keybase/keybase-issues/issues/2798)
 export GPG_TTY=$(tty)
 
 # Linux
 if [[ `uname` == "Linux" ]]; then
-  # on Ubuntu, python/pip installs executables here, so need to add to path
-  export PATH=$PATH:~/.local/bin
+  # add home directory bin/
+  export PATH=$PATH:$HOME/bin
 
   # set up socket for ssh-agent and use with the keychain utility
   # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
@@ -156,6 +153,8 @@ if [ `uname` == "Darwin" ]; then
 fi
 
 # pyenv: Python project management, with virtual environment integration
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)";
