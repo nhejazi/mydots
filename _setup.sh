@@ -78,6 +78,13 @@ if [ -e ~/.Rprofile ]; then
 fi
 ln -s ~/.dotfiles/rprofile ~/.Rprofile
 
+# session startup profile for the Julia language
+if [ -e ~/.julia/config/startup.jl ]; then
+  echo "Julia startup.jl already exists...old version will be renamed...";
+  mv -f ~/.julia/config/startup.jl ~/.julia/config/startup_backup.jl;
+fi
+ln -s ~/.dotfiles/startup.jl ~/.julia/config/startup.jl
+
 # session startup profile for radian, the 21st century R console
 if [ -e ~/.radian_profile ]; then
   echo "radian profile already exists...old version will be renamed...";

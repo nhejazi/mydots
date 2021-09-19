@@ -3,16 +3,16 @@
 > _a collection of my configuration/customization files_
 
 This collection of configuration files affects behavior of the following tools:
-* [zsh](http://zsh.sourceforge.net), the Z shell
-* [bash](https://www.gnu.org/software/bash/), the Bourne Again shell
-* [Alacritty](https://github.com/jwilm/alacritty), GPU-accelerated terminal
-   emulator
+* [zsh](http://zsh.sourceforge.net), Z shell
+* [bash](https://www.gnu.org/software/bash/), Bourne Again shell
+* [Alacritty](https://github.com/jwilm/alacritty), _fast_ terminal emulator
 * [Jupyter](http://jupyter.org/), notebook environment
 * [jrnl](http://jrnl.sh/index.html), command line journal
 * [tmux](https://github.com/tmux/tmux/wiki), terminal multiplexer
 * [git](https://git-scm.com/), version control system
 * [R](https://www.r-project.org), statistical computing language
-* [radian](https://github.com/randy3k/radian), a modern R REPL/console
+* [radian](https://github.com/randy3k/radian), a modern R REPL
+* [Julia](https://julialang.org/), scientific computing language
 
 ---
 
@@ -36,12 +36,11 @@ fields in the `gitconfig` file appropriately.
     configurations for both the [Vim](http://www.vim.org/index.php) and
     [Neovim](https://neovim.io) editors.
 
-* __[nhejazi/ubuntu-fresh](https://github.com/nhejazi/ubuntu-fresh)__ - setup
-    scripts for Ubuntu, painlessly installing tools affected by this
-    configuration.
+* __[nhejazi/ubuntu_fresh](https://github.com/nhejazi/ubuntu_fresh)__ - setup
+    scripts for Ubuntu, for painlessly installing tooling on new machines.
 
-* __[nhejazi/macOS-fresh](https://github.com/nhejazi/macOS-fresh)__ - setup
-    scripts for macOS, easily installing tools that this configuration affects.
+* __[nhejazi/macosx_fresh](https://github.com/nhejazi/macosx_fresh)__ - setup
+    scripts for Apple's macOS-X, easily installing tooling on new machines.
 
 ---
 
