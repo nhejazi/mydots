@@ -33,13 +33,12 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 ## convenience aliases
-alias c='clear'
+alias cl='clear'
 alias lf='ls -aF'
 
 ## aliases for common tools
 alias rr='R --no-save'  # R REPL without save prompt
-alias rv='R --vanilla'  # the most plain R REPL possible
-alias py='python3'
+alias rv='R --vanilla'  # the plainest R REPL possible
 alias ipy='ipython'
 alias jl='julia'
 

@@ -34,13 +34,11 @@ alias lf='ls -aF'   #displays symlinks with @
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias prme='ps aux | grep $USER'
-alias c='clear'
+alias cl='clear'
 
 ## make common tools easier to use...
 alias rr='R --no-save'  # R REPL without save prompt
-alias rv='R --vanilla'  # the most plain R REPL possible
-alias py='python3'
+alias rv='R --vanilla'  # the plainest R REPL possible
 alias ipy='ipython'
 alias jl='julia'
 
