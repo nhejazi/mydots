@@ -1,6 +1,6 @@
 # my.files [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-> _a collection of my configuration/customization files_
+> _an opinionated collection of configuration files_
 
 This collection of configuration files affects behavior of the following tools:
 * [zsh](http://zsh.sourceforge.net), Z shell
