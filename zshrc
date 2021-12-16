@@ -155,6 +155,9 @@ if [[ `uname` == "Darwin" ]]; then
   fi
 fi
 
+# added by jill.py (the Julia installer)
+export PATH=/home/nsh/.local/bin:$PATH
+
 # pyenv: Python project management, with virtual environment integration
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
