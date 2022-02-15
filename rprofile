@@ -59,6 +59,10 @@ options(show.signif.stars = FALSE)
 # Tab-complete package names when calling `library()` and `require()`
 utils::rc.settings(ipck = TRUE)
 
+# Mask dplyr's data manipulation funs with faster tools from collapse
+# see https://cran.r-project.org/package=collapse
+options(collapse_mask = "manip")
+
 # Run at R startup (includes pasting timestamp to .Rhistory file)
 .First <- function() {
   if (interactive()) {
@@ -97,8 +101,12 @@ if (interactive() && Sys.getenv("RSTUDIO") != 1) {
 }
 
 if (interactive()) {
-  # enter the Tidyverse and other core tools
-  if ("tidyverse" %in% utils::installed.packages()[, 1]) {
-    library("tidyverse")
+  # enter the fastverse and the tidyverse
+  pkg_list <- c("fastverse", "tidyverse")
+  for (pkg in pkg_list) {
+    if (pkg %in% utils::installed.packages()[, 1]) {
+      library(pkg, character.only = TRUE)
+    }
   }
+  rm(pkg, pkg_list)
 }
