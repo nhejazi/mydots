@@ -84,7 +84,7 @@ options(collapse_mask = "manip")
 # Load select packages when not using RStudio
 if (interactive() && Sys.getenv("RSTUDIO") != 1) {
   # load useful packages if installed
-  pkg_list <- c("usethis", "remotes", "devtools", "testthat", "fcuk", "nima")
+  pkg_list <- c("usethis", "remotes", "devtools", "fcuk", "nima")
   for (pkg in pkg_list) {
     if (pkg %in% utils::installed.packages()[, 1]) {
       library(pkg, character.only = TRUE)
@@ -101,8 +101,11 @@ if (interactive() && Sys.getenv("RSTUDIO") != 1) {
 }
 
 if (interactive()) {
-  # enter the fastverse and the tidyverse
-  pkg_list <- c("fastverse", "tidyverse")
+  # set masking of data manipulation functions by collapse
+  options(collapse_mask = "manip")
+
+  # enter the tidyverse and the fastverse
+  pkg_list <- c("tidyverse", "fastverse")
   for (pkg in pkg_list) {
     if (pkg %in% utils::installed.packages()[, 1]) {
       library(pkg, character.only = TRUE)
