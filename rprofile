@@ -84,7 +84,7 @@ options(collapse_mask = "manip")
 # Load select packages when not using RStudio
 if (interactive() && Sys.getenv("RSTUDIO") != 1) {
   # load useful packages if installed
-  pkg_list <- c("usethis", "remotes", "devtools", "fcuk", "nima")
+  pkg_list <- c("usethis", "devtools", "fcuk", "nima")
   for (pkg in pkg_list) {
     if (pkg %in% utils::installed.packages()[, 1]) {
       library(pkg, character.only = TRUE)
