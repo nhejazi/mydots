@@ -3,12 +3,12 @@
 ##### is symlinked to ~/.bashrc #####
 #####################################
 
-# Source global definitions if these exist
+# source global definitions if these exist
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-# Give bash shell a nice look
+# give bash good colors
 if [ -h ~/.bash_color ]; then
   . ~/.bash_color;
 fi
@@ -22,7 +22,7 @@ fi
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
@@ -64,7 +64,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Use defined prompt_git from `prompt-git.sh` for mathiasbynens style
-. ~/.git-prompt_mb.sh
+. $HOME/.git-prompt_mb.sh
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
@@ -129,9 +129,11 @@ if [[ `uname` == "Linux" ]]; then
   # set up socket for ssh-agent and use with the keychain utility
   # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
   # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
-  eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
-  export SSH_AUTH_SOCK
-  eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
+  if [[ `whoami` == "nsh" ]]; then
+    eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
+    export SSH_AUTH_SOCK
+    eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
+  fi
 
   # export gems for non-system Ruby
   export GEM_HOME=$HOME/gems
@@ -140,7 +142,11 @@ fi
 
 # macOS (Darwin)
 if [ `uname` == "Darwin" ]; then
-  # Workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
+  # add homebrew environment variables
+  # NOTE: updated for Apple Silicon
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
   export TERMINFO="$HOME/.terminfo"
 
   # bash completions needed by Homebrew and Mac-CLI
@@ -150,12 +156,11 @@ if [ `uname` == "Darwin" ]; then
   fi
 fi
 
-# added by jill.py (the Julia installer)
-export PATH=/home/nsh/.local/bin:$PATH
+# add for jill.py (Julia installer)
+export PATH=$HOME/.local/bin:$PATH
 
 # pyenv: Python project management, with virtual environment integration
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)";
+eval "$(pyenv virtualenv-init -)"

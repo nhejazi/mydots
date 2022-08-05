@@ -82,7 +82,6 @@ zplug "peterhurford/up.zsh", from:github  # go up directories using numbers
 zplug "marzocchi/zsh-notify", from:github  # desktop notifications
 zplug "Valiev/almostontop", from:github  # clear screen after each command
 zplug "sindresorhus/pretty-time-zsh", from:github  # seconds to human time
-zplug "psprint/history-search-multi-word", from:github  # AND-style searching
 zplug "mafredri/zsh-async", from:github  # asynchronicity
 
 # use oh-my-zsh plug-ins
@@ -131,36 +130,25 @@ if [[ `uname` == "Linux" ]]; then
   # set up socket for ssh-agent and use with the keychain utility
   # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
   # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
-  eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
-  export SSH_AUTH_SOCK
-  eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
+  if [[ `whoami` == "nsh" ]]; then
+    eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
+    export SSH_AUTH_SOCK
+    eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
+  fi
 fi
 
 # macOS (Darwin)
 if [[ `uname` == "Darwin" ]]; then
-  # add to path to respect homebrew
-  export PATH=/usr/local/bin:$PATH
-
-  # export Homebrew path explicitly to fix issue with "ls"
-  # see https://github.com/sorin-ionescu/prezto/issues/966
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-  fpath=(/usr/local/share/zsh-completions $fpath)
-
-  # use version of curl from Homebrew
-  export PATH="/usr/local/opt/curl/bin:$PATH"
-
-  # export environment variables for GitHub access for Homebrew
-  if [ -e ~/.homebrew.github ]; then
-    source ~/.homebrew.github
-  fi
+  # add homebrew environment variables
+  # NOTE: updated for Apple Silicon
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# added by jill.py (the Julia installer)
-export PATH=/home/nsh/.local/bin:$PATH
+# add for jill.py (Julia installer)
+export PATH=$HOME/.local/bin:$PATH
 
 # pyenv: Python project management, with virtual environment integration
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)";
+eval "$(pyenv virtualenv-init -)"
