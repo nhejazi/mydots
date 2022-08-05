@@ -10,7 +10,7 @@ fi
 
 # give bash good colors
 if [ -h ~/.bash_color ]; then
-  . ~/.bash_color;
+  . $HOME/.bash_color;
 fi
 
 # seems to fix lack of 256 colors in Xfce
@@ -132,7 +132,7 @@ if [[ `uname` == "Linux" ]]; then
   if [[ `whoami` == "nsh" ]]; then
     eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
     export SSH_AUTH_SOCK
-    eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
+    eval `keychain --agents ssh --eval id_ed25519 --inherit any --clear`
   fi
 
   # export gems for non-system Ruby

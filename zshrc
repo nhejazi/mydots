@@ -70,7 +70,7 @@ preexec() {
 ########################################
 ## using zplug for plug-in management ##
 ########################################
-source ~/.zplug/init.zsh
+source $HOME/.zplug/init.zsh
 
 # Let zplug manage zplug
 zplug "zplug/zplug"
@@ -133,7 +133,7 @@ if [[ `uname` == "Linux" ]]; then
   if [[ `whoami` == "nsh" ]]; then
     eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
     export SSH_AUTH_SOCK
-    eval `keychain --agents ssh --eval id_rsa --inherit any --clear`
+    eval `keychain --agents ssh --eval id_ed25519 --inherit any --clear`
   fi
 fi
 
