@@ -1,7 +1,6 @@
 [user]
   name = Nima Hejazi
   email = nh@nimahejazi.org
-  signingkey = 90773232
 [core]
   editor = vim
   pager =
