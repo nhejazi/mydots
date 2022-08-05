@@ -150,6 +150,9 @@ export PATH=$HOME/.local/bin:$PATH
 # pyenv: Python project management, with virtual environment integration
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+if [[ `uname` == "Linux" ]]; then
+  # NOTE: trial-and-error indicates only needed on Linux -- wtf?
+  eval "$(pyenv init --path)"
+fi
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
