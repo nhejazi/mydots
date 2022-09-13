@@ -146,14 +146,9 @@ if [ `uname` == "Darwin" ]; then
   # NOTE: updated for Apple Silicon
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
-  # workaround to Neovim mapping problem for <C-h> (only seems to affect macOS)
-  export TERMINFO="$HOME/.terminfo"
-
-  # bash completions needed by Homebrew and Mac-CLI
-  # (GitHub source: guarinogabriel/Mac-CLI)
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion;
-  fi
+  # NOTE: use 256colors in tmux despite broken ncurses on macOS
+  # https://gpanders.com/blog/the-definitive-guide-to-using-tmux-256color-on-macos/
+  export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 fi
 
 # add for jill.py (Julia installer)

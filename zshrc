@@ -142,6 +142,10 @@ if [[ `uname` == "Darwin" ]]; then
   # add homebrew environment variables
   # NOTE: updated for Apple Silicon
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  
+  # NOTE: use 256colors in tmux despite broken ncurses on macOS
+  # https://gpanders.com/blog/the-definitive-guide-to-using-tmux-256color-on-macos/
+  export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 fi
 
 # add for jill.py (Julia installer)
