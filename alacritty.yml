@@ -48,8 +48,9 @@ window:
   #
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background, but no title bar buttons
-  #decorations: full
+  #     - buttonless: Title bar, transparent background (no title bar buttons)
+  # removed per https://github.com/alacritty/alacritty/issues/4739
+  decorations: none
 
   # Startup Mode (changes require restart)
   #
