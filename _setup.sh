@@ -93,12 +93,12 @@ fi
 ln -s ~/.dotfiles/radian_profile ~/.radian_profile
 
 # configuration file for the terminal emulater Alacritty
-if [ -e ~/.config/alacritty/alacritty.yml ]; then
-  echo "alacritty.yml already exists...old version will be renamed...";
-  mv -f ~/.config/alacritty/alacritty.yml \
-    ~/.config/alacritty/alacritty_backup.yml;
+if [ -e ~/.config/alacritty/alacritty.toml ]; then
+  echo "alacritty.toml already exists...old version will be renamed...";
+  mv -f ~/.config/alacritty/alacritty.toml \
+    ~/.config/alacritty/alacritty_backup.toml;
 fi
-ln -s ~/.dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s ~/.dotfiles/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 # configuration file for Jupyter notebooks
 #if [ -e ~/.jupyter/jupyter_notebook_config.py ]; then
