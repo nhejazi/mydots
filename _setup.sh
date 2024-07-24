@@ -79,11 +79,11 @@ fi
 ln -s ~/.dotfiles/rprofile ~/.Rprofile
 
 # session startup profile for the Julia language
-if [ -e ~/.julia/config/startup.jl ]; then
-  echo "Julia startup.jl already exists...old version will be renamed...";
-  mv -f ~/.julia/config/startup.jl ~/.julia/config/startup_backup.jl;
-fi
-ln -s ~/.dotfiles/startup.jl ~/.julia/config/startup.jl
+#if [ -e ~/.julia/config/startup.jl ]; then
+  #echo "Julia startup.jl already exists...old version will be renamed...";
+  #mv -f ~/.julia/config/startup.jl ~/.julia/config/startup_backup.jl;
+#fi
+#ln -s ~/.dotfiles/startup.jl ~/.julia/config/startup.jl
 
 # session startup profile for radian, the 21st century R console
 if [ -e ~/.radian_profile ]; then
@@ -92,7 +92,7 @@ if [ -e ~/.radian_profile ]; then
 fi
 ln -s ~/.dotfiles/radian_profile ~/.radian_profile
 
-# configuration file for the terminal emulater Alacritty
+# configuration file for the terminal emulator Alacritty
 if [ -e ~/.config/alacritty/alacritty.toml ]; then
   echo "alacritty.toml already exists...old version will be renamed...";
   mv -f ~/.config/alacritty/alacritty.toml \
@@ -110,11 +110,11 @@ ln -s ~/.dotfiles/alacritty.toml ~/.config/alacritty/alacritty.toml
   #~/.jupyter/jupyter_notebook_config.py
 
 # configuration file for command line jrnl
-if [ -e ~/.config/jrnl/jrnl.yaml ]; then
-    echo "jrnl.yaml already exists...old version will be renamed...";
-    mv -f ~/.config/jrnl/jrnl.yaml ~/.config/jrnl/jrnl_backup.yaml;
-fi
-ln -s ~/.dotfiles/jrnl_config.yaml ~/.config/jrnl/jrnl.yaml
+#if [ -e ~/.config/jrnl/jrnl.yaml ]; then
+    #echo "jrnl.yaml already exists...old version will be renamed...";
+    #mv -f ~/.config/jrnl/jrnl.yaml ~/.config/jrnl/jrnl_backup.yaml;
+#fi
+#ln -s ~/.dotfiles/jrnl_config.yaml ~/.config/jrnl/jrnl.yaml
 
 # configuration file for SSH agent
 if [ -e ~/.ssh/config ]; then
