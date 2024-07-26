@@ -25,7 +25,7 @@ options("repos" = c(CRAN = "https://cran.rstudio.com/"))
 }
 
 # Open to the current directory on Mac or Linux
-.env$open <- function(...) {
+.env$o <- function(...) {
   if (Sys.info()[1] == "Darwin") {
     system("open .")
   } else if (Sys.info()[1] == "Linux") {

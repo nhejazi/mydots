@@ -1,8 +1,8 @@
 # excerpted from https://github.com/randy3k/radian
 
 # color scheme and editing mode
-options(radian.color_scheme = "lightbulb")
-options(radian.editing_mode = "vi")
+options(radian.color_scheme = "nord-darker")
+options(radian.editing_mode = "emacs")
 
 # indent continuation lines
 # turn this off if you want to copy code without the extra indentation;
