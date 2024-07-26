@@ -88,9 +88,9 @@ ln -s ~/.dotfiles/rprofile ~/.Rprofile
 # session startup profile for radian, the 21st century R console
 if [ -e ~/.radian_profile ]; then
   echo "radian profile already exists...old version will be renamed...";
-  mv -f ~/.radian_profile ~/.radian_profile_backup;
+  mv -f ~/.config/radian/profile ~/.config/radian/profile_backup;
 fi
-ln -s ~/.dotfiles/radian_profile ~/.radian_profile
+ln -s ~/.dotfiles/radian_profile ~/.config/radian/profile
 
 # configuration file for the terminal emulator Alacritty
 if [ -e ~/.config/alacritty/alacritty.toml ]; then

@@ -2,14 +2,6 @@
 # my .Rprofile configuration (symlinked to ~/.Rprofile)
 # ==============================================================================
 
-# avoid package library issues with R version changes
-if (as.character(Sys.info()["effective_user"]) %in%
-  c("nimahejazi", "nhejazi", "nsh")) {
-    if (dir.exists("~/.Rlibrary")) {
-      try(.libPaths("~/.Rlibrary"))
-    }
-}
-
 # Give REPL prompts that are clearer
 options(prompt = "R > ", continue = "... ")
 
@@ -33,7 +25,7 @@ options("repos" = c(CRAN = "https://cran.rstudio.com/"))
 }
 
 # Open to the current directory on Mac or Linux
-.env$o <- function(...) {
+.env$open <- function(...) {
   if (Sys.info()[1] == "Darwin") {
     system("open .")
   } else if (Sys.info()[1] == "Linux") {
@@ -79,37 +71,4 @@ options(collapse_mask = "manip")
     savehistory(hist_file)
     cat("\nGoodbye at ", base::date(), "\n")
   }
-}
-
-# Load select packages when not using RStudio
-if (interactive() && Sys.getenv("RSTUDIO") != 1) {
-  # load useful packages if installed
-  pkg_list <- c("usethis", "devtools", "fcuk", "nima")
-  for (pkg in pkg_list) {
-    if (pkg %in% utils::installed.packages()[, 1]) {
-      library(pkg, character.only = TRUE)
-    }
-  }
-  rm(pkg, pkg_list)
-
-  # load package colorout at startup if terminal colors supported
-  if ("colorout" %in% utils::installed.packages()[, 1]) {
-    if ("256color" %in% unlist(strsplit(Sys.getenv("TERM"), "-"))) {
-      library("colorout")
-    }
-  }
-}
-
-if (interactive()) {
-  # set masking of data manipulation functions by collapse
-  options(collapse_mask = "manip")
-
-  # enter the tidyverse and the fastverse
-  pkg_list <- c("tidyverse", "fastverse")
-  for (pkg in pkg_list) {
-    if (pkg %in% utils::installed.packages()[, 1]) {
-      library(pkg, character.only = TRUE)
-    }
-  }
-  rm(pkg, pkg_list)
 }
