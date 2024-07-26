@@ -86,7 +86,7 @@ ln -s ~/.dotfiles/rprofile ~/.Rprofile
 #ln -s ~/.dotfiles/startup.jl ~/.julia/config/startup.jl
 
 # session startup profile for radian, the 21st century R console
-if [ -e ~/.radian_profile ]; then
+if [ -e ~/.config/radian/profile ]; then
   echo "radian profile already exists...old version will be renamed...";
   mv -f ~/.config/radian/profile ~/.config/radian/profile_backup;
 fi
