@@ -37,8 +37,7 @@ alias cl='clear'
 alias lf='ls -aF'
 
 ## aliases for common tools
-alias rr='R --no-save'  # R REPL without save prompt
-alias rv='R --vanilla'  # the plainest R REPL possible
+alias rr='R --quiet --no-save'
 alias ipy='ipython'
 alias jl='julia'
 
@@ -76,22 +75,21 @@ source $HOME/.zplug/init.zsh
 zplug "zplug/zplug"
 
 # assorted useful plug-ins
-zplug "supercrabtree/k", from:github  # nice directory listings, for humans
-zplug "b4b4r07/enhancd", from:github, use:init.sh  # better cd command
-zplug "peterhurford/up.zsh", from:github  # go up directories using numbers
-zplug "marzocchi/zsh-notify", from:github  # desktop notifications
-zplug "Valiev/almostontop", from:github  # clear screen after each command
-zplug "sindresorhus/pretty-time-zsh", from:github  # seconds to human time
-zplug "mafredri/zsh-async", from:github  # asynchronicity
+zplug "supercrabtree/k", from:github                    # nice directory lists
+zplug "b4b4r07/enhancd", from:github, use:init.sh       # better cd command
+zplug "marzocchi/zsh-notify", from:github               # desktop notifications
+zplug "Valiev/almostontop", from:github                 # clear screen
+zplug "sindresorhus/pretty-time-zsh", from:github       # seconds to human time
+zplug "mafredri/zsh-async", from:github                 # asynchronicity
 
 # use oh-my-zsh plug-ins
-zplug "plugins/git", from:oh-my-zsh  # for using git
-zplug "plugins/wd", from:oh-my-zsh  # warp between directories using names
-zplug "plugins/z", from:oh-my-zsh  # frequency-based directory navigation
-zplug "plugins/git-flow", from:oh-my-zsh  # for using the Git Flow model
+zplug "plugins/git", from:oh-my-zsh      # for using git
+zplug "peterhurford/up.zsh", from:github # go up directories using numbers
+zplug "plugins/wd", from:oh-my-zsh       # warp between directories using names
+zplug "plugins/z", from:oh-my-zsh        # frequency-based directory navigation
 
 # use prezto plug-ins
-zplug "modules/history", from:prezto  # a nice history tool
+zplug "modules/history", from:prezto     # a nice history tool
 
 # add prompts and themes
 zplug "themes/Soliah", from:oh-my-zsh, as:theme
@@ -142,7 +140,7 @@ if [[ `uname` == "Darwin" ]]; then
   # add homebrew environment variables
   # NOTE: updated for Apple Silicon
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  
+
   # NOTE: use 256colors in tmux despite broken ncurses on macOS
   # https://gpanders.com/blog/the-definitive-guide-to-using-tmux-256color-on-macos/
   export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
