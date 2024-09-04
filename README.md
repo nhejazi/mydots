@@ -2,17 +2,14 @@
 
 > _an opinionated collection of configuration files_
 
-This collection of configuration files affects behavior of the following tools:
-* [zsh](http://zsh.sourceforge.net), Z shell
-* [bash](https://www.gnu.org/software/bash/), Bourne Again shell
-* [Alacritty](https://github.com/jwilm/alacritty), _fast_ terminal emulator
-* [Jupyter](http://jupyter.org/), notebook environment
-* [jrnl](http://jrnl.sh/index.html), command line journal
-* [tmux](https://github.com/tmux/tmux/wiki), terminal multiplexer
+This collection of configuration files for a few daily tools:
+* [zsh](http://zsh.sourceforge.net), z shell
+* [bash](https://www.gnu.org/software/bash/), bourne again shell
 * [git](https://git-scm.com/), version control system
-* [R](https://www.r-project.org), statistical computing language
+* [tmux](https://github.com/tmux/tmux/wiki), terminal multiplexer
+* [Alacritty](https://github.com/jwilm/alacritty), *fast* terminal emulator
+* [R](https://www.r-project.org), a statistical computing language
 * [radian](https://github.com/randy3k/radian), a modern R REPL
-* [Julia](https://julialang.org/), scientific computing language
 
 ---
 
@@ -32,21 +29,20 @@ fields in the `gitconfig` file appropriately.
 
 ## Related
 
-* __[nhejazi/vim_lyfe](https://github.com/nhejazi/vim_lyfe)__ - convenient
-    configurations for both the [Vim](http://www.vim.org/index.php) and
-    [Neovim](https://neovim.io) editors.
+* __[nhejazi/vim_edc](https://github.com/nhejazi/vim_edc)__ - convenient
+    configurations for both the [Vim](http://www.vim.org/index.php)
 
 * __[nhejazi/ubuntu_fresh](https://github.com/nhejazi/ubuntu_fresh)__ - setup
-    scripts for Ubuntu, for painlessly installing tooling on new machines.
+    scripts for Linux Ubuntu, to quickly install tooling on new machines.
 
 * __[nhejazi/macosx_fresh](https://github.com/nhejazi/macosx_fresh)__ - setup
-    scripts for Apple's macOS-X, easily installing tooling on new machines.
+    scripts for Apple macOS, to quickly install tooling on new machines.
 
 ---
 
 ## License
 
-&copy; 2016-2022 [Nima Hejazi](https://nimahejazi.org)
+&copy; 2016-2024 [Nima Hejazi](https://nimahejazi.org)
 
 The contents of this repository are distributed under the MIT license. See file
 `LICENSE` for details.
