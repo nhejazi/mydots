@@ -15,3 +15,15 @@ if [[ `uname` == "Linux" ]]; then
   eval "$(pyenv init --path)"
 fi
 eval "$(pyenv init -)"
+
+# >>> juliaup initialize >>>
+# !! Contents within this block are managed by juliaup !!
+case ":$PATH:" in
+    *:/Users/nih914/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/Users/nih914/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+# <<< juliaup initialize <<<

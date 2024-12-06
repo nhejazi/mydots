@@ -10,7 +10,7 @@ fi
 
 # give bash good colors
 if [ -h ~/.bash_color ]; then
-  . $HOME/.bash_color;
+  . $HOME/.bash_color
 fi
 
 # seems to fix lack of 256 colors in Xfce
@@ -24,21 +24,21 @@ export LANG=en_US.UTF-8
 
 # if not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # Alias definitions
 ## make nice bash commands easier to use...
-alias lf='ls -aF'   #displays symlinks with @
+alias lf='ls -aF' #displays symlinks with @
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias cl='clear'
 
 ## make common tools easier to use...
-alias rr='R --no-save'  # R REPL without save prompt
-alias rv='R --vanilla'  # the plainest R REPL possible
+alias rr='R --no-save' # R REPL without save prompt
+alias rv='R --vanilla' # the plainest R REPL possible
 alias ipy='ipython'
 alias jl='julia'
 
@@ -68,44 +68,44 @@ shopt -s checkwinsize
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-  userStyle="${bold}${blue}";
+  userStyle="${bold}${blue}"
 else
-  userStyle="${blue}";
-fi;
+  userStyle="${blue}"
+fi
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-  hostStyle="${bold}${purple}";
+  hostStyle="${bold}${purple}"
 else
-  hostStyle="${purple}";
-fi;
+  hostStyle="${purple}"
+fi
 
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${bold}\]";
-PS1+="\[${userStyle}\]\u"; # username
-PS1+="\[${white}\] at ";
-PS1+="\[${hostStyle}\]\h"; # host
-PS1+="\[${white}\] in ";
-PS1+="\[${green}\]\w"; # working directory full path
-PS1+="\$(prompt_git \"\[${white}\] on \[${bold}${orange}\]\" \"\[${bold}${yellow}\]\")"; # Git repository details
-PS1+="\n";
-PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
-export PS1;
+PS1="\[\033]0;\W\007\]" # working directory base name
+PS1+="\[${bold}\]"
+PS1+="\[${userStyle}\]\u" # username
+PS1+="\[${white}\] at "
+PS1+="\[${hostStyle}\]\h" # host
+PS1+="\[${white}\] in "
+PS1+="\[${green}\]\w"                                                                   # working directory full path
+PS1+="\$(prompt_git \"\[${white}\] on \[${bold}${orange}\]\" \"\[${bold}${yellow}\]\")" # Git repository details
+PS1+="\n"
+PS1+="\[${white}\]\$ \[${reset}\]" # `$` (and reset color)
+export PS1
 
 # set title of a terminal window to be the relative path
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # enable programmable completion features
@@ -122,17 +122,17 @@ fi
 export GPG_TTY=$(tty)
 
 # Linux
-if [[ `uname` == "Linux" ]]; then
+if [[ $(uname) == "Linux" ]]; then
   # add home directory bin/
   export PATH=$PATH:$HOME/bin
 
   # set up socket for ssh-agent and use with the keychain utility
   # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login#18915067
   # https://eklitzke.org/using-ssh-agent-and-ed25519-keys-on-gnome
-  if [[ `whoami` == "nsh" ]]; then
+  if [[ $(whoami) == "nsh" ]]; then
     eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
     export SSH_AUTH_SOCK
-    eval `keychain --agents ssh --eval id_ed25519 --inherit any --clear`
+    eval $(keychain --agents ssh --eval id_ed25519 --inherit any --clear)
   fi
 
   # export gems for non-system Ruby
@@ -141,7 +141,7 @@ if [[ `uname` == "Linux" ]]; then
 fi
 
 # macOS (Darwin)
-if [ `uname` == "Darwin" ]; then
+if [ $(uname) == "Darwin" ]; then
   # add homebrew environment variables
   # NOTE: updated for Apple Silicon
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -151,15 +151,23 @@ if [ `uname` == "Darwin" ]; then
   export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 fi
 
-# add for jill.py (Julia installer)
-export PATH=$HOME/.local/bin:$PATH
-
 # pyenv: Python project management, with virtual environment integration
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-if [[ `uname` == "Linux" ]]; then
+if [[ $(uname) == "Linux" ]]; then
   # NOTE: trial-and-error indicates only needed on Linux -- wtf?
   eval "$(pyenv init --path)"
 fi
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# >>> juliaup initialize >>>
+# !! Contents within this block are managed by juliaup !!
+case ":$PATH:" in
+*:/Users/nih914/.juliaup/bin:*) ;;
+
+*)
+  export PATH=/Users/nih914/.juliaup/bin${PATH:+:${PATH}}
+  ;;
+esac
+# <<< juliaup initialize <<<

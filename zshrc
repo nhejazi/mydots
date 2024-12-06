@@ -79,7 +79,6 @@ zplug "supercrabtree/k", from:github                    # nice directory lists
 zplug "b4b4r07/enhancd", from:github, use:init.sh       # better cd command
 zplug "marzocchi/zsh-notify", from:github               # desktop notifications
 zplug "Valiev/almostontop", from:github                 # clear screen
-zplug "sindresorhus/pretty-time-zsh", from:github       # seconds to human time
 zplug "mafredri/zsh-async", from:github                 # asynchronicity
 
 # use oh-my-zsh plug-ins
@@ -92,9 +91,9 @@ zplug "plugins/z", from:oh-my-zsh        # frequency-based directory navigation
 zplug "modules/history", from:prezto     # a nice history tool
 
 # add prompts and themes
-zplug "themes/Soliah", from:oh-my-zsh, as:theme
-#zplug "themes/frisk", from:oh-my-zsh, as:theme
-#zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+# zplug "themes/Soliah", from:oh-my-zsh, as:theme
+# zplug "themes/frisk", from:oh-my-zsh, as:theme
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 # proper syntax highlighting (NOTE: must be last)
 zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
@@ -146,9 +145,6 @@ if [[ `uname` == "Darwin" ]]; then
   export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 fi
 
-# add for jill.py (Julia installer)
-export PATH=$HOME/.local/bin:$PATH
-
 # pyenv: Python project management, with virtual environment integration
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -158,3 +154,9 @@ if [[ `uname` == "Linux" ]]; then
 fi
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# >>> juliaup initialize >>>
+# !! Contents within this block are managed by juliaup !!
+path=('/Users/nih914/.juliaup/bin' $path)
+export PATH
+# <<< juliaup initialize <<<
