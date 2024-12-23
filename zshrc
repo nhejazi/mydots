@@ -76,7 +76,6 @@ zplug "zplug/zplug"
 
 # assorted useful plug-ins
 zplug "supercrabtree/k", from:github                    # nice directory lists
-zplug "b4b4r07/enhancd", from:github, use:init.sh       # better cd command
 zplug "marzocchi/zsh-notify", from:github               # desktop notifications
 zplug "Valiev/almostontop", from:github                 # clear screen
 zplug "mafredri/zsh-async", from:github                 # asynchronicity
