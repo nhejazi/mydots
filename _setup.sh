@@ -4,98 +4,98 @@
 find -L ~ -maxdepth 1 -type l -exec rm {} +
 
 # for bash shell customization
-if [ -e ~/.bashrc ]; then
-    echo "bashrc dotfile exists...old version will be renamed...";
-    mv -f ~/.bashrc ~/.bashrc_backup;
+if [ -e "$HOME/.bashrc" ]; then
+  echo "bashrc dotfile exists...old version will be renamed..."
+  mv -f "$HOME/.bashrc" "$HOME/.bashrc_backup"
 fi
-ln -s ~/.dotfiles/bashrc ~/.bashrc
+ln -s "$HOME/.dotfiles/bashrc" "$HOME/.bashrc"
 
 # using .bash_profile (sources .bashrc)
-if [ -e ~/.bash_profile ]; then
-    echo "bash_profile dotfile exists...old version will be renamed...";
-    mv -f ~/.bash_profile ~/.bash_profile_backup;
+if [ -e "$HOME/.bash_profile" ]; then
+  echo "bash_profile dotfile exists...old version will be renamed..."
+  mv -f "$HOME/.bash_profile" "$HOME/.bash_profile_backup"
 fi
-ln -s ~/.dotfiles/bash_profile ~/.bash_profile
+ln -s "$HOME/.dotfiles/bash_profile" "$HOME/.bash_profile"
 
 # color settings for bash
-if [ -e ~/.bash_color ]; then
-    echo "bash_color dotfile exists...old version will be renamed...";
-    mv -f ~/.bash_color ~/.bash_color_backup;
+if [ -e "$HOME/.bash_color" ]; then
+  echo "bash_color dotfile exists...old version will be renamed..."
+  mv -f "$HOME/.bash_color" "$HOME/.bash_color_backup"
 fi
-ln -s ~/.dotfiles/bash_color ~/.bash_color
+ln -s "$HOME/.dotfiles/bash_color" "$HOME/.bash_color"
 
 # for zsh shell customization
-if [ -e ~/.zshrc ]; then
-    echo "zshrc dotfile exists...old version will be renamed...";
-    mv -f ~/.zshrc ~/.zshrc_backup;
+if [ -e "$HOME/.zshrc" ]; then
+  echo "zshrc dotfile exists...old version will be renamed..."
+  mv -f "$HOME/.zshrc" "$HOME/.zshrc_backup"
 fi
-ln -s ~/.dotfiles/zshrc ~/.zshrc
+ln -s "$HOME/.dotfiles/zshrc" "$HOME/.zshrc"
 
 # using .zprofile
-if [ -e ~/.zprofile ]; then
-    echo "zprofile dotfile exists...old version will be renamed...";
-    mv -f ~/.zprofile ~/.zprofile_backup;
+if [ -e "$HOME/.zprofile" ]; then
+  echo "zprofile dotfile exists...old version will be renamed..."
+  mv -f "$HOME/.zprofile" "$HOME/.zprofile_backup"
 fi
-ln -s ~/.dotfiles/zprofile ~/.zprofile
+ln -s "$HOME/.dotfiles/zprofile" "$HOME/.zprofile"
 
-# for git configuration and customization
-if [ -e ~/.git-prompt_mb.sh ]; then
-    echo "git-prompt_mb dotfile exists...old version will be renamed...";
-    mv -f ~/.git-prompt_mb.sh ~/.git-prompt_mb_backup.sh;
+if [ -e "$HOME/.gitconfig" ]; then
+  echo "gitconfig dotfile exists...old version will be renamed..."
+  mv -f "$HOME/.gitconfig" "$HOME/.gitconfig_backup"
 fi
-ln -s ~/.dotfiles/git-prompt_mb.sh ~/.git-prompt_mb.sh
+ln -s "$HOME/.dotfiles/gitconfig" "$HOME/.gitconfig"
 
-if [ -e ~/.gitconfig ]; then
-    echo "gitconfig dotfile exists...old version will be renamed...";
-    mv -f ~/.gitconfig ~/.gitconfig_backup;
+if [ -e "$HOME/.gitignore_global" ]; then
+  echo "gitignore dotfile exists...old version will be renamed..."
+  mv -f "$HOME/.gitignore_global" "$HOME/.gitignore_global_backup"
 fi
-ln -s ~/.dotfiles/gitconfig ~/.gitconfig
-
-if [ -e ~/.gitignore_global ]; then
-    echo "gitignore dotfile exists...old version will be renamed...";
-    mv -f ~/.gitignore_global ~/.gitignore_global_backup;
-fi
-ln -s ~/.dotfiles/gitignore_global ~/.gitignore_global
+ln -s "$HOME/.dotfiles/gitignore_global" "$HOME/.gitignore_global"
 
 # message template for git commits
-if [ -e ~/.gitmessage.txt ]; then
-    echo "gitmessage dotfile exists...old version will be renamed...";
-    mv -f ~/.gitmessage.txt ~/.gitmessage_backup.txt;
+if [ -e "$HOME/.gitmessage.txt" ]; then
+  echo "gitmessage dotfile exists...old version will be renamed..."
+  mv -f "$HOME/.gitmessage.txt" "$HOME/.gitmessage_backup.txt"
 fi
-ln -s ~/.dotfiles/gitmessage.txt ~/.gitmessage.txt
+ln -s "$HOME/.dotfiles/gitmessage.txt" "$HOME/.gitmessage.txt"
 
 # configuration of the terminal multiplexer tmux
-if [ -e ~/.tmux.conf ]; then
-  echo "Tmux config already exists...old version will be renamed...";
-  mv -f ~/.tmux.conf ~/.tmux.conf_backup;
+if [ -e "$HOME/.tmux.conf" ]; then
+  echo "Tmux config already exists...old version will be renamed..."
+  mv -f "$HOME/.tmux.conf" "$HOME/.tmux.conf_backup"
 fi
-ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+ln -s "$HOME/.dotfiles/tmux.conf" "$HOME/.tmux.conf"
 
 # session startup profile for the R language
-if [ -e ~/.Rprofile ]; then
-  echo "Rprofile already exists...old version will be renamed...";
-  mv -f ~/.Rprofile ~/.Rprofile_backup;
+if [ -e "$HOME/.Rprofile" ]; then
+  echo "Rprofile already exists...old version will be renamed..."
+  mv -f "$HOME/.Rprofile" "$HOME/.Rprofile_backup"
 fi
-ln -s ~/.dotfiles/rprofile ~/.Rprofile
+ln -s "$HOME/.dotfiles/rprofile" "$HOME/.Rprofile"
 
 # session startup profile for radian, the 21st century R console
-if [ -e ~/.config/radian/profile ]; then
-  echo "radian profile already exists...old version will be renamed...";
-  mv -f ~/.config/radian/profile ~/.config/radian/profile_backup;
+if [ -e "$HOME/.config/radian/profile" ]; then
+  echo "radian profile already exists...old version will be renamed..."
+  mv -f "$HOME/.config/radian/profile" "$HOME/.config/radian/profile_backup"
 fi
-ln -s ~/.dotfiles/radian_profile ~/.config/radian/profile
+ln -s "$HOME/.dotfiles/radian_profile" "$HOME/.config/radian/profile"
 
-# configuration file for the terminal emulator Alacritty
-if [ -e ~/.config/alacritty/alacritty.toml ]; then
-  echo "alacritty.toml already exists...old version will be renamed...";
-  mv -f ~/.config/alacritty/alacritty.toml \
-    ~/.config/alacritty/alacritty_backup.toml;
+# configuration file for the Alacritty terminal
+if [ -e "$HOME/.config/alacritty/alacritty.toml" ]; then
+  echo "alacritty.toml already exists...old version will be renamed..."
+  mv -f "$HOME/.config/alacritty/alacritty.toml" \
+    "$HOME/.config/alacritty/alacritty_backup.toml"
 fi
-ln -s ~/.dotfiles/alacritty.toml ~/.config/alacritty/alacritty.toml
+ln -s "$HOME/.dotfiles/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+
+# configuration file for the Ghostty terminal
+if [ -e "$HOME/.config/ghostty/config" ]; then
+  echo "ghostty config already exists...old version will be renamed..."
+  mv -f "$HOME/.config/ghostty/config" "$HOME/.config/ghostty/config_backup"
+fi
+ln -s "$HOME/.dotfiles/ghostty_config" "$HOME/.config/ghostty/config"
 
 # configuration file for SSH agent
-if [ -e ~/.ssh/config ]; then
-    echo "SSH config already exists...old version will be renamed...";
-    mv -f ~/.ssh/config ~/.ssh/config_backup;
+if [ -e "$HOME/.ssh/config" ]; then
+  echo "SSH config already exists...old version will be renamed..."
+  mv -f "$HOME/.ssh/config" "$HOME/.ssh/config_backup"
 fi
-ln -s ~/.dotfiles/ssh_config ~/.ssh/config
+ln -s "$HOME/.dotfiles/ssh_config" "$HOME/.ssh/config"

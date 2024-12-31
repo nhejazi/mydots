@@ -63,9 +63,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Use defined prompt_git from `prompt-git.sh` for mathiasbynens style
-. $HOME/.git-prompt_mb.sh
-
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
   userStyle="${bold}${blue}"
