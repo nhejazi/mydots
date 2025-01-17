@@ -83,7 +83,7 @@ if [ -e "$HOME/.lintr" ]; then
   echo "lintr config already exists...renaming old version..."
   mv -f "$HOME/.lintr" "$HOME/.lintr_backup"
 fi
-ln -s "$HOME/.dotfiles/lintr" "$HOME/.lintr"
+ln -s "$HOME/.dotfiles/lintr_config" "$HOME/.lintr"
 
 # configuration file for the Alacritty terminal
 if [ -e "$HOME/.config/alacritty/alacritty.toml" ]; then
