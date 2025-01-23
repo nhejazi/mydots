@@ -23,8 +23,8 @@ options(show.signif.stars = FALSE)
 # disable completion from language server (to avoid clashes in Neovim)
 options(
   languageserver.server_capabilities = list(
-    completionProvider = TRUE,
-    completionItemResolve = TRUE
+    completionProvider = FALSE,
+    completionItemResolve = FALSE
   )
 )
 
