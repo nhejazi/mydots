@@ -43,7 +43,7 @@ fields in the `gitconfig` file appropriately.
 
 ## License
 
-&copy; 2016-2024 [Nima Hejazi](https://nimahejazi.org)
+&copy; 2016-2025 [Nima Hejazi](https://nimahejazi.org)
 
 The contents of this repository are distributed under the MIT license. See file
 `LICENSE` for details.
