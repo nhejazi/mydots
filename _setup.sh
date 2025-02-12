@@ -64,6 +64,14 @@ if [ -e "$HOME/.tmux.conf" ]; then
 fi
 ln -s "$HOME/.dotfiles/tmux.conf" "$HOME/.tmux.conf"
 
+# configuration for janky borders in macOS 14.0+
+if [[ "$OSTYPE" == "darwin"* ]] && [[ -e "$HOME/.config/borders/bordersrc" ]]; then
+  echo "bordersrc already exists...renaming old version..."
+  mv -f "$HOME/.config/borders/bordersrc" \
+    "$HOME/.config/borders/bordersrc_backup"
+fi
+ln -s "$HOME/.dotfiles/bordersrc" "$HOME/.config/borders/bordersrc"
+
 # session startup profile for the R language
 if [ -e "$HOME/.Rprofile" ]; then
   echo "Rprofile already exists...renaming old version..."
@@ -78,7 +86,7 @@ if [ -e "$HOME/.config/radian/profile" ]; then
 fi
 ln -s "$HOME/.dotfiles/radian_profile" "$HOME/.config/radian/profile"
 
-# session startup profile for radian, an ipython-like R REPL
+# systemwide config for linting in R (for languageserver)
 if [ -e "$HOME/.lintr" ]; then
   echo "lintr config already exists...renaming old version..."
   mv -f "$HOME/.lintr" "$HOME/.lintr_backup"
