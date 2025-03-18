@@ -28,6 +28,9 @@ options(
   )
 )
 
+# add gander interface to LLMs via anthropic's claude
+options(.gander_chat = ellmer::chat_claude())
+
 # tab-complete package names when calling `library()` and `require()`
 utils::rc.settings(ipck = TRUE)
 
