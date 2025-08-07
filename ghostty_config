@@ -23,3 +23,4 @@ window-padding-color = background
 window-padding-x = 5
 window-padding-y = 5
 window-padding-balance = false
+keybind = shift+enter=text:\n
