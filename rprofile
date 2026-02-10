@@ -8,7 +8,7 @@ options(prompt = "R > ", continue = "... ")
 # stop asking for CRAN mirror every time
 options("repos" = c(CRAN = "https://cran.rstudio.com/"))
 
-# avoid this awful default issue permanently
+# avoid this awful default permanently
 options(stringsAsFactors = FALSE)
 
 # set a longer print history than normal
@@ -17,7 +17,10 @@ options(max.print = 100)
 # follow convention for 80 columns
 options(width = 80)
 
-# no stars. stars are bad for statistics.
+# stop opening XQuartz for help pages and such
+options("menu.graphics" = FALSE)
+
+# no stars---stars are bad for statistics
 options(show.signif.stars = FALSE)
 
 # disable completion from language server (to avoid clashes in Neovim)
