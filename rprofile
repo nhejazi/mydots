@@ -9,19 +9,22 @@ options(prompt = "R > ", continue = "... ")
 options("repos" = c(CRAN = "https://cran.rstudio.com/"))
 
 # avoid this awful default permanently
-options(stringsAsFactors = FALSE)
+options("stringsAsFactors" = FALSE)
 
 # set a longer print history than normal
-options(max.print = 100)
+options("max.print" = 100)
 
 # follow convention for 80 columns
-options(width = 80)
+options("width" = 80)
 
 # stop opening XQuartz for help pages and such
 options("menu.graphics" = FALSE)
 
 # no stars---stars are bad for statistics
-options(show.signif.stars = FALSE)
+options("show.signif.stars" = FALSE)
+
+# preserve global Rprofile when using renv
+options("renv.config.user.profile" = TRUE)
 
 # disable completion from language server (to avoid clashes in Neovim)
 options(
